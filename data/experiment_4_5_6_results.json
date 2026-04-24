@@ -1,0 +1,335 @@
+{
+  "experiment_4_multiturn": {
+    "H100_English": {
+      "gpu": "H100",
+      "language": "English",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.224609375,
+      "turn_10_throughput": 545.0032343843292,
+      "turn_10_max_concurrent": 296
+    },
+    "H100_Hindi": {
+      "gpu": "H100",
+      "language": "Hindi",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.5517578125,
+      "turn_10_throughput": 515.5412231661994,
+      "turn_10_max_concurrent": 120
+    },
+    "A100_English": {
+      "gpu": "A100",
+      "language": "English",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.224609375,
+      "turn_10_throughput": 331.7198790775066,
+      "turn_10_max_concurrent": 296
+    },
+    "A100_Hindi": {
+      "gpu": "A100",
+      "language": "Hindi",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.5517578125,
+      "turn_10_throughput": 313.7876280704121,
+      "turn_10_max_concurrent": 120
+    },
+    "T4_English": {
+      "gpu": "T4",
+      "language": "English",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.224609375,
+      "turn_10_throughput": 52.060010448652335,
+      "turn_10_max_concurrent": 39
+    },
+    "T4_Hindi": {
+      "gpu": "T4",
+      "language": "Hindi",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.5517578125,
+      "turn_10_throughput": 49.24572878005487,
+      "turn_10_max_concurrent": 16
+    },
+    "RTX4060_English": {
+      "gpu": "RTX4060",
+      "language": "English",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.224609375,
+      "turn_10_throughput": 44.25100888135449,
+      "turn_10_max_concurrent": 7
+    },
+    "RTX4060_Hindi": {
+      "gpu": "RTX4060",
+      "language": "Hindi",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.5517578125,
+      "turn_10_throughput": 41.85886946304663,
+      "turn_10_max_concurrent": 3
+    },
+    "CPU_English": {
+      "gpu": "CPU",
+      "language": "English",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.224609375,
+      "turn_10_throughput": 8.134376632601928,
+      "turn_10_max_concurrent": 103
+    },
+    "CPU_Hindi": {
+      "gpu": "CPU",
+      "language": "Hindi",
+      "oom_turn": null,
+      "turn_10_kv_gb": 0.5517578125,
+      "turn_10_throughput": 7.694645121883574,
+      "turn_10_max_concurrent": 42
+    }
+  },
+  "experiment_5_disaggregated": {
+    "workloads": {
+      "Short Q&A": {
+        "H100": {
+          "prefill_ms": 1.817806577778851,
+          "decode_ms": 52.94448028656716,
+          "total_ms": 54.76228686434601,
+          "prefill_pct": 3.319449719625144,
+          "decode_pct": 96.68055028037486
+        },
+        "A100": {
+          "prefill_ms": 3.0704864563775605,
+          "decode_ms": 86.98578173614517,
+          "total_ms": 90.05626819252272,
+          "prefill_pct": 3.409519979012965,
+          "decode_pct": 96.59048002098703
+        },
+        "T4": {
+          "prefill_ms": 19.290975310769227,
+          "decode_ms": 554.262528,
+          "total_ms": 573.5535033107692,
+          "prefill_pct": 3.3634133867920557,
+          "decode_pct": 96.63658661320795
+        },
+        "RTX4060": {
+          "prefill_ms": 25.30814736294624,
+          "decode_ms": 652.0735623529413,
+          "total_ms": 677.3817097158875,
+          "prefill_pct": 3.736172234936956,
+          "decode_pct": 96.26382776506304
+        }
+      },
+      "Medium Essay": {
+        "H100": {
+          "prefill_ms": 2.371966801034665,
+          "decode_ms": 534.7268088358209,
+          "total_ms": 537.0987756368556,
+          "prefill_pct": 0.441625806765645,
+          "decode_pct": 99.55837419323436
+        },
+        "A100": {
+          "prefill_ms": 4.8271033179160225,
+          "decode_ms": 878.5359537027955,
+          "total_ms": 883.3630570207115,
+          "prefill_pct": 0.5464461389404521,
+          "decode_pct": 99.45355386105955
+        },
+        "T4": {
+          "prefill_ms": 27.722736246153843,
+          "decode_ms": 5597.9212800000005,
+          "total_ms": 5625.644016246154,
+          "prefill_pct": 0.4927922237186366,
+          "decode_pct": 99.50720777628138
+        },
+        "RTX4060": {
+          "prefill_ms": 61.579786065792035,
+          "decode_ms": 6585.789741176471,
+          "total_ms": 6647.369527242263,
+          "prefill_pct": 0.9263782585491244,
+          "decode_pct": 99.07362174145088
+        }
+      },
+      "Long Document": {
+        "H100": {
+          "prefill_ms": 10.34655161802152,
+          "decode_ms": 959.6817958208956,
+          "total_ms": 970.0283474389171,
+          "prefill_pct": 1.0666236347977496,
+          "decode_pct": 98.93337636520224
+        },
+        "A100": {
+          "prefill_ms": 30.105514805095506,
+          "decode_ms": 1576.7209494850417,
+          "total_ms": 1606.8264642901372,
+          "prefill_pct": 1.8736008818721752,
+          "decode_pct": 98.12639911812782
+        },
+        "T4": {
+          "prefill_ms": 149.0591113846154,
+          "decode_ms": 10046.668800000001,
+          "total_ms": 10195.727911384616,
+          "prefill_pct": 1.4619761598205756,
+          "decode_pct": 98.53802384017943
+        },
+        "RTX4060": {
+          "prefill_ms": 583.5430146561296,
+          "decode_ms": 11819.610352941176,
+          "total_ms": 12403.153367597306,
+          "prefill_pct": 4.7047956060965115,
+          "decode_pct": 95.29520439390349
+        }
+      },
+      "Code Generation": {
+        "H100": {
+          "prefill_ms": 1.9905989676676275,
+          "decode_ms": 1416.5479240597015,
+          "total_ms": 1418.5385230273691,
+          "prefill_pct": 0.14032745218786147,
+          "decode_pct": 99.85967254781214
+        },
+        "A100": {
+          "prefill_ms": 3.618216179454484,
+          "decode_ms": 2327.334745267288,
+          "total_ms": 2330.9529614467424,
+          "prefill_pct": 0.1552247616875452,
+          "decode_pct": 99.84477523831245
+        },
+        "T4": {
+          "prefill_ms": 21.920077981538462,
+          "decode_ms": 14829.48608,
+          "total_ms": 14851.406157981539,
+          "prefill_pct": 0.14759597676047687,
+          "decode_pct": 99.85240402323952
+        },
+        "RTX4060": {
+          "prefill_ms": 36.617986780550474,
+          "decode_ms": 17446.454211764707,
+          "total_ms": 17483.07219854526,
+          "prefill_pct": 0.20944823864307677,
+          "decode_pct": 99.79055176135691
+        }
+      }
+    },
+    "disaggregated": {}
+  },
+  "experiment_6_ecosystem": {
+    "languages": {
+      "English": {
+        "speakers_millions": 1500,
+        "internet_content_pct": 49.7,
+        "digital_literacy_proxy": 92,
+        "llm_mmlu_accuracy": 85,
+        "fertility": 1.15,
+        "wikipedia_users": 122038,
+        "resource_tier": "High",
+        "crdi": 0.09949999999999999,
+        "doi": 0.9005
+      },
+      "Chinese": {
+        "speakers_millions": 1200,
+        "internet_content_pct": 19.04,
+        "digital_literacy_proxy": 82,
+        "llm_mmlu_accuracy": 78,
+        "fertility": 0.73,
+        "wikipedia_users": 6994,
+        "resource_tier": "High",
+        "crdi": 0.3859943502935705,
+        "doi": 0.6140056497064295
+      },
+      "Spanish": {
+        "speakers_millions": 600,
+        "internet_content_pct": 7.7,
+        "digital_literacy_proxy": 48,
+        "llm_mmlu_accuracy": 72,
+        "fertility": 1.68,
+        "wikipedia_users": 14385,
+        "resource_tier": "High",
+        "crdi": 0.6074802934851278,
+        "doi": 0.3925197065148722
+      },
+      "Arabic": {
+        "speakers_millions": 420,
+        "internet_content_pct": 3.65,
+        "digital_literacy_proxy": 68,
+        "llm_mmlu_accuracy": 65,
+        "fertility": 2.4,
+        "wikipedia_users": 3930,
+        "resource_tier": "Moderate",
+        "crdi": 0.6744195306056829,
+        "doi": 0.32558046939431706
+      },
+      "Hindi": {
+        "speakers_millions": 600,
+        "internet_content_pct": 3.77,
+        "digital_literacy_proxy": 90,
+        "llm_mmlu_accuracy": 55,
+        "fertility": 2.83,
+        "wikipedia_users": 0,
+        "resource_tier": "Moderate",
+        "crdi": 0.6675362173038228,
+        "doi": 0.33246378269617716
+      },
+      "Swahili": {
+        "speakers_millions": 200,
+        "internet_content_pct": 0.0025,
+        "digital_literacy_proxy": 38,
+        "llm_mmlu_accuracy": 45,
+        "fertility": 2.34,
+        "wikipedia_users": 0,
+        "resource_tier": "Low",
+        "crdi": 0.7999874245472837,
+        "doi": 0.20001257545271633
+      },
+      "Bengali": {
+        "speakers_millions": 270,
+        "internet_content_pct": 0.2,
+        "digital_literacy_proxy": 45,
+        "llm_mmlu_accuracy": 50,
+        "fertility": 2.5,
+        "wikipedia_users": 0,
+        "resource_tier": "Low",
+        "crdi": 0.7794939637826962,
+        "doi": 0.2205060362173038
+      },
+      "Russian": {
+        "speakers_millions": 260,
+        "internet_content_pct": 3.75,
+        "digital_literacy_proxy": 69,
+        "llm_mmlu_accuracy": 68,
+        "fertility": 1.9,
+        "wikipedia_users": 9243,
+        "resource_tier": "Moderate",
+        "crdi": 0.653062950491754,
+        "doi": 0.346937049508246
+      },
+      "Japanese": {
+        "speakers_millions": 125,
+        "internet_content_pct": 2.23,
+        "digital_literacy_proxy": 93,
+        "llm_mmlu_accuracy": 75,
+        "fertility": 1.2,
+        "wikipedia_users": 12409,
+        "resource_tier": "High",
+        "crdi": 0.5866145518285807,
+        "doi": 0.4133854481714193
+      },
+      "French": {
+        "speakers_millions": 300,
+        "internet_content_pct": 3.42,
+        "digital_literacy_proxy": 78,
+        "llm_mmlu_accuracy": 74,
+        "fertility": 1.3,
+        "wikipedia_users": 17717,
+        "resource_tier": "High",
+        "crdi": 0.5882791714148606,
+        "doi": 0.41172082858513936
+      }
+    },
+    "crdi_ranking": {
+      "Swahili": 0.7999874245472837,
+      "Bengali": 0.7794939637826962,
+      "Arabic": 0.6744195306056829,
+      "Hindi": 0.6675362173038228,
+      "Russian": 0.653062950491754,
+      "Spanish": 0.6074802934851278,
+      "French": 0.5882791714148606,
+      "Japanese": 0.5866145518285807,
+      "Chinese": 0.3859943502935705,
+      "English": 0.09949999999999999
+    }
+  }
+}

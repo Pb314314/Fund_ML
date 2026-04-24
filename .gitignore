@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Empty directory (appears to be a typo)
+{experiments,figures,data}
+
+# Tokenizer cache (can be regenerated)
+tokenizer_cache/
+
+# Large data files (optional - comment out if you want to include)
+# data/*.json
