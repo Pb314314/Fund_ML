@@ -1,375 +1,568 @@
 {
   "metadata": {
-    "experiment": "Combined Resource Divide Analysis",
-    "description": "Demonstrates compounding effects of tokenization inefficiency (fertility) and hardware inequality on LLM inference latency.",
     "model": {
       "name": "Llama-3-8B",
+      "quantization": "AWQ-4bit",
       "params_b": 8.03,
-      "num_layers": 32,
-      "hidden_size": 4096,
-      "num_attention_heads": 32,
-      "num_kv_heads": 8,
-      "head_dim": 128,
-      "bytes_per_param": 2
+      "model_weights_gb": 4.015,
+      "kv_cache_per_token_mb": 0.125
     },
-    "hardware_tiers": {
-      "H100_SXM5": {
-        "compute_tflops": 989.0,
-        "memory_bw_gbps": 3350.0,
-        "vram_gb": 80.0,
-        "typical_access": "Cloud / Research lab / Tech company",
-        "cost_per_hour_usd": 4.0
-      },
-      "A100_80GB": {
-        "compute_tflops": 312.0,
-        "memory_bw_gbps": 2039.0,
-        "vram_gb": 80.0,
-        "typical_access": "University / Mid-tier cloud",
-        "cost_per_hour_usd": 2.5
-      },
-      "T4": {
-        "compute_tflops": 65.0,
-        "memory_bw_gbps": 320.0,
-        "vram_gb": 16.0,
-        "typical_access": "Entry cloud / Edge server / Africa regional",
-        "cost_per_hour_usd": 0.8
-      },
-      "CPU_Server": {
-        "compute_tflops": 3.0,
-        "memory_bw_gbps": 50.0,
-        "vram_gb": 32.0,
-        "typical_access": "On-premise / Low-resource institution",
-        "cost_per_hour_usd": 0.2
-      }
-    },
-    "task": {
-      "words_per_task": 100,
-      "output_tokens_baseline_en": 130
-    },
-    "derived_constants": {
-      "model_size_bytes": 16059999999.999998,
-      "model_size_gb": 16.06,
-      "kv_cache_per_token_bytes": 131072,
-      "kv_cache_per_token_kb": 128.0
+    "simulation_constants": {
+      "compute_utilization": 0.85,
+      "bandwidth_utilization": 0.7,
+      "memory_overhead_pct": 0.1
     }
   },
-  "latency_comparison": {
+  "latency_analysis": {
     "English": {
-      "H100_SXM5": {
-        "ttft_ms": 1.8674418604651162,
-        "tpot_ms": 4.794029850746267,
-        "total_decode_ms": 715.4122742065668,
-        "total_latency_ms": 717.279716067032,
-        "max_kv_cache_mb": 32.875,
-        "oom_risk": false
+      "H100": {
+        "prefill_ms": 4.359469574388591,
+        "decode_ms": 98.01361741509592,
+        "total_ms": 102.3730869894845,
+        "prefill_pct": 4.258413712616075,
+        "decode_pct": 95.74158628738392
       },
-      "A100_80GB": {
-        "ttft_ms": 5.919551282051281,
-        "tpot_ms": 7.876410004904364,
-        "total_decode_ms": 1175.3953499715549,
-        "total_latency_ms": 1181.3149012536062,
-        "max_kv_cache_mb": 32.875,
-        "oom_risk": false
+      "A100": {
+        "prefill_ms": 6.916466151674207,
+        "decode_ms": 161.03267206501783,
+        "total_ms": 167.94913821669203,
+        "prefill_pct": 4.118190914889016,
+        "decode_pct": 95.88180908511099
       },
       "T4": {
-        "ttft_ms": 28.41384615384615,
-        "tpot_ms": 50.18749999999999,
-        "total_decode_ms": 7535.611227999998,
-        "total_latency_ms": 7564.025074153844,
-        "max_kv_cache_mb": 32.875,
-        "oom_risk": true
+        "prefill_ms": 33.19903752803619,
+        "decode_ms": 1026.0800573142853,
+        "total_ms": 1059.2790948423215,
+        "prefill_pct": 3.1341161823813795,
+        "decode_pct": 96.86588381761862
       },
-      "CPU_Server": {
-        "ttft_ms": 615.6333333333332,
-        "tpot_ms": 321.2,
-        "total_decode_ms": 47932.62237184001,
-        "total_latency_ms": 48548.25570517334,
-        "max_kv_cache_mb": 32.875,
-        "oom_risk": false
+      "RTX4060": {
+        "prefill_ms": 142.81518460108225,
+        "decode_ms": 1207.153008605042,
+        "total_ms": 1349.9681932061244,
+        "prefill_pct": 10.579151814081003,
+        "decode_pct": 89.42084818591898
+      }
+    },
+    "Chinese": {
+      "H100": {
+        "prefill_ms": 2.789725407904931,
+        "decode_ms": 61.746768596878454,
+        "total_ms": 64.53649400478338,
+        "prefill_pct": 4.322709888296937,
+        "decode_pct": 95.67729011170307
+      },
+      "A100": {
+        "prefill_ms": 4.4260066567722465,
+        "decode_ms": 101.44760902380717,
+        "total_ms": 105.87361568057942,
+        "prefill_pct": 4.180462363848519,
+        "decode_pct": 95.81953763615148
+      },
+      "T4": {
+        "prefill_ms": 21.244831952506782,
+        "decode_ms": 646.4114837485714,
+        "total_ms": 667.6563157010781,
+        "prefill_pct": 3.1820011962589567,
+        "decode_pct": 96.81799880374106
+      },
+      "RTX4060": {
+        "prefill_ms": 91.39073970304042,
+        "decode_ms": 760.4840985277311,
+        "total_ms": 851.8748382307715,
+        "prefill_pct": 10.728188649502384,
+        "decode_pct": 89.27181135049761
+      }
+    },
+    "Spanish": {
+      "H100": {
+        "prefill_ms": 6.430133695201425,
+        "decode_ms": 145.150740296597,
+        "total_ms": 151.58087399179843,
+        "prefill_pct": 4.242048172614007,
+        "decode_pct": 95.757951827386
+      },
+      "A100": {
+        "prefill_ms": 10.201654420271492,
+        "decode_ms": 238.47718489141735,
+        "total_ms": 248.67883931168885,
+        "prefill_pct": 4.102341175673959,
+        "decode_pct": 95.89765882432604
+      },
+      "T4": {
+        "prefill_ms": 48.96794121730316,
+        "decode_ms": 1519.5468124799997,
+        "total_ms": 1568.514753697303,
+        "prefill_pct": 3.1219305461983016,
+        "decode_pct": 96.8780694538017
+      },
+      "RTX4060": {
+        "prefill_ms": 210.6496478573597,
+        "decode_ms": 1787.702132329412,
+        "total_ms": 1998.3517801867717,
+        "prefill_pct": 10.541169475059679,
+        "decode_pct": 89.45883052494032
+      }
+    },
+    "Arabic": {
+      "H100": {
+        "prefill_ms": 9.196671406773616,
+        "decode_ms": 209.32853956503197,
+        "total_ms": 218.5252109718056,
+        "prefill_pct": 4.208517344920986,
+        "decode_pct": 95.79148265507901
+      },
+      "A100": {
+        "prefill_ms": 14.590872904977374,
+        "decode_ms": 343.9188855040986,
+        "total_ms": 358.50975840907597,
+        "prefill_pct": 4.069867712869484,
+        "decode_pct": 95.93013228713052
+      },
+      "T4": {
+        "prefill_ms": 70.0361899438914,
+        "decode_ms": 2191.4081485714287,
+        "total_ms": 2261.44433851532,
+        "prefill_pct": 3.096967223605046,
+        "decode_pct": 96.90303277639497
+      },
+      "RTX4060": {
+        "prefill_ms": 301.2807641530735,
+        "decode_ms": 2578.1272336134452,
+        "total_ms": 2879.4079977665187,
+        "prefill_pct": 10.463288439386467,
+        "decode_pct": 89.53671156061354
       }
     },
     "Swahili": {
-      "H100_SXM5": {
-        "ttft_ms": 3.783599595551061,
-        "tpot_ms": 4.794029850746267,
-        "total_decode_ms": 1461.9584310256712,
-        "total_latency_ms": 1465.7420306212223,
-        "max_kv_cache_mb": 67.0,
-        "oom_risk": false
+      "H100": {
+        "prefill_ms": 8.965879873711229,
+        "decode_ms": 203.9093390999744,
+        "total_ms": 212.87521897368563,
+        "prefill_pct": 4.2118006581214775,
+        "decode_pct": 95.78819934187852
       },
-      "A100_80GB": {
-        "ttft_ms": 11.99352564102564,
-        "tpot_ms": 7.876410004904364,
-        "total_decode_ms": 2401.9424933477185,
-        "total_latency_ms": 2413.9360189887443,
-        "max_kv_cache_mb": 67.0,
-        "oom_risk": false
+      "A100": {
+        "prefill_ms": 14.224713261176468,
+        "decode_ms": 335.01534378857986,
+        "total_ms": 349.24005704975633,
+        "prefill_pct": 4.07304745662376,
+        "decode_pct": 95.92695254337625
       },
       "T4": {
-        "ttft_ms": 57.56892307692306,
-        "tpot_ms": 50.18749999999999,
-        "total_decode_ms": 15496.386623999997,
-        "total_latency_ms": 15553.955547076921,
-        "max_kv_cache_mb": 67.0,
-        "oom_risk": true
+        "prefill_ms": 68.27862365364705,
+        "decode_ms": 2134.6758937028567,
+        "total_ms": 2202.954517356504,
+        "prefill_pct": 3.099411409345839,
+        "decode_pct": 96.90058859065415
       },
-      "CPU_Server": {
-        "ttft_ms": 1247.3266666666664,
-        "tpot_ms": 321.2,
-        "total_decode_ms": 97951.21487872,
-        "total_latency_ms": 99198.54154538666,
-        "max_kv_cache_mb": 67.0,
-        "oom_risk": false
+      "RTX4060": {
+        "prefill_ms": 293.7200885166816,
+        "decode_ms": 2511.3834043563024,
+        "total_ms": 2805.103492872984,
+        "prefill_pct": 10.470918069973017,
+        "decode_pct": 89.52908193002698
       }
     },
     "Hindi": {
-      "H100_SXM5": {
-        "ttft_ms": 4.579292214357936,
-        "tpot_ms": 4.794029850746267,
-        "total_decode_ms": 1766.0859976597012,
-        "total_latency_ms": 1770.6652898740592,
-        "max_kv_cache_mb": 81.0,
-        "oom_risk": false
+      "H100": {
+        "prefill_ms": 10.851990138600117,
+        "decode_ms": 247.73341193060978,
+        "total_ms": 258.5854020692099,
+        "prefill_pct": 4.1966754703715266,
+        "decode_pct": 95.80332452962847
       },
-      "A100_80GB": {
-        "ttft_ms": 14.515769230769228,
-        "tpot_ms": 7.876410004904364,
-        "total_decode_ms": 2901.6126003727313,
-        "total_latency_ms": 2916.1283696035002,
-        "max_kv_cache_mb": 81.0,
-        "oom_risk": false
+      "A100": {
+        "prefill_ms": 17.217099739125185,
+        "decode_ms": 407.01664049413574,
+        "total_ms": 424.2337402332609,
+        "prefill_pct": 4.058399440284624,
+        "decode_pct": 95.94160055971538
       },
       "T4": {
-        "ttft_ms": 69.6756923076923,
-        "tpot_ms": 50.18749999999999,
-        "total_decode_ms": 18768.31394,
-        "total_latency_ms": 18837.989632307694,
-        "max_kv_cache_mb": 81.0,
-        "oom_risk": true
+        "prefill_ms": 82.64207874780088,
+        "decode_ms": 2593.4591561485713,
+        "total_ms": 2676.1012348963723,
+        "prefill_pct": 3.088152184609005,
+        "decode_pct": 96.911847815391
       },
-      "CPU_Server": {
-        "ttft_ms": 1509.6399999999996,
-        "tpot_ms": 321.2,
-        "total_decode_ms": 118327.76184319999,
-        "total_latency_ms": 119837.4018432,
-        "max_kv_cache_mb": 81.0,
-        "oom_risk": false
+      "RTX4060": {
+        "prefill_ms": 355.50861142336583,
+        "decode_ms": 3051.128418998319,
+        "total_ms": 3406.637030421685,
+        "prefill_pct": 10.43576431092102,
+        "decode_pct": 89.56423568907897
       }
     }
   },
-  "resource_divide_index": {
-    "raw": {
-      "English": {
-        "H100_SXM5": 4.942428395522389e-06,
-        "A100_80GB": 8.120223209906818e-06,
-        "T4": 0.000258705236328125,
-        "CPU_Server": 0.00082785675625
-      },
-      "Spanish": {
-        "H100_SXM5": 1.0498771492537315e-05,
-        "A100_80GB": 1.724908509073075e-05,
-        "T4": 0.0005495450703125,
-        "CPU_Server": 0.001758544225
-      },
-      "Swahili": {
-        "H100_SXM5": 2.041912123134329e-05,
-        "A100_80GB": 3.354784508337421e-05,
-        "T4": 0.0010688133769531252,
-        "CPU_Server": 0.0034202028062500006
-      },
-      "Arabic": {
-        "H100_SXM5": 2.1492537313432835e-05,
-        "A100_80GB": 3.5311427170181465e-05,
-        "T4": 0.001125,
-        "CPU_Server": 0.0036
-      },
-      "Chinese": {
-        "H100_SXM5": 1.992793432835821e-06,
-        "A100_80GB": 3.2740843550760176e-06,
-        "T4": 0.00010431028125,
-        "CPU_Server": 0.0003337929
-      },
-      "Hindi": {
-        "H100_SXM5": 2.9814301828358215e-05,
-        "A100_80GB": 4.898377200833744e-05,
-        "T4": 0.0015605923613281254,
-        "CPU_Server": 0.004993895556250001
-      }
+  "rdi_analysis": {
+    "English": {
+      "H100": 4.934701492537312e-06,
+      "A100": 8.107528200098086e-06,
+      "T4": 0.00025830078124999996,
+      "RTX4060": 0.0006077665441176469,
+      "CPU": 5.166015624999999e-05
     },
-    "normalized_baseline": "English_H100",
-    "normalized": {
-      "English": {
-        "H100_SXM5": 1.0,
-        "A100_80GB": 1.6429622363903873,
-        "T4": 52.34374999999999,
-        "CPU_Server": 167.49999999999997
-      },
-      "Spanish": {
-        "H100_SXM5": 2.1242131706042957,
-        "A100_80GB": 3.4900020213459486,
-        "T4": 111.18928314881857,
-        "CPU_Server": 355.80570607621945
-      },
-      "Swahili": {
-        "H100_SXM5": 4.131394447685285,
-        "A100_80GB": 6.787725061179845,
-        "T4": 216.25267812102663,
-        "CPU_Server": 692.0085699872851
-      },
-      "Arabic": {
-        "H100_SXM5": 4.348578389704963,
-        "A100_80GB": 7.144550076268577,
-        "T4": 227.62090008611915,
-        "CPU_Server": 728.3868802755813
-      },
-      "Chinese": {
-        "H100_SXM5": 0.40320127543804163,
-        "A100_80GB": 0.6624444692091415,
-        "T4": 21.10506676120999,
-        "CPU_Server": 67.53621363587197
-      },
-      "Hindi": {
-        "H100_SXM5": 6.032318415653445,
-        "A100_80GB": 9.910871354800905,
-        "T4": 315.75416706936,
-        "CPU_Server": 1010.413334621952
-      }
+    "Chinese": {
+      "H100": 1.9884328358208953e-06,
+      "A100": 3.2669200588523783e-06,
+      "T4": 0.00010408203124999998,
+      "RTX4060": 0.0002448988970588235,
+      "CPU": 2.0816406249999998e-05
+    },
+    "Spanish": {
+      "H100": 1.0531343283582089e-05,
+      "A100": 1.7302599313388912e-05,
+      "T4": 0.0005512499999999999,
+      "RTX4060": 0.0012970588235294116,
+      "CPU": 0.00011024999999999998
+    },
+    "Arabic": {
+      "H100": 2.1492537313432835e-05,
+      "A100": 3.531142717018146e-05,
+      "T4": 0.001125,
+      "RTX4060": 0.0026470588235294116,
+      "CPU": 0.000225
+    },
+    "Swahili": {
+      "H100": 2.0431343283582087e-05,
+      "A100": 3.3567925453653746e-05,
+      "T4": 0.0010694531249999999,
+      "RTX4060": 0.0025163602941176465,
+      "CPU": 0.00021389062499999997
+    },
+    "Hindi": {
+      "H100": 2.98839552238806e-05,
+      "A100": 4.909820990681707e-05,
+      "T4": 0.0015642382812500002,
+      "RTX4060": 0.0036805606617647062,
+      "CPU": 0.00031284765625000003
     }
   },
-  "multi_turn_simulation": {
+  "cumulative_disadvantage": {
     "English_H100": [
       {
         "turn": 1,
-        "input_tokens": 34,
-        "output_tokens": 57,
-        "ttft_ms": 0.55211324570273,
-        "decode_ms": 273.3979726710447,
-        "total_ms": 273.95008591674747,
-        "kv_cache_mb": 11.25,
-        "oom_risk": false
+        "latency_ms": 157.52326593773986,
+        "cumulative_ms": 157.52326593773986
       },
       {
         "turn": 2,
-        "input_tokens": 125,
-        "output_tokens": 57,
-        "ttft_ms": 2.029828109201213,
-        "decode_ms": 273.60091907820896,
-        "total_ms": 275.6307471874102,
-        "kv_cache_mb": 22.625,
-        "oom_risk": false
+        "latency_ms": 165.65573195609815,
+        "cumulative_ms": 323.178997893838
       },
       {
         "turn": 3,
-        "input_tokens": 216,
-        "output_tokens": 57,
-        "ttft_ms": 3.5075429726996963,
-        "decode_ms": 273.8038654853731,
-        "total_ms": 277.3114084580727,
-        "kv_cache_mb": 34.0,
-        "oom_risk": false
+        "latency_ms": 173.83038524606192,
+        "cumulative_ms": 497.0093831398999
       },
       {
         "turn": 4,
-        "input_tokens": 307,
-        "output_tokens": 57,
-        "ttft_ms": 4.985257836198179,
-        "decode_ms": 274.00681189253726,
-        "total_ms": 278.9920697287355,
-        "kv_cache_mb": 45.375,
-        "oom_risk": false
+        "latency_ms": 182.04722580763115,
+        "cumulative_ms": 679.056608947531
       },
       {
         "turn": 5,
-        "input_tokens": 398,
-        "output_tokens": 57,
-        "ttft_ms": 6.462972699696663,
-        "decode_ms": 274.2097582997014,
-        "total_ms": 280.672730999398,
-        "kv_cache_mb": 56.75,
-        "oom_risk": false
+        "latency_ms": 190.3062536408059,
+        "cumulative_ms": 869.3628625883368
+      }
+    ],
+    "English_T4": [
+      {
+        "turn": 1,
+        "latency_ms": 1649.071690285714,
+        "cumulative_ms": 1649.071690285714
+      },
+      {
+        "turn": 2,
+        "latency_ms": 1714.1083063416884,
+        "cumulative_ms": 3363.1799966274025
+      },
+      {
+        "turn": 3,
+        "latency_ms": 1779.4661946968117,
+        "cumulative_ms": 5142.646191324215
+      },
+      {
+        "turn": 4,
+        "latency_ms": 1845.1453553510842,
+        "cumulative_ms": 6987.791546675298
+      },
+      {
+        "turn": 5,
+        "latency_ms": 1911.1457883045068,
+        "cumulative_ms": 8898.937334979804
+      }
+    ],
+    "Chinese_H100": [
+      {
+        "turn": 1,
+        "latency_ms": 99.30814591727078,
+        "cumulative_ms": 99.30814591727078
+      },
+      {
+        "turn": 2,
+        "latency_ms": 104.01876318043844,
+        "cumulative_ms": 203.32690909770923
+      },
+      {
+        "turn": 3,
+        "latency_ms": 108.78697390137289,
+        "cumulative_ms": 312.11388299908214
+      },
+      {
+        "turn": 4,
+        "latency_ms": 113.57224220622173,
+        "cumulative_ms": 425.6861252053039
+      },
+      {
+        "turn": 5,
+        "latency_ms": 118.37456809498504,
+        "cumulative_ms": 544.0606933002889
+      }
+    ],
+    "Chinese_T4": [
+      {
+        "turn": 1,
+        "latency_ms": 1039.6321525714284,
+        "cumulative_ms": 1039.6321525714284
+      },
+      {
+        "turn": 2,
+        "latency_ms": 1076.2886241561937,
+        "cumulative_ms": 2115.920776727622
+      },
+      {
+        "turn": 3,
+        "latency_ms": 1113.390444739992,
+        "cumulative_ms": 3229.311221467614
+      },
+      {
+        "turn": 4,
+        "latency_ms": 1150.6221653859081,
+        "cumulative_ms": 4379.933386853522
+      },
+      {
+        "turn": 5,
+        "latency_ms": 1187.9837860939417,
+        "cumulative_ms": 5567.917172947464
+      }
+    ],
+    "Spanish_H100": [
+      {
+        "turn": 1,
+        "latency_ms": 229.43606125714282,
+        "cumulative_ms": 229.43606125714282
+      },
+      {
+        "turn": 2,
+        "latency_ms": 243.08257336810658,
+        "cumulative_ms": 472.51863462524943
+      },
+      {
+        "turn": 3,
+        "latency_ms": 256.8700052700341,
+        "cumulative_ms": 729.3886398952835
+      },
+      {
+        "turn": 4,
+        "latency_ms": 270.74760473932463,
+        "cumulative_ms": 1000.1362446346081
+      },
+      {
+        "turn": 5,
+        "latency_ms": 284.7153717759782,
+        "cumulative_ms": 1284.8516164105863
+      }
+    ],
+    "Spanish_T4": [
+      {
+        "turn": 1,
+        "latency_ms": 2401.908766285714,
+        "cumulative_ms": 2401.908766285714
+      },
+      {
+        "turn": 2,
+        "latency_ms": 2515.454381673515,
+        "cumulative_ms": 4917.3631479592295
+      },
+      {
+        "turn": 3,
+        "latency_ms": 2630.109059114963,
+        "cumulative_ms": 7547.472207074193
+      },
+      {
+        "turn": 4,
+        "latency_ms": 2745.4503972617135,
+        "cumulative_ms": 10292.922604335907
+      },
+      {
+        "turn": 5,
+        "latency_ms": 2861.478396113768,
+        "cumulative_ms": 13154.401000449674
+      }
+    ],
+    "Arabic_H100": [
+      {
+        "turn": 1,
+        "latency_ms": 328.7442071744136,
+        "cumulative_ms": 328.7442071744136
+      },
+      {
+        "turn": 2,
+        "latency_ms": 353.38366284199765,
+        "cumulative_ms": 682.1278700164112
+      },
+      {
+        "turn": 3,
+        "latency_ms": 378.20686042598805,
+        "cumulative_ms": 1060.3347304423992
+      },
+      {
+        "turn": 4,
+        "latency_ms": 403.213799926385,
+        "cumulative_ms": 1463.5485303687842
+      },
+      {
+        "turn": 5,
+        "latency_ms": 428.40448134318825,
+        "cumulative_ms": 1891.9530117119725
+      }
+    ],
+    "Arabic_T4": [
+      {
+        "turn": 1,
+        "latency_ms": 3441.5409188571425,
+        "cumulative_ms": 3441.5409188571425
+      },
+      {
+        "turn": 2,
+        "latency_ms": 3657.4005751944355,
+        "cumulative_ms": 7098.941494051578
+      },
+      {
+        "turn": 3,
+        "latency_ms": 3874.659496895131,
+        "cumulative_ms": 10973.600990946708
+      },
+      {
+        "turn": 4,
+        "latency_ms": 4093.3176839592293,
+        "cumulative_ms": 15066.918674905937
+      },
+      {
+        "turn": 5,
+        "latency_ms": 4313.3751363867295,
+        "cumulative_ms": 19380.293811292668
+      }
+    ],
+    "Swahili_H100": [
+      {
+        "turn": 1,
+        "latency_ms": 320.1831601125799,
+        "cumulative_ms": 320.1831601125799
+      },
+      {
+        "turn": 2,
+        "latency_ms": 343.69323186272067,
+        "cumulative_ms": 663.8763919753005
+      },
+      {
+        "turn": 3,
+        "latency_ms": 367.3776002457503,
+        "cumulative_ms": 1031.2539922210508
+      },
+      {
+        "turn": 4,
+        "latency_ms": 391.3002921235651,
+        "cumulative_ms": 1422.554284344616
+      },
+      {
+        "turn": 5,
+        "latency_ms": 415.3337198061503,
+        "cumulative_ms": 1837.8880041507664
       }
     ],
     "Swahili_T4": [
       {
         "turn": 1,
-        "input_tokens": 70,
-        "output_tokens": 116,
-        "ttft_ms": 17.295384615384613,
-        "decode_ms": 5852.039920000001,
-        "total_ms": 5869.335304615386,
-        "kv_cache_mb": 23.125,
-        "oom_risk": true
+        "latency_ms": 3351.917457428571,
+        "cumulative_ms": 3351.917457428571
       },
       {
         "turn": 2,
-        "input_tokens": 256,
-        "output_tokens": 116,
-        "ttft_ms": 63.2516923076923,
-        "decode_ms": 5896.227567999998,
-        "total_ms": 5959.479260307691,
-        "kv_cache_mb": 46.375,
-        "oom_risk": true
+        "latency_ms": 3557.0564790050107,
+        "cumulative_ms": 6908.973936433582
       },
       {
         "turn": 3,
-        "input_tokens": 442,
-        "output_tokens": 116,
-        "ttft_ms": 109.20799999999998,
-        "decode_ms": 5940.415216,
-        "total_ms": 6049.623216,
-        "kv_cache_mb": 69.625,
-        "oom_risk": true
+        "latency_ms": 3763.5228364780655,
+        "cumulative_ms": 10672.496772911647
       },
       {
         "turn": 4,
-        "input_tokens": 628,
-        "output_tokens": 116,
-        "ttft_ms": 155.16430769230766,
-        "decode_ms": 5984.6028639999995,
-        "total_ms": 6139.767171692307,
-        "kv_cache_mb": 92.875,
-        "oom_risk": true
+        "latency_ms": 3971.8739072162684,
+        "cumulative_ms": 14644.370680127915
       },
       {
         "turn": 5,
-        "input_tokens": 814,
-        "output_tokens": 116,
-        "ttft_ms": 201.12061538461535,
-        "decode_ms": 6028.790511999999,
-        "total_ms": 6229.911127384615,
-        "kv_cache_mb": 116.125,
-        "oom_risk": true
+        "latency_ms": 4180.998485509016,
+        "cumulative_ms": 18825.36916563693
+      }
+    ],
+    "Hindi_H100": [
+      {
+        "turn": 1,
+        "latency_ms": 386.9593271948827,
+        "cumulative_ms": 386.9593271948827
+      },
+      {
+        "turn": 2,
+        "latency_ms": 420.49790285000336,
+        "cumulative_ms": 807.457230044886
+      },
+      {
+        "turn": 3,
+        "latency_ms": 454.3661034093921,
+        "cumulative_ms": 1261.823333454278
+      },
+      {
+        "turn": 4,
+        "latency_ms": 488.4900107214654,
+        "cumulative_ms": 1750.3133441757436
+      },
+      {
+        "turn": 5,
+        "latency_ms": 522.8696247862231,
+        "cumulative_ms": 2273.1829689619667
+      }
+    ],
+    "Hindi_T4": [
+      {
+        "turn": 1,
+        "latency_ms": 4050.9804565714285,
+        "cumulative_ms": 4050.9804565714285
+      },
+      {
+        "turn": 2,
+        "latency_ms": 4352.495644788809,
+        "cumulative_ms": 8403.476101360236
+      },
+      {
+        "turn": 3,
+        "latency_ms": 4656.623057933548,
+        "cumulative_ms": 13060.099159293784
+      },
+      {
+        "turn": 4,
+        "latency_ms": 4962.697776348731,
+        "cumulative_ms": 18022.796935642516
+      },
+      {
+        "turn": 5,
+        "latency_ms": 5270.719800034357,
+        "cumulative_ms": 23293.516735676872
       }
     ]
-  },
-  "language_support_gap": {
-    "total_world_languages": 7000,
-    "languages_with_nlp_support": 100,
-    "languages_with_llm_support": 42,
-    "african_languages_with_nlp": 55,
-    "digital_content_pct": {
-      "English": 54.3,
-      "Russian": 5.9,
-      "German": 5.7,
-      "Spanish": 4.6,
-      "French": 4.0,
-      "Japanese": 3.3,
-      "Chinese": 2.8,
-      "Portuguese": 2.5,
-      "Italian": 1.7,
-      "Polish": 1.5,
-      "Turkish": 1.3,
-      "Dutch": 1.2,
-      "Arabic": 1.0,
-      "Korean": 0.8,
-      "Swahili": 0.002,
-      "Hindi": 0.15
-    }
-  },
-  "key_findings": {
-    "hindi_t4_vs_english_h100_latency_ratio": 26.26310100555977,
-    "swahili_t4_vs_english_h100_latency_ratio": 21.68464435654466,
-    "max_rdi_ratio": 1010.413334621952,
-    "cumulative_time_ratio_turn5": 21.815269878861308
   }
 }

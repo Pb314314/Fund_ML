@@ -13,10 +13,11 @@ This project presents a comprehensive quantitative analysis of how AI resources-
 
 **Key Findings:**
 - Hindi pays a 7.99x attention cost penalty vs English's 1.32x (6x multiplier)
-- Consumer GPUs (RTX 4060) OOM at 14K tokens; H100 sustains 544K (40x gap)
-- In serving scenarios with 32 concurrent users, Hindi OOMs after 1 turn on RTX 4060
-- Decode dominates 95-99.9% of end-to-end latency across all workloads
-- Composite Resource Divide Index: Swahili 0.800 vs English 0.099 (8.1x structural disadvantage)
+- Consumer GPUs (RTX 4060) OOM at 26K tokens; H100 sustains 557K (21x gap)
+- In serving with 32 concurrent users, Hindi OOMs at turn 2 on RTX 4060; English at turn 5
+- Decode dominates 85.6--99.6% of end-to-end latency (memory bandwidth is bottleneck)
+- CRDI: Swahili 0.807 vs English 0.100 (8.1x structural disadvantage)
+- Disaggregated serving (H100 prefill + RTX 4060 decode) halves cost at 13x latency penalty
 
 ---
 
@@ -25,18 +26,20 @@ This project presents a comprehensive quantitative analysis of how AI resources-
 ```
 project/
 ├── README.md                           # This file
+├── requirements.txt                    # Python dependencies
 ├── experiments/
-│   ├── exp1_tokenization_benchmark.py  # Real tokenizer fertility analysis
-│   ├── exp2_memory_wall_simulation.py  # KV cache growth simulation
-│   ├── exp3_combined_analysis.py      # End-to-end latency + RDI
-│   ├── exp4_multiturn_serving.py       # Multi-turn conversation simulation
-│   ├── exp5_prefill_decode_disaggregation.py  # Phase-specific hardware analysis
-│   └── exp6_language_ecosystem.py     # CRDI + multi-metric analysis
-├── figures/                            # 13 publication-quality figures (300 DPI)
-├── data/                               # Raw JSON results for all experiments
+│   ├── config.py                       # UNIFIED CONFIG: all shared constants
+│   ├── exp1_tokenization_benchmark.py  # Real tokenizer fertility (6 languages)
+│   ├── exp2_memory_wall_simulation.py  # KV cache growth + OOM simulation (5 GPUs)
+│   ├── exp3_combined_analysis.py      # End-to-end latency + RDI index
+│   ├── exp4_multiturn_serving.py       # Multi-turn conversation + serving capacity
+│   ├── exp5_prefill_decode_disaggregation.py  # Phase-specific hardware + Pareto analysis
+│   └── exp6_language_ecosystem.py     # CRDI + 6-metric ecosystem dashboard
+├── figures/                            # 13 publication-quality figures (300 DPI PNG)
+├── data/                               # 5 JSON result files (all experiments)
 └── report/
-    ├── full_paper.md                   # Source markdown
-    └── Resource_Divide_Paper.docx    # Final IEEE-format paper
+    ├── full_paper.md                   # Source markdown (IEEE format)
+    └── Resource_Divide_Paper.docx     # Final IEEE-format paper
 ```
 
 ---
@@ -49,89 +52,96 @@ project/
 
 ### Install Dependencies
 ```bash
-pip install transformers numpy matplotlib scipy
+pip install -r requirements.txt
 ```
 
-**Note:** `transformers` requires HuggingFace authentication for Llama-3 tokenizer. The script will prompt for a token if needed. Alternatively, use any public Llama-family tokenizer as fallback.
+**Note:** `transformers` requires HuggingFace authentication for Llama-3 tokenizer. The script will prompt for a token if needed, or use a public fallback tokenizer.
 
 ---
 
 ## Running Experiments
 
-### Experiment 1: Tokenization Fertility Benchmark
+All experiments import from `config.py`---the single source of truth for model specs, GPU hardware, language fertility, and ecosystem data. This ensures cross-experiment numerical consistency.
+
+### Quick Start: Run All Experiments
 ```bash
-python experiments/exp1_tokenization_benchmark.py
+cd experiments/
+python exp1_tokenization_benchmark.py   # ~2 min (needs HF auth)
+python exp2_memory_wall_simulation.py   # ~10 sec
+python exp3_combined_analysis.py        # ~10 sec
+python exp4_multiturn_serving.py        # ~10 sec
+python exp5_prefill_decode_disaggregation.py   # ~10 sec
+python exp6_language_ecosystem.py       # ~10 sec
 ```
-**Output:** `figures/fig1_tokenization_fertility.png`, `data/tokenization_results.json`  
-Measures tokens-per-word for 6 languages using Llama-3 tokenizer.
 
-### Experiment 2: Memory Wall Simulation
-```bash
-python experiments/exp2_memory_wall_simulation.py
-```
-**Output:** `figures/fig2a-d` (4 figures), `data/memory_simulation_results.json`  
-Simulates KV cache growth, batch size limits, throughput degradation, and compute distribution.
+### Individual Experiments
 
-### Experiment 3: Combined Analysis
-```bash
-python experiments/exp3_combined_analysis.py
-```
-**Output:** `figures/fig3a-d` (4 figures), `data/combined_analysis_results.json`  
-End-to-end latency, Resource Divide Index, cumulative disadvantage, and language support gap.
+| Exp | Script | What It Does | Output |
+|-----|--------|-------------|--------|
+| 1 | `exp1_tokenization_benchmark.py` | Real Llama-3 tokenizer on 6 languages | `fig1_tokenization_fertility.png` |
+| 2 | `exp2_memory_wall_simulation.py` | KV cache growth, batch limits, throughput, compute distribution | `fig2a-2d` (4 figures) |
+| 3 | `exp3_combined_analysis.py` | End-to-end latency, RDI heatmap, cumulative disadvantage, language gap | `fig3a-3d` (4 figures) |
+| 4 | `exp4_multiturn_serving.py` | Agentic multi-turn serving (batch=32), OOM thresholds | `fig4a-4b` (2 figures) |
+| 5 | `exp5_prefill_decode_disaggregation.py` | Prefill vs decode breakdown, Pareto frontier | `fig5a-5b` (2 figures) |
+| 6 | `exp6_language_ecosystem.py` | CRDI, correlations, radar charts, tier distribution | `fig6_language_ecosystem.png` |
 
-### Experiment 4: Multi-Turn Conversational Serving
-```bash
-python experiments/exp4_multiturn_serving.py
-```
-**Output:** `data/experiment_4_results.json`  
-Simulates agentic multi-turn conversations with batch_size=32 serving scenario. Tracks KV cache accumulation and OOM thresholds across hardware tiers and languages.
+### Experiment Details
 
-**Key Parameters:**
-- `batch_size`: Concurrent users (default: 32)
-- `num_turns`: Conversation length (default: 20)
-- `words_per_turn`: Tokens per conversation turn (default: 80)
+**Experiment 1: Tokenization Fertility**
+- Uses real `meta-llama/Llama-3.2-1B` tokenizer via HuggingFace
+- Tests: English, Chinese, Spanish, Arabic, Swahili, Hindi
+- Metrics: tokens-per-word, attention cost multiplier (fertility^2)
 
-### Experiment 5: Prefill-Decode Disaggregation
-```bash
-python experiments/exp5_prefill_decode_disaggregation.py
-```
-**Output:** Console output with latency breakdowns  
-Analyzes the distinct hardware requirements of prefill (compute-bound) vs decode (memory-bound) phases. Evaluates heterogeneous cluster configurations and Pareto-optimal cost-latency tradeoffs.
+**Experiment 2: Memory Wall Simulation**
+- Model: Llama-3-8B AWQ-4bit (4.01 GB weights, 8.03B params)
+- KV cache: 131,072 bytes/token = 0.125 MB/token (FP16)
+- GPUs: H100 (3.35 TB/s), A100 (2.04 TB/s), RTX 3090 (936 GB/s), T4 (320 GB/s), RTX 4060 (272 GB/s)
+- Simulates: KV growth curves, max batch size heatmap, throughput degradation, compute distribution
 
-**Workloads analyzed:**
-- Short Q&A (50 input, 30 output tokens)
-- Medium Essay (500 input, 300 output tokens)
-- Long Document (4000 input, 500 output tokens)
-- Code Generation (200 input, 800 output tokens)
+**Experiment 3: Combined Analysis**
+- End-to-end latency = prefill (compute-bound) + decode (memory-bound)
+- Task: 100-word input, 50-word output
+- Resource Divide Index: RDI = fertility^2 / (bandwidth * VRAM)
+- Cumulative disadvantage: 5-turn agentic conversation
 
-### Experiment 6: Language Ecosystem Analysis
-```bash
-python experiments/exp6_language_ecosystem.py
-```
-**Output:** `data/experiment_6_results.json`, console CRDI ranking  
-Combines speaker population, internet content, digital literacy, LLM accuracy, fertility, and Wikipedia activity into a Composite Resource Divide Index (CRDI). Computes Pearson correlations across all metrics.
+**Experiment 4: Multi-Turn Serving**
+- Scenario: 32 concurrent users, 80 words/turn, 20 max turns
+- Tracks: KV cache accumulation, throughput decay, OOM turn
+- Key insight: Hindi OOMs 2.5x faster than English on same hardware
+
+**Experiment 5: Prefill-Decode Disaggregation**
+- Prefill: parallel processing, compute-bound, 85% GPU util
+- Decode: autoregressive, memory-bound, 20-40% GPU util
+- 4 workload types: Short Q&A, Medium Essay, Long Document, Code Generation
+- Pareto analysis: cost-latency tradeoff for heterogeneous clusters
+
+**Experiment 6: Language Ecosystem**
+- 6 metrics: speakers, content%, literacy, LLM accuracy, fertility, Wikipedia
+- CRDI weights: content (25%), accuracy (20%), literacy/fertility/wiki (15% each), speakers (10%)
+- Pearson correlation matrix across all metrics
 
 ---
 
 ## Reproducing All Results
 
-To reproduce all experiments and generate all figures:
-
 ```bash
-# 1. Install dependencies
-pip install transformers numpy matplotlib scipy
+# 1. Clone and setup
+git clone https://github.com/Pb314314/Fund_ML.git
+cd Fund_ML
+pip install -r requirements.txt
 
-# 2. Run all experiments sequentially
-python experiments/exp1_tokenization_benchmark.py
-python experiments/exp2_memory_wall_simulation.py
-python experiments/exp3_combined_analysis.py
-python experiments/exp4_multiturn_serving.py
-python experiments/exp5_prefill_decode_disaggregation.py
-python experiments/exp6_language_ecosystem.py
+# 2. Run all experiments
+cd experiments/
+python exp1_tokenization_benchmark.py
+python exp2_memory_wall_simulation.py
+python exp3_combined_analysis.py
+python exp4_multiturn_serving.py
+python exp5_prefill_decode_disaggregation.py
+python exp6_language_ecosystem.py
 
 # 3. Verify outputs
-ls figures/
-ls data/
+ls ../figures/   # 13 PNG files
+ls ../data/      # 5 JSON files
 ```
 
 Expected outputs:
@@ -140,78 +150,77 @@ Expected outputs:
 
 ---
 
-## Datasets Used
+## Datasets and Sources
 
 ### Tokenizer
-- `meta-llama/Llama-3.2-1B` tokenizer via HuggingFace Transformers
-- Fallback: Any public Llama-family tokenizer
+- `meta-llama/Llama-3.2-1B` via HuggingFace Transformers
+- Fallback: any public Llama-family tokenizer
 
-### Language Sample Texts
-- English, Chinese, Spanish, Arabic, Swahili, Hindi
-- Synthetic multilingual text passages (embedded in scripts)
-- ~200-500 characters per language
+### GPU Hardware Specifications
+All sourced from NVIDIA official datasheets:
+- H100 SXM5: https://resources.nvidia.com/en-us-tensor-core/nvidia-tensor-core-gpu-datasheet
+- A100 80GB: https://www.nvidia.com/en-us/data-center/a100/
+- RTX 3090: https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090/
+- T4: https://www.nvidia.com/en-us/data-center/tesla-t4/
+- RTX 4060: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060/
 
-### Hardware Specifications
-- NVIDIA H100 SXM5 (80GB HBM3, 3.35 TB/s)
-- NVIDIA A100 80GB (80GB HBM2e, 2.04 TB/s)
-- NVIDIA RTX 3090 (24GB GDDR6X, 936 GB/s)
-- NVIDIA T4 (16GB GDDR6, 320 GB/s)
-- NVIDIA RTX 4060 (8GB GDDR6, 272 GB/s)
-
-### Ecosystem Data Sources
-- W3Techs / Intelpoint: Internet content by language (2024)
-- ITU / Statista: Digital literacy and internet penetration (2024-2025)
-- Ethnologue / Wikipedia: Speaker populations and contributor data
-- Academic literature: LLM multilingual benchmark accuracies
+### Language Ecosystem Data
+- Speaker populations: Ethnologue 2024
+- Internet content %: W3Techs 2024 survey (top 10M websites)
+- Digital literacy: ITU Digital Development Report 2024
+- LLM accuracy: Approximated from multilingual benchmarks (Ahuja et al. ACL 2024; Masakhane)
+- Wikipedia: Wikimedia Foundation 2024 active editor stats
 
 ---
 
 ## Hardware Requirements
 
-All experiments are **CPU-only simulations** designed for reproducibility on standard academic hardware:
+All experiments are **CPU-only simulations** designed for reproducibility:
 
 - No GPU required for reproduction
-- All calculations are mathematical simulations (not actual inference)
+- All calculations are mathematical simulations (not actual model inference)
 - Total runtime: ~5 minutes for all 6 experiments
 - RAM: ~2 GB
+- Storage: ~50 MB for outputs
 
-A GPU (NVIDIA RTX 3090 or equivalent) was used for tokenizer validation only.
+A GPU (RTX 3090) was used only for tokenizer validation in Experiment 1.
 
 ---
 
 ## Figures Summary
 
-| Figure | Description | Source Experiment |
-|--------|-------------|-------------------|
-| Fig 1 | Tokenization fertility & attention cost by language | Exp 1 |
-| Fig 2a | KV cache growth vs sequence length | Exp 2 |
-| Fig 2b | Max batch size heatmap (OOM thresholds) | Exp 2 |
-| Fig 2c | Throughput degradation | Exp 2 |
-| Fig 2d | Global compute distribution | Exp 2 |
-| Fig 3a | End-to-end latency comparison | Exp 3 |
-| Fig 3b | Resource Divide Index heatmap | Exp 3 |
-| Fig 3c | Cumulative disadvantage trajectory | Exp 3 |
-| Fig 3d | Language support gap | Exp 3 |
-| Fig 4a | Multi-turn KV cache accumulation & concurrent users | Exp 4 |
-| Fig 4b | Throughput degradation & OOM heatmap | Exp 4 |
-| Fig 4c | Serving scenario OOM heatmap (batch=32) | Exp 4 |
-| Fig 5a | Prefill vs decode latency breakdown by workload | Exp 5 |
-| Fig 5b | Disaggregated serving Pareto frontier | Exp 5 |
-| Fig 6 | Comprehensive language ecosystem dashboard (6 panels) | Exp 6 |
+| Figure | Description | Experiment |
+|--------|-------------|------------|
+| Fig 1 | Tokenization fertility + attention cost (6 languages) | Exp 1 |
+| Fig 2a | KV cache growth vs sequence length (batch sizes 1-32) | Exp 2 |
+| Fig 2b | Max batch size heatmap (OOM boundaries, 5 GPUs x 8 seq lengths) | Exp 2 |
+| Fig 2c | Throughput degradation: English vs Swahili | Exp 2 |
+| Fig 2d | Global AI compute distribution pie chart | Exp 2 |
+| Fig 3a | End-to-end latency by hardware and language (100-word task) | Exp 3 |
+| Fig 3b | Resource Divide Index heatmap (6 languages x 4 GPUs) | Exp 3 |
+| Fig 3c | Cumulative disadvantage over 5-turn conversation | Exp 3 |
+| Fig 3d | Language support gap + digital content distribution | Exp 3 |
+| Fig 4a | Multi-turn KV accumulation + max concurrent users | Exp 4 |
+| Fig 4b | OOM heatmap: serving scenario (batch=32, 4 GPUs x 6 languages) | Exp 4 |
+| Fig 5a | Prefill vs decode latency breakdown (4 workloads x 4 GPUs) | Exp 5 |
+| Fig 5b | Pareto frontier: disaggregated serving cost-latency tradeoff | Exp 5 |
+| Fig 6 | 6-panel ecosystem dashboard (CRDI, correlations, radar, tiers) | Exp 6 |
 
 ---
 
 ## Report
 
 The full paper (`report/Resource_Divide_Paper.docx`) follows IEEE conference format:
-- **Main body:** ~2,700 words (Sections A-E, ~5 pages)
-- **References:** 21 IEEE-format citations
+- **Main body:** ~3,000 words (Sections A--E, ~5 pages two-column)
+- **6 subsections** in Technical Experiments (C.1--C.7)
+- **6 tables** and **6 figures** referenced in text
+- **21 references** (IEEE format)
 - **Appendix:** Compute and AI usage disclosure
 
 Sections:
-- **A:** Introduction (AI divide, policy context, scope)
+- **A:** Introduction (AI divide, policy context, scope, contributions)
 - **B:** Literature Review (compute, tokenization, data, memory)
-- **C:** Technical Experiments (6 subsections, 4 tables, 6 figures)
+- **C:** Technical Experiments (6 subsections, 6 tables)
 - **D:** Dual Viewpoint Analysis (Bo Pang vs Connor Sempf)
 - **E:** Conclusion (joint assessment, best practices)
 
@@ -221,8 +230,8 @@ Sections:
 
 If you use this work, please cite:
 ```
-Connor Sempf and Bo Pang, "The Resource Divide: Data Scarcity, Compute Inequity, 
-and the Future of Global LLM Governance," FunML Term Project, 
+Connor Sempf and Bo Pang, "The Resource Divide: Data Scarcity, Compute Inequity,
+and the Future of Global LLM Governance," FunML Term Project,
 Georgia Institute of Technology, 2025.
 ```
 

@@ -1,50 +1,63 @@
 {
-  "model_config": {
-    "model_name": "Llama-3-8B",
-    "num_layers": 32,
-    "hidden_dim": 4096,
-    "num_kv_heads": 8,
-    "head_dim": 128,
-    "quantization_bits": 4,
-    "dtype_size_kv": 2
-  },
-  "hardware_tiers": [
-    {
-      "name": "NVIDIA H100 (80GB)",
-      "vram_gb": 80.0,
-      "bandwidth_tb_s": 3.35,
-      "tier_label": "Frontier",
-      "available_kv_memory_gb": 66.5
+  "metadata": {
+    "model": {
+      "name": "Llama-3-8B",
+      "quantization": "AWQ-4bit",
+      "params_b": 8.03,
+      "model_weights_gb": 4.015,
+      "kv_cache_per_token_mb": 0.125,
+      "kv_cache_formula": "2 * num_layers * num_kv_heads * head_dim * 2_bytes",
+      "kv_cache_per_token_bytes": 131072
     },
-    {
-      "name": "NVIDIA A100 (80GB)",
-      "vram_gb": 80.0,
-      "bandwidth_tb_s": 2.0,
-      "tier_label": "High-end",
-      "available_kv_memory_gb": 66.5
-    },
-    {
-      "name": "NVIDIA RTX 3090 (24GB)",
-      "vram_gb": 24.0,
-      "bandwidth_tb_s": 0.936,
-      "tier_label": "Workstation",
-      "available_kv_memory_gb": 16.1
-    },
-    {
-      "name": "NVIDIA T4 (16GB)",
-      "vram_gb": 16.0,
-      "bandwidth_tb_s": 0.32,
-      "tier_label": "Commodity",
-      "available_kv_memory_gb": 8.9
-    },
-    {
-      "name": "NVIDIA RTX 4060 (8GB)",
-      "vram_gb": 8.0,
-      "bandwidth_tb_s": 0.272,
-      "tier_label": "Consumer",
-      "available_kv_memory_gb": 1.7
+    "hardware_tiers": [
+      {
+        "name": "NVIDIA H100 SXM5",
+        "vram_gb": 80.0,
+        "bandwidth_gb_s": 3350.0,
+        "tier_label": "Frontier",
+        "available_kv_memory_gb": 67.985
+      },
+      {
+        "name": "NVIDIA A100 80GB PCIe/SXM",
+        "vram_gb": 80.0,
+        "bandwidth_gb_s": 2039.0,
+        "tier_label": "High-end",
+        "available_kv_memory_gb": 67.985
+      },
+      {
+        "name": "NVIDIA RTX 3090",
+        "vram_gb": 24.0,
+        "bandwidth_gb_s": 936.0,
+        "tier_label": "Workstation",
+        "available_kv_memory_gb": 17.585
+      },
+      {
+        "name": "NVIDIA T4",
+        "vram_gb": 16.0,
+        "bandwidth_gb_s": 320.0,
+        "tier_label": "Commodity",
+        "available_kv_memory_gb": 10.385
+      },
+      {
+        "name": "NVIDIA RTX 4060",
+        "vram_gb": 8.0,
+        "bandwidth_gb_s": 272.0,
+        "tier_label": "Consumer",
+        "available_kv_memory_gb": 3.1850000000000005
+      },
+      {
+        "name": "CPU Server (2x Xeon Platinum)",
+        "vram_gb": 128.0,
+        "bandwidth_gb_s": 200.0,
+        "tier_label": "CPU",
+        "available_kv_memory_gb": 111.185
+      }
+    ],
+    "simulation_constants": {
+      "memory_overhead_pct": 0.1,
+      "bandwidth_utilization": 0.7
     }
-  ],
+  },
   "kv_cache_analysis": {
     "batch_1": {
       "256": 0.03125,
@@ -119,245 +132,255 @@
   },
   "batch_size_analysis": {
     "Frontier": {
-      "256": 2128,
-      "512": 1064,
-      "1024": 532,
-      "2048": 266,
-      "4096": 133,
-      "8192": 66,
+      "256": 2175,
+      "512": 1087,
+      "1024": 543,
+      "2048": 271,
+      "4096": 135,
+      "8192": 67,
       "16384": 33,
       "32768": 16
     },
     "High-end": {
-      "256": 2128,
-      "512": 1064,
-      "1024": 532,
-      "2048": 266,
-      "4096": 133,
-      "8192": 66,
+      "256": 2175,
+      "512": 1087,
+      "1024": 543,
+      "2048": 271,
+      "4096": 135,
+      "8192": 67,
       "16384": 33,
       "32768": 16
     },
     "Workstation": {
-      "256": 515,
-      "512": 257,
-      "1024": 128,
-      "2048": 64,
-      "4096": 32,
-      "8192": 16,
+      "256": 562,
+      "512": 281,
+      "1024": 140,
+      "2048": 70,
+      "4096": 35,
+      "8192": 17,
       "16384": 8,
       "32768": 4
     },
     "Commodity": {
-      "256": 284,
-      "512": 142,
-      "1024": 71,
-      "2048": 35,
-      "4096": 17,
-      "8192": 8,
-      "16384": 4,
+      "256": 332,
+      "512": 166,
+      "1024": 83,
+      "2048": 41,
+      "4096": 20,
+      "8192": 10,
+      "16384": 5,
       "32768": 2
     },
     "Consumer": {
-      "256": 54,
-      "512": 27,
-      "1024": 13,
-      "2048": 6,
-      "4096": 3,
-      "8192": 1,
-      "16384": 0,
+      "256": 101,
+      "512": 50,
+      "1024": 25,
+      "2048": 12,
+      "4096": 6,
+      "8192": 3,
+      "16384": 1,
       "32768": 0
+    },
+    "CPU": {
+      "256": 3557,
+      "512": 1778,
+      "1024": 889,
+      "2048": 444,
+      "4096": 222,
+      "8192": 111,
+      "16384": 55,
+      "32768": 27
     }
   },
   "throughput_analysis": {
     "English": {
       "Frontier": {
         "bs_1_seq_256": {
-          "throughput": 329.85,
+          "throughput": 450.77,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 319.12,
+          "throughput": 435.07,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 306.97,
+          "throughput": 416.59,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 291.87,
+          "throughput": 392.6,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 271.28,
+          "throughput": 359.05,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 241.94,
+          "throughput": 311.5,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 201.48,
+          "throughput": 248.85,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 152.06,
+          "throughput": 178.27,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 1310.88,
+          "throughput": 1787.19,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 1260.2,
+          "throughput": 1710.19,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 1197.39,
+          "throughput": 1610.65,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 1112.21,
+          "throughput": 1472.02,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 991.3,
+          "throughput": 1276.3,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 825.06,
+          "throughput": 1019.08,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 622.38,
+          "throughput": 729.66,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 417.91,
+          "throughput": 464.87,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 5176.63,
+          "throughput": 7024.96,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 4915.57,
+          "throughput": 6612.13,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 4562.81,
+          "throughput": 6038.95,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 4064.05,
+          "throughput": 5232.42,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 3380.54,
+          "throughput": 4175.45,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 2548.71,
+          "throughput": 2988.03,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 1710.47,
+          "throughput": 1902.68,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 1028.16,
+          "throughput": 1096.28,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 20191.21,
+          "throughput": 27159.22,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 18731.46,
+          "throughput": 24791.38,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 16672.69,
+          "throughput": 21465.93,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 13858.88,
+          "throughput": 17117.45,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 10442.64,
+          "throughput": 12242.56,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 7004.58,
+          "throughput": 7791.69,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 4208.18,
+          "throughput": 4486.96,
           "oom": false
         },
         "bs_8_seq_32768": {
-          "throughput": 2323.69,
+          "throughput": 2408.23,
           "oom": false
         },
         "bs_16_seq_256": {
-          "throughput": 76935.57,
+          "throughput": 101820.14,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 68445.48,
+          "throughput": 88122.89,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 56855.81,
+          "throughput": 70224.05,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 42809.25,
+          "throughput": 50187.1,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 28698.88,
+          "throughput": 31923.56,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 17232.98,
+          "throughput": 18374.65,
           "oom": false
         },
         "bs_16_seq_16384": {
-          "throughput": 9510.66,
+          "throughput": 9856.68,
           "oom": false
         },
         "bs_16_seq_32768": {
-          "throughput": 4970.52,
+          "throughput": 5065.62,
           "oom": false
         },
         "bs_32_seq_256": {
-          "throughput": 281088.17,
+          "throughput": 361867.76,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 233406.96,
+          "throughput": 288286.84,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 175624.21,
+          "throughput": 205891.72,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 117645.82,
+          "throughput": 130862.82,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 70605.16,
+          "throughput": 75282.28,
           "oom": false
         },
         "bs_32_seq_8192": {
-          "throughput": 38947.27,
+          "throughput": 40364.29,
           "oom": false
         },
         "bs_32_seq_16384": {
-          "throughput": 20343.88,
+          "throughput": 20733.11,
           "oom": false
         },
         "bs_32_seq_32768": {
@@ -365,27 +388,27 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 958344.64,
+          "throughput": 1183536.43,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 720980.19,
+          "throughput": 845235.72,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 482639.95,
+          "throughput": 536862.49,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 289424.08,
+          "throughput": 308593.17,
           "oom": false
         },
         "bs_64_seq_4096": {
-          "throughput": 159568.96,
+          "throughput": 165374.0,
           "oom": false
         },
         "bs_64_seq_8192": {
-          "throughput": 83310.62,
+          "throughput": 84904.56,
           "oom": false
         },
         "bs_64_seq_16384": {
@@ -399,191 +422,191 @@
       },
       "High-end": {
         "bs_1_seq_256": {
-          "throughput": 196.93,
+          "throughput": 274.36,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 190.52,
+          "throughput": 264.81,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 183.27,
+          "throughput": 253.56,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 174.25,
+          "throughput": 238.96,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 161.96,
+          "throughput": 218.54,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 144.44,
+          "throughput": 189.59,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 120.28,
+          "throughput": 151.47,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 90.78,
+          "throughput": 108.51,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 782.62,
+          "throughput": 1087.78,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 752.36,
+          "throughput": 1040.92,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 714.86,
+          "throughput": 980.34,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 664.0,
+          "throughput": 895.96,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 591.82,
+          "throughput": 776.83,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 492.58,
+          "throughput": 620.27,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 371.57,
+          "throughput": 444.11,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 249.5,
+          "throughput": 282.95,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 3090.52,
+          "throughput": 4275.79,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 2934.67,
+          "throughput": 4024.52,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 2724.07,
+          "throughput": 3675.65,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 2426.3,
+          "throughput": 3184.75,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 2018.23,
+          "throughput": 2541.42,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 1521.62,
+          "throughput": 1818.69,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 1021.18,
+          "throughput": 1158.08,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 613.83,
+          "throughput": 667.26,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 12054.45,
+          "throughput": 16530.64,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 11182.96,
+          "throughput": 15089.44,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 9953.85,
+          "throughput": 13065.38,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 8273.96,
+          "throughput": 10418.65,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 6234.41,
+          "throughput": 7451.51,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 4181.84,
+          "throughput": 4742.47,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 2512.34,
+          "throughput": 2731.02,
           "oom": false
         },
         "bs_8_seq_32768": {
-          "throughput": 1387.28,
+          "throughput": 1465.79,
           "oom": false
         },
         "bs_16_seq_256": {
-          "throughput": 45931.69,
+          "throughput": 61973.51,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 40862.97,
+          "throughput": 53636.59,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 33943.77,
+          "throughput": 42742.34,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 25557.76,
+          "throughput": 30546.72,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 17133.66,
+          "throughput": 19430.49,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 10288.35,
+          "throughput": 11183.86,
           "oom": false
         },
         "bs_16_seq_16384": {
-          "throughput": 5678.0,
+          "throughput": 5999.34,
           "oom": false
         },
         "bs_16_seq_32768": {
-          "throughput": 2967.48,
+          "throughput": 3083.22,
           "oom": false
         },
         "bs_32_seq_256": {
-          "throughput": 167813.83,
+          "throughput": 220253.24,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 139347.44,
+          "throughput": 175467.72,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 104850.27,
+          "throughput": 125317.38,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 70236.31,
+          "throughput": 79650.54,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 42152.33,
+          "throughput": 45821.07,
           "oom": false
         },
         "bs_32_seq_8192": {
-          "throughput": 23252.1,
+          "throughput": 24568.0,
           "oom": false
         },
         "bs_32_seq_16384": {
-          "throughput": 12145.6,
+          "throughput": 12619.35,
           "oom": false
         },
         "bs_32_seq_32768": {
@@ -591,27 +614,27 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 572146.05,
+          "throughput": 720367.4,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 430435.93,
+          "throughput": 514458.4,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 288143.25,
+          "throughput": 326764.96,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 172790.5,
+          "throughput": 187827.3,
           "oom": false
         },
         "bs_64_seq_4096": {
-          "throughput": 95265.05,
+          "throughput": 100656.0,
           "oom": false
         },
         "bs_64_seq_8192": {
-          "throughput": 49737.68,
+          "throughput": 51677.73,
           "oom": false
         },
         "bs_64_seq_16384": {
@@ -625,127 +648,127 @@
       },
       "Workstation": {
         "bs_1_seq_256": {
-          "throughput": 92.16,
+          "throughput": 125.95,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 89.16,
+          "throughput": 121.56,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 85.77,
+          "throughput": 116.4,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 81.55,
+          "throughput": 109.69,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 75.8,
+          "throughput": 100.32,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 67.6,
+          "throughput": 87.03,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 56.29,
+          "throughput": 69.53,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 42.49,
+          "throughput": 49.81,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 366.27,
+          "throughput": 499.35,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 352.1,
+          "throughput": 477.83,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 334.55,
+          "throughput": 450.02,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 310.75,
+          "throughput": 411.29,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 276.97,
+          "throughput": 356.6,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 230.53,
+          "throughput": 284.73,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 173.89,
+          "throughput": 203.87,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 116.77,
+          "throughput": 129.89,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 1446.37,
+          "throughput": 1962.79,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 1373.42,
+          "throughput": 1847.45,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 1274.86,
+          "throughput": 1687.3,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 1135.51,
+          "throughput": 1461.96,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 944.53,
+          "throughput": 1166.63,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 712.12,
+          "throughput": 834.87,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 477.91,
+          "throughput": 531.61,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 287.27,
+          "throughput": 306.3,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 5641.48,
+          "throughput": 7588.37,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 5233.63,
+          "throughput": 6926.79,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 4658.4,
+          "throughput": 5997.65,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 3872.21,
+          "throughput": 4782.67,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 2917.71,
+          "throughput": 3420.61,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 1957.1,
+          "throughput": 2177.02,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 1175.78,
+          "throughput": 1253.67,
           "oom": false
         },
         "bs_8_seq_32768": {
@@ -753,27 +776,27 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 21496.03,
+          "throughput": 28448.85,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 19123.87,
+          "throughput": 24621.8,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 15885.68,
+          "throughput": 19620.81,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 11961.03,
+          "throughput": 14022.43,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 8018.55,
+          "throughput": 8919.54,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 4814.95,
+          "throughput": 5133.93,
           "oom": false
         },
         "bs_16_seq_16384": {
@@ -785,23 +808,23 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 78536.87,
+          "throughput": 101106.93,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 65214.6,
+          "throughput": 80548.2,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 49069.93,
+          "throughput": 57526.76,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 32870.59,
+          "throughput": 36563.46,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 19727.29,
+          "throughput": 21034.09,
           "oom": false
         },
         "bs_32_seq_8192": {
@@ -817,19 +840,19 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 267764.35,
+          "throughput": 330683.61,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 201444.02,
+          "throughput": 236161.38,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 134851.04,
+          "throughput": 150000.98,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 80865.95,
+          "throughput": 86221.85,
           "oom": false
         },
         "bs_64_seq_4096": {
@@ -851,95 +874,95 @@
       },
       "Commodity": {
         "bs_1_seq_256": {
-          "throughput": 31.51,
+          "throughput": 43.06,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 30.48,
+          "throughput": 41.56,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 29.32,
+          "throughput": 39.79,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 27.88,
+          "throughput": 37.5,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 25.91,
+          "throughput": 34.3,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 23.11,
+          "throughput": 29.75,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 19.25,
+          "throughput": 23.77,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 14.53,
+          "throughput": 17.03,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 125.22,
+          "throughput": 170.72,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 120.38,
+          "throughput": 163.36,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 114.38,
+          "throughput": 153.85,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 106.24,
+          "throughput": 140.61,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 94.69,
+          "throughput": 121.92,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 78.81,
+          "throughput": 97.35,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 59.45,
+          "throughput": 69.7,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 39.92,
+          "throughput": 44.41,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 494.48,
+          "throughput": 671.04,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 469.55,
+          "throughput": 631.61,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 435.85,
+          "throughput": 576.86,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 388.21,
+          "throughput": 499.81,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 322.92,
+          "throughput": 398.85,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 243.46,
+          "throughput": 285.42,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 163.39,
+          "throughput": 181.75,
           "oom": false
         },
         "bs_4_seq_32768": {
@@ -947,27 +970,27 @@
           "oom": true
         },
         "bs_8_seq_256": {
-          "throughput": 1928.71,
+          "throughput": 2594.31,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 1789.27,
+          "throughput": 2368.13,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 1592.62,
+          "throughput": 2050.48,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 1323.83,
+          "throughput": 1635.1,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 997.51,
+          "throughput": 1169.44,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 669.09,
+          "throughput": 744.28,
           "oom": false
         },
         "bs_8_seq_16384": {
@@ -979,23 +1002,23 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 7349.07,
+          "throughput": 9726.1,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 6538.08,
+          "throughput": 8417.71,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 5431.0,
+          "throughput": 6707.97,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 4089.24,
+          "throughput": 4793.99,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 2741.39,
+          "throughput": 3049.41,
           "oom": false
         },
         "bs_16_seq_8192": {
@@ -1011,19 +1034,19 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 26850.21,
+          "throughput": 34566.47,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 22295.59,
+          "throughput": 27537.85,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 16776.04,
+          "throughput": 19667.27,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 11237.81,
+          "throughput": 12500.33,
           "oom": false
         },
         "bs_32_seq_4096": {
@@ -1043,15 +1066,15 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 91543.37,
+          "throughput": 113054.23,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 68869.75,
+          "throughput": 80738.93,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 46102.92,
+          "throughput": 51282.39,
           "oom": false
         },
         "bs_64_seq_2048": {
@@ -1077,60 +1100,60 @@
       },
       "Consumer": {
         "bs_1_seq_256": {
-          "throughput": 26.78,
+          "throughput": 36.6,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 25.91,
+          "throughput": 35.32,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 24.92,
+          "throughput": 33.82,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 23.7,
+          "throughput": 31.88,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 22.03,
+          "throughput": 29.15,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 19.64,
+          "throughput": 25.29,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 20.21,
+          "oom": false
         },
         "bs_1_seq_32768": {
           "throughput": 0.0,
           "oom": true
         },
         "bs_2_seq_256": {
-          "throughput": 106.44,
+          "throughput": 145.11,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 102.32,
+          "throughput": 138.86,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 97.22,
+          "throughput": 130.78,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 90.3,
+          "throughput": 119.52,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 80.49,
+          "throughput": 103.63,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 82.74,
+          "oom": false
         },
         "bs_2_seq_16384": {
           "throughput": 0.0,
@@ -1141,24 +1164,24 @@
           "oom": true
         },
         "bs_4_seq_256": {
-          "throughput": 420.31,
+          "throughput": 570.38,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 399.11,
+          "throughput": 536.87,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 370.47,
+          "throughput": 490.33,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 329.98,
+          "throughput": 424.84,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 339.02,
+          "oom": false
         },
         "bs_4_seq_8192": {
           "throughput": 0.0,
@@ -1173,20 +1196,20 @@
           "oom": true
         },
         "bs_8_seq_256": {
-          "throughput": 1639.41,
+          "throughput": 2205.17,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 1520.88,
+          "throughput": 2012.91,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 1353.72,
+          "throughput": 1742.91,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 1389.83,
+          "oom": false
         },
         "bs_8_seq_4096": {
           "throughput": 0.0,
@@ -1205,16 +1228,16 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 6246.71,
+          "throughput": 8267.19,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 5557.36,
+          "throughput": 7155.05,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 5701.77,
+          "oom": false
         },
         "bs_16_seq_2048": {
           "throughput": 0.0,
@@ -1237,12 +1260,12 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 22822.68,
+          "throughput": 29381.5,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 23407.17,
+          "oom": false
         },
         "bs_32_seq_1024": {
           "throughput": 0.0,
@@ -1269,8 +1292,8 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 96096.09,
+          "oom": false
         },
         "bs_64_seq_512": {
           "throughput": 0.0,
@@ -1291,6 +1314,232 @@
         "bs_64_seq_8192": {
           "throughput": 0.0,
           "oom": true
+        },
+        "bs_64_seq_16384": {
+          "throughput": 0.0,
+          "oom": true
+        },
+        "bs_64_seq_32768": {
+          "throughput": 0.0,
+          "oom": true
+        }
+      },
+      "CPU": {
+        "bs_1_seq_256": {
+          "throughput": 26.91,
+          "oom": false
+        },
+        "bs_1_seq_512": {
+          "throughput": 25.97,
+          "oom": false
+        },
+        "bs_1_seq_1024": {
+          "throughput": 24.87,
+          "oom": false
+        },
+        "bs_1_seq_2048": {
+          "throughput": 23.44,
+          "oom": false
+        },
+        "bs_1_seq_4096": {
+          "throughput": 21.44,
+          "oom": false
+        },
+        "bs_1_seq_8192": {
+          "throughput": 18.6,
+          "oom": false
+        },
+        "bs_1_seq_16384": {
+          "throughput": 14.86,
+          "oom": false
+        },
+        "bs_1_seq_32768": {
+          "throughput": 10.64,
+          "oom": false
+        },
+        "bs_2_seq_256": {
+          "throughput": 106.7,
+          "oom": false
+        },
+        "bs_2_seq_512": {
+          "throughput": 102.1,
+          "oom": false
+        },
+        "bs_2_seq_1024": {
+          "throughput": 96.16,
+          "oom": false
+        },
+        "bs_2_seq_2048": {
+          "throughput": 87.88,
+          "oom": false
+        },
+        "bs_2_seq_4096": {
+          "throughput": 76.2,
+          "oom": false
+        },
+        "bs_2_seq_8192": {
+          "throughput": 60.84,
+          "oom": false
+        },
+        "bs_2_seq_16384": {
+          "throughput": 43.56,
+          "oom": false
+        },
+        "bs_2_seq_32768": {
+          "throughput": 27.75,
+          "oom": false
+        },
+        "bs_4_seq_256": {
+          "throughput": 419.4,
+          "oom": false
+        },
+        "bs_4_seq_512": {
+          "throughput": 394.75,
+          "oom": false
+        },
+        "bs_4_seq_1024": {
+          "throughput": 360.53,
+          "oom": false
+        },
+        "bs_4_seq_2048": {
+          "throughput": 312.38,
+          "oom": false
+        },
+        "bs_4_seq_4096": {
+          "throughput": 249.28,
+          "oom": false
+        },
+        "bs_4_seq_8192": {
+          "throughput": 178.39,
+          "oom": false
+        },
+        "bs_4_seq_16384": {
+          "throughput": 113.59,
+          "oom": false
+        },
+        "bs_4_seq_32768": {
+          "throughput": 65.45,
+          "oom": false
+        },
+        "bs_8_seq_256": {
+          "throughput": 1621.45,
+          "oom": false
+        },
+        "bs_8_seq_512": {
+          "throughput": 1480.08,
+          "oom": false
+        },
+        "bs_8_seq_1024": {
+          "throughput": 1281.55,
+          "oom": false
+        },
+        "bs_8_seq_2048": {
+          "throughput": 1021.94,
+          "oom": false
+        },
+        "bs_8_seq_4096": {
+          "throughput": 730.9,
+          "oom": false
+        },
+        "bs_8_seq_8192": {
+          "throughput": 465.18,
+          "oom": false
+        },
+        "bs_8_seq_16384": {
+          "throughput": 267.88,
+          "oom": false
+        },
+        "bs_8_seq_32768": {
+          "throughput": 143.78,
+          "oom": false
+        },
+        "bs_16_seq_256": {
+          "throughput": 6078.81,
+          "oom": false
+        },
+        "bs_16_seq_512": {
+          "throughput": 5261.07,
+          "oom": false
+        },
+        "bs_16_seq_1024": {
+          "throughput": 4192.48,
+          "oom": false
+        },
+        "bs_16_seq_2048": {
+          "throughput": 2996.24,
+          "oom": false
+        },
+        "bs_16_seq_4096": {
+          "throughput": 1905.88,
+          "oom": false
+        },
+        "bs_16_seq_8192": {
+          "throughput": 1096.99,
+          "oom": false
+        },
+        "bs_16_seq_16384": {
+          "throughput": 588.46,
+          "oom": false
+        },
+        "bs_16_seq_32768": {
+          "throughput": 302.43,
+          "oom": false
+        },
+        "bs_32_seq_256": {
+          "throughput": 21604.05,
+          "oom": false
+        },
+        "bs_32_seq_512": {
+          "throughput": 17211.15,
+          "oom": false
+        },
+        "bs_32_seq_1024": {
+          "throughput": 12292.04,
+          "oom": false
+        },
+        "bs_32_seq_2048": {
+          "throughput": 7812.71,
+          "oom": false
+        },
+        "bs_32_seq_4096": {
+          "throughput": 4494.46,
+          "oom": false
+        },
+        "bs_32_seq_8192": {
+          "throughput": 2409.81,
+          "oom": false
+        },
+        "bs_32_seq_16384": {
+          "throughput": 1237.8,
+          "oom": false
+        },
+        "bs_32_seq_32768": {
+          "throughput": 0.0,
+          "oom": true
+        },
+        "bs_64_seq_256": {
+          "throughput": 70658.89,
+          "oom": false
+        },
+        "bs_64_seq_512": {
+          "throughput": 50461.83,
+          "oom": false
+        },
+        "bs_64_seq_1024": {
+          "throughput": 32051.49,
+          "oom": false
+        },
+        "bs_64_seq_2048": {
+          "throughput": 18423.47,
+          "oom": false
+        },
+        "bs_64_seq_4096": {
+          "throughput": 9873.07,
+          "oom": false
+        },
+        "bs_64_seq_8192": {
+          "throughput": 5068.93,
+          "oom": false
         },
         "bs_64_seq_16384": {
           "throughput": 0.0,
@@ -1305,191 +1554,191 @@
     "Swahili": {
       "Frontier": {
         "bs_1_seq_256": {
-          "throughput": 318.82,
+          "throughput": 434.62,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 306.63,
+          "throughput": 416.06,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 291.44,
+          "throughput": 391.9,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 270.67,
+          "throughput": 358.05,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 241.07,
+          "throughput": 310.11,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 200.33,
+          "throughput": 247.14,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 150.78,
+          "throughput": 176.53,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 101.0,
+          "throughput": 112.22,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 1258.72,
+          "throughput": 1707.88,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 1195.55,
+          "throughput": 1607.69,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 1109.69,
+          "throughput": 1467.91,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 987.73,
+          "throughput": 1270.61,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 820.37,
+          "throughput": 1012.06,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 617.12,
+          "throughput": 722.52,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 413.18,
+          "throughput": 459.05,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 247.88,
+          "throughput": 264.07,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 4907.56,
+          "throughput": 6599.25,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 4552.15,
+          "throughput": 6021.56,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 4049.34,
+          "throughput": 5208.99,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 3361.24,
+          "throughput": 4146.63,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 2527.16,
+          "throughput": 2958.76,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 1691.06,
+          "throughput": 1878.81,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 1014.01,
+          "throughput": 1080.25,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 559.26,
+          "throughput": 579.29,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 18685.27,
+          "throughput": 24716.13,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 16610.59,
+          "throughput": 21367.09,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 13779.54,
+          "throughput": 16999.05,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 10354.22,
+          "throughput": 12122.46,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 6924.99,
+          "throughput": 7693.84,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 4150.12,
+          "throughput": 4421.19,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 2287.79,
+          "throughput": 2369.74,
           "oom": false
         },
         "bs_8_seq_32768": {
-          "throughput": 1195.05,
+          "throughput": 1217.55,
           "oom": false
         },
         "bs_16_seq_256": {
-          "throughput": 68177.16,
+          "throughput": 87696.26,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 56521.51,
+          "throughput": 69725.39,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 42446.17,
+          "throughput": 49694.09,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 28372.39,
+          "throughput": 31522.21,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 16995.02,
+          "throughput": 18105.06,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 9363.35,
+          "throughput": 9698.76,
           "oom": false
         },
         "bs_16_seq_16384": {
-          "throughput": 4888.65,
+          "throughput": 4980.67,
           "oom": false
         },
         "bs_16_seq_32768": {
-          "throughput": 2474.77,
+          "throughput": 2498.67,
           "oom": false
         },
         "bs_32_seq_256": {
-          "throughput": 231965.33,
+          "throughput": 286137.7,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 174095.78,
+          "throughput": 203816.93,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 116305.84,
+          "throughput": 129215.89,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 69629.27,
+          "throughput": 74176.77,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 38343.53,
+          "throughput": 39717.03,
           "oom": false
         },
         "bs_32_seq_8192": {
-          "throughput": 20008.04,
+          "throughput": 20384.63,
           "oom": false
         },
         "bs_32_seq_16384": {
-          "throughput": 10123.66,
+          "throughput": 10221.42,
           "oom": false
         },
         "bs_32_seq_32768": {
@@ -1497,27 +1746,27 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 714396.3,
+          "throughput": 836301.33,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 477002.3,
+          "throughput": 529934.49,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 285420.02,
+          "throughput": 304057.64,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 157093.36,
+          "throughput": 162720.03,
           "oom": false
         },
         "bs_64_seq_4096": {
-          "throughput": 81934.19,
+          "throughput": 83476.34,
           "oom": false
         },
         "bs_64_seq_8192": {
-          "throughput": 41433.57,
+          "throughput": 41833.68,
           "oom": false
         },
         "bs_64_seq_16384": {
@@ -1531,191 +1780,191 @@
       },
       "High-end": {
         "bs_1_seq_256": {
-          "throughput": 190.34,
+          "throughput": 264.53,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 183.07,
+          "throughput": 253.24,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 173.99,
+          "throughput": 238.54,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 161.6,
+          "throughput": 217.93,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 143.92,
+          "throughput": 188.75,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 119.6,
+          "throughput": 150.42,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 90.02,
+          "throughput": 107.45,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 60.3,
+          "throughput": 68.3,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 751.47,
+          "throughput": 1039.52,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 713.76,
+          "throughput": 978.53,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 662.5,
+          "throughput": 893.45,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 589.69,
+          "throughput": 773.36,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 489.77,
+          "throughput": 616.0,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 368.43,
+          "throughput": 439.77,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 246.68,
+          "throughput": 279.41,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 147.99,
+          "throughput": 160.73,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 2929.89,
+          "throughput": 4016.68,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 2717.7,
+          "throughput": 3665.06,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 2417.51,
+          "throughput": 3170.48,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 2006.71,
+          "throughput": 2523.87,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 1508.75,
+          "throughput": 1800.87,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 1009.59,
+          "throughput": 1143.55,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 605.38,
+          "throughput": 657.5,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 333.89,
+          "throughput": 352.59,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 11155.38,
+          "throughput": 15043.64,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 9916.77,
+          "throughput": 13005.22,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 8226.59,
+          "throughput": 10346.59,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 6181.63,
+          "throughput": 7378.42,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 4134.32,
+          "throughput": 4682.91,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 2477.69,
+          "throughput": 2690.99,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 1365.84,
+          "throughput": 1442.36,
           "oom": false
         },
         "bs_8_seq_32768": {
-          "throughput": 713.46,
+          "throughput": 741.07,
           "oom": false
         },
         "bs_16_seq_256": {
-          "throughput": 40702.78,
+          "throughput": 53376.92,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 33744.18,
+          "throughput": 42438.83,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 25341.0,
+          "throughput": 30246.64,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 16938.74,
+          "throughput": 19186.21,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 10146.28,
+          "throughput": 11019.77,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 5590.06,
+          "throughput": 5903.21,
           "oom": false
         },
         "bs_16_seq_16384": {
-          "throughput": 2918.6,
+          "throughput": 3031.52,
           "oom": false
         },
         "bs_16_seq_32768": {
-          "throughput": 1477.48,
+          "throughput": 1520.83,
           "oom": false
         },
         "bs_32_seq_256": {
-          "throughput": 138486.77,
+          "throughput": 174159.63,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 103937.78,
+          "throughput": 124054.54,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 69436.32,
+          "throughput": 78648.12,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 41569.71,
+          "throughput": 45148.19,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 22891.66,
+          "throughput": 24174.03,
           "oom": false
         },
         "bs_32_seq_8192": {
-          "throughput": 11945.1,
+          "throughput": 12407.24,
           "oom": false
         },
         "bs_32_seq_16384": {
-          "throughput": 6043.98,
+          "throughput": 6221.34,
           "oom": false
         },
         "bs_32_seq_32768": {
@@ -1723,27 +1972,27 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 426505.26,
+          "throughput": 509020.42,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 284777.5,
+          "throughput": 322548.19,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 170400.01,
+          "throughput": 185066.73,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 93787.08,
+          "throughput": 99040.64,
           "oom": false
         },
         "bs_64_seq_4096": {
-          "throughput": 48915.93,
+          "throughput": 50808.44,
           "oom": false
         },
         "bs_64_seq_8192": {
-          "throughput": 24736.46,
+          "throughput": 25462.35,
           "oom": false
         },
         "bs_64_seq_16384": {
@@ -1757,127 +2006,127 @@
       },
       "Workstation": {
         "bs_1_seq_256": {
-          "throughput": 89.08,
+          "throughput": 121.43,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 85.67,
+          "throughput": 116.25,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 81.43,
+          "throughput": 109.5,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 75.63,
+          "throughput": 100.04,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 67.36,
+          "throughput": 86.65,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 55.97,
+          "throughput": 69.05,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 42.13,
+          "throughput": 49.32,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 28.22,
+          "throughput": 31.35,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 351.69,
+          "throughput": 477.19,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 334.04,
+          "throughput": 449.19,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 310.05,
+          "throughput": 410.14,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 275.97,
+          "throughput": 355.01,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 229.21,
+          "throughput": 282.77,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 172.43,
+          "throughput": 201.87,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 115.44,
+          "throughput": 128.26,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 69.26,
+          "throughput": 73.78,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 1371.19,
+          "throughput": 1843.85,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 1271.88,
+          "throughput": 1682.44,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 1131.4,
+          "throughput": 1455.41,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 939.14,
+          "throughput": 1158.58,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 706.1,
+          "throughput": 826.69,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 472.49,
+          "throughput": 524.94,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 283.32,
+          "throughput": 301.82,
           "oom": false
         },
         "bs_4_seq_32768": {
-          "throughput": 156.26,
+          "throughput": 161.86,
           "oom": false
         },
         "bs_8_seq_256": {
-          "throughput": 5220.72,
+          "throughput": 6905.76,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 4641.05,
+          "throughput": 5970.03,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 3850.04,
+          "throughput": 4749.59,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 2893.0,
+          "throughput": 3387.05,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 1934.86,
+          "throughput": 2149.68,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 1159.56,
+          "throughput": 1235.29,
           "oom": false
         },
         "bs_8_seq_16384": {
-          "throughput": 639.21,
+          "throughput": 662.11,
           "oom": false
         },
         "bs_8_seq_32768": {
@@ -1885,27 +2134,27 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 19048.9,
+          "throughput": 24502.6,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 15792.28,
+          "throughput": 19481.48,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 11859.59,
+          "throughput": 13884.68,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 7927.33,
+          "throughput": 8807.4,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 4748.46,
+          "throughput": 5058.61,
           "oom": false
         },
         "bs_16_seq_8192": {
-          "throughput": 2616.15,
+          "throughput": 2709.86,
           "oom": false
         },
         "bs_16_seq_16384": {
@@ -1917,23 +2166,23 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 64811.81,
+          "throughput": 79947.73,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 48642.88,
+          "throughput": 56947.06,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 32496.2,
+          "throughput": 36103.3,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 19454.63,
+          "throughput": 20725.21,
           "oom": false
         },
         "bs_32_seq_4096": {
-          "throughput": 10713.3,
+          "throughput": 11097.06,
           "oom": false
         },
         "bs_32_seq_8192": {
@@ -1949,19 +2198,19 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 199604.46,
+          "throughput": 233665.09,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 133275.87,
+          "throughput": 148065.28,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 79747.2,
+          "throughput": 84954.61,
           "oom": false
         },
         "bs_64_seq_2048": {
-          "throughput": 43892.35,
+          "throughput": 45464.46,
           "oom": false
         },
         "bs_64_seq_4096": {
@@ -1983,95 +2232,95 @@
       },
       "Commodity": {
         "bs_1_seq_256": {
-          "throughput": 30.45,
+          "throughput": 41.52,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 29.29,
+          "throughput": 39.74,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 27.84,
+          "throughput": 37.44,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 25.86,
+          "throughput": 34.2,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 23.03,
+          "throughput": 29.62,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 19.14,
+          "throughput": 23.61,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 14.4,
+          "throughput": 16.86,
           "oom": false
         },
         "bs_1_seq_32768": {
-          "throughput": 9.65,
+          "throughput": 10.72,
           "oom": false
         },
         "bs_2_seq_256": {
-          "throughput": 120.24,
+          "throughput": 163.14,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 114.2,
+          "throughput": 153.57,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 106.0,
+          "throughput": 140.22,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 94.35,
+          "throughput": 121.37,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 78.36,
+          "throughput": 96.67,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 58.95,
+          "throughput": 69.02,
           "oom": false
         },
         "bs_2_seq_16384": {
-          "throughput": 39.47,
+          "throughput": 43.85,
           "oom": false
         },
         "bs_2_seq_32768": {
-          "throughput": 23.68,
+          "throughput": 25.22,
           "oom": false
         },
         "bs_4_seq_256": {
-          "throughput": 468.78,
+          "throughput": 630.38,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 434.83,
+          "throughput": 575.19,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 386.8,
+          "throughput": 497.57,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 321.07,
+          "throughput": 396.1,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 241.4,
+          "throughput": 282.63,
           "oom": false
         },
         "bs_4_seq_8192": {
-          "throughput": 161.53,
+          "throughput": 179.47,
           "oom": false
         },
         "bs_4_seq_16384": {
-          "throughput": 96.86,
+          "throughput": 103.19,
           "oom": false
         },
         "bs_4_seq_32768": {
@@ -2079,27 +2328,27 @@
           "oom": true
         },
         "bs_8_seq_256": {
-          "throughput": 1784.86,
+          "throughput": 2360.94,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 1586.68,
+          "throughput": 2041.04,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 1316.25,
+          "throughput": 1623.79,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 989.06,
+          "throughput": 1157.97,
           "oom": false
         },
         "bs_8_seq_4096": {
-          "throughput": 661.49,
+          "throughput": 734.93,
           "oom": false
         },
         "bs_8_seq_8192": {
-          "throughput": 396.43,
+          "throughput": 422.32,
           "oom": false
         },
         "bs_8_seq_16384": {
@@ -2111,23 +2360,23 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 6512.45,
+          "throughput": 8376.96,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 5399.07,
+          "throughput": 6660.34,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 4054.56,
+          "throughput": 4746.9,
           "oom": false
         },
         "bs_16_seq_2048": {
-          "throughput": 2710.2,
+          "throughput": 3011.08,
           "oom": false
         },
         "bs_16_seq_4096": {
-          "throughput": 1623.4,
+          "throughput": 1729.44,
           "oom": false
         },
         "bs_16_seq_8192": {
@@ -2143,19 +2392,19 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 22157.88,
+          "throughput": 27332.56,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 16630.04,
+          "throughput": 19469.08,
           "oom": false
         },
         "bs_32_seq_1024": {
-          "throughput": 11109.81,
+          "throughput": 12343.01,
           "oom": false
         },
         "bs_32_seq_2048": {
-          "throughput": 6651.15,
+          "throughput": 7085.54,
           "oom": false
         },
         "bs_32_seq_4096": {
@@ -2175,15 +2424,15 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 68240.84,
+          "throughput": 79885.5,
           "oom": false
         },
         "bs_64_seq_512": {
-          "throughput": 45564.4,
+          "throughput": 50620.61,
           "oom": false
         },
         "bs_64_seq_1024": {
-          "throughput": 27264.0,
+          "throughput": 29044.31,
           "oom": false
         },
         "bs_64_seq_2048": {
@@ -2209,60 +2458,60 @@
       },
       "Consumer": {
         "bs_1_seq_256": {
-          "throughput": 25.89,
+          "throughput": 35.29,
           "oom": false
         },
         "bs_1_seq_512": {
-          "throughput": 24.9,
+          "throughput": 33.78,
           "oom": false
         },
         "bs_1_seq_1024": {
-          "throughput": 23.66,
+          "throughput": 31.82,
           "oom": false
         },
         "bs_1_seq_2048": {
-          "throughput": 21.98,
+          "throughput": 29.07,
           "oom": false
         },
         "bs_1_seq_4096": {
-          "throughput": 19.57,
+          "throughput": 25.18,
           "oom": false
         },
         "bs_1_seq_8192": {
-          "throughput": 16.27,
+          "throughput": 20.07,
           "oom": false
         },
         "bs_1_seq_16384": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 14.33,
+          "oom": false
         },
         "bs_1_seq_32768": {
           "throughput": 0.0,
           "oom": true
         },
         "bs_2_seq_256": {
-          "throughput": 102.2,
+          "throughput": 138.67,
           "oom": false
         },
         "bs_2_seq_512": {
-          "throughput": 97.07,
+          "throughput": 130.53,
           "oom": false
         },
         "bs_2_seq_1024": {
-          "throughput": 90.1,
+          "throughput": 119.19,
           "oom": false
         },
         "bs_2_seq_2048": {
-          "throughput": 80.2,
+          "throughput": 103.17,
           "oom": false
         },
         "bs_2_seq_4096": {
-          "throughput": 66.61,
+          "throughput": 82.17,
           "oom": false
         },
         "bs_2_seq_8192": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 58.66,
+          "oom": false
         },
         "bs_2_seq_16384": {
           "throughput": 0.0,
@@ -2273,24 +2522,24 @@
           "oom": true
         },
         "bs_4_seq_256": {
-          "throughput": 398.46,
+          "throughput": 535.82,
           "oom": false
         },
         "bs_4_seq_512": {
-          "throughput": 369.61,
+          "throughput": 488.91,
           "oom": false
         },
         "bs_4_seq_1024": {
-          "throughput": 328.78,
+          "throughput": 422.94,
           "oom": false
         },
         "bs_4_seq_2048": {
-          "throughput": 272.91,
+          "throughput": 336.68,
           "oom": false
         },
         "bs_4_seq_4096": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 240.23,
+          "oom": false
         },
         "bs_4_seq_8192": {
           "throughput": 0.0,
@@ -2305,20 +2554,20 @@
           "oom": true
         },
         "bs_8_seq_256": {
-          "throughput": 1517.13,
+          "throughput": 2006.8,
           "oom": false
         },
         "bs_8_seq_512": {
-          "throughput": 1348.68,
+          "throughput": 1734.88,
           "oom": false
         },
         "bs_8_seq_1024": {
-          "throughput": 1118.82,
+          "throughput": 1380.22,
           "oom": false
         },
         "bs_8_seq_2048": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 984.27,
+          "oom": false
         },
         "bs_8_seq_4096": {
           "throughput": 0.0,
@@ -2337,16 +2586,16 @@
           "oom": true
         },
         "bs_16_seq_256": {
-          "throughput": 5535.58,
+          "throughput": 7120.41,
           "oom": false
         },
         "bs_16_seq_512": {
-          "throughput": 4589.21,
+          "throughput": 5661.29,
           "oom": false
         },
         "bs_16_seq_1024": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 4034.86,
+          "oom": false
         },
         "bs_16_seq_2048": {
           "throughput": 0.0,
@@ -2369,12 +2618,12 @@
           "oom": true
         },
         "bs_32_seq_256": {
-          "throughput": 18834.2,
+          "throughput": 23232.67,
           "oom": false
         },
         "bs_32_seq_512": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 16548.72,
+          "oom": false
         },
         "bs_32_seq_1024": {
           "throughput": 0.0,
@@ -2401,8 +2650,8 @@
           "oom": true
         },
         "bs_64_seq_256": {
-          "throughput": 0.0,
-          "oom": true
+          "throughput": 67902.68,
+          "oom": false
         },
         "bs_64_seq_512": {
           "throughput": 0.0,
@@ -2423,6 +2672,232 @@
         "bs_64_seq_8192": {
           "throughput": 0.0,
           "oom": true
+        },
+        "bs_64_seq_16384": {
+          "throughput": 0.0,
+          "oom": true
+        },
+        "bs_64_seq_32768": {
+          "throughput": 0.0,
+          "oom": true
+        }
+      },
+      "CPU": {
+        "bs_1_seq_256": {
+          "throughput": 25.95,
+          "oom": false
+        },
+        "bs_1_seq_512": {
+          "throughput": 24.84,
+          "oom": false
+        },
+        "bs_1_seq_1024": {
+          "throughput": 23.4,
+          "oom": false
+        },
+        "bs_1_seq_2048": {
+          "throughput": 21.38,
+          "oom": false
+        },
+        "bs_1_seq_4096": {
+          "throughput": 18.51,
+          "oom": false
+        },
+        "bs_1_seq_8192": {
+          "throughput": 14.75,
+          "oom": false
+        },
+        "bs_1_seq_16384": {
+          "throughput": 10.54,
+          "oom": false
+        },
+        "bs_1_seq_32768": {
+          "throughput": 6.7,
+          "oom": false
+        },
+        "bs_2_seq_256": {
+          "throughput": 101.96,
+          "oom": false
+        },
+        "bs_2_seq_512": {
+          "throughput": 95.98,
+          "oom": false
+        },
+        "bs_2_seq_1024": {
+          "throughput": 87.64,
+          "oom": false
+        },
+        "bs_2_seq_2048": {
+          "throughput": 75.86,
+          "oom": false
+        },
+        "bs_2_seq_4096": {
+          "throughput": 60.42,
+          "oom": false
+        },
+        "bs_2_seq_8192": {
+          "throughput": 43.14,
+          "oom": false
+        },
+        "bs_2_seq_16384": {
+          "throughput": 27.41,
+          "oom": false
+        },
+        "bs_2_seq_32768": {
+          "throughput": 15.77,
+          "oom": false
+        },
+        "bs_4_seq_256": {
+          "throughput": 393.98,
+          "oom": false
+        },
+        "bs_4_seq_512": {
+          "throughput": 359.5,
+          "oom": false
+        },
+        "bs_4_seq_1024": {
+          "throughput": 310.98,
+          "oom": false
+        },
+        "bs_4_seq_2048": {
+          "throughput": 247.56,
+          "oom": false
+        },
+        "bs_4_seq_4096": {
+          "throughput": 176.64,
+          "oom": false
+        },
+        "bs_4_seq_8192": {
+          "throughput": 112.17,
+          "oom": false
+        },
+        "bs_4_seq_16384": {
+          "throughput": 64.49,
+          "oom": false
+        },
+        "bs_4_seq_32768": {
+          "throughput": 34.58,
+          "oom": false
+        },
+        "bs_8_seq_256": {
+          "throughput": 1475.59,
+          "oom": false
+        },
+        "bs_8_seq_512": {
+          "throughput": 1275.65,
+          "oom": false
+        },
+        "bs_8_seq_1024": {
+          "throughput": 1014.87,
+          "oom": false
+        },
+        "bs_8_seq_2048": {
+          "throughput": 723.73,
+          "oom": false
+        },
+        "bs_8_seq_4096": {
+          "throughput": 459.33,
+          "oom": false
+        },
+        "bs_8_seq_8192": {
+          "throughput": 263.95,
+          "oom": false
+        },
+        "bs_8_seq_16384": {
+          "throughput": 141.48,
+          "oom": false
+        },
+        "bs_8_seq_32768": {
+          "throughput": 72.69,
+          "oom": false
+        },
+        "bs_16_seq_256": {
+          "throughput": 5235.6,
+          "oom": false
+        },
+        "bs_16_seq_512": {
+          "throughput": 4162.71,
+          "oom": false
+        },
+        "bs_16_seq_1024": {
+          "throughput": 2966.81,
+          "oom": false
+        },
+        "bs_16_seq_2048": {
+          "throughput": 1881.92,
+          "oom": false
+        },
+        "bs_16_seq_4096": {
+          "throughput": 1080.9,
+          "oom": false
+        },
+        "bs_16_seq_8192": {
+          "throughput": 579.03,
+          "oom": false
+        },
+        "bs_16_seq_16384": {
+          "throughput": 297.35,
+          "oom": false
+        },
+        "bs_16_seq_32768": {
+          "throughput": 149.17,
+          "oom": false
+        },
+        "bs_32_seq_256": {
+          "throughput": 17082.85,
+          "oom": false
+        },
+        "bs_32_seq_512": {
+          "throughput": 12168.17,
+          "oom": false
+        },
+        "bs_32_seq_1024": {
+          "throughput": 7714.38,
+          "oom": false
+        },
+        "bs_32_seq_2048": {
+          "throughput": 4428.46,
+          "oom": false
+        },
+        "bs_32_seq_4096": {
+          "throughput": 2371.17,
+          "oom": false
+        },
+        "bs_32_seq_8192": {
+          "throughput": 1216.99,
+          "oom": false
+        },
+        "bs_32_seq_16384": {
+          "throughput": 610.23,
+          "oom": false
+        },
+        "bs_32_seq_32768": {
+          "throughput": 0.0,
+          "oom": true
+        },
+        "bs_64_seq_256": {
+          "throughput": 49928.44,
+          "oom": false
+        },
+        "bs_64_seq_512": {
+          "throughput": 31637.88,
+          "oom": false
+        },
+        "bs_64_seq_1024": {
+          "throughput": 18152.7,
+          "oom": false
+        },
+        "bs_64_seq_2048": {
+          "throughput": 9714.63,
+          "oom": false
+        },
+        "bs_64_seq_4096": {
+          "throughput": 4983.66,
+          "oom": false
+        },
+        "bs_64_seq_8192": {
+          "throughput": 2497.53,
+          "oom": false
         },
         "bs_64_seq_16384": {
           "throughput": 0.0,

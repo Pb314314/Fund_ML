@@ -3,14 +3,14 @@
 **Connor Sempf** and **Bo Pang**  
 School of Electrical and Computer Engineering  
 Georgia Institute of Technology  
-Atlanta, USA  
+Atlanta, GA, USA  
 csempf3@gatech.edu, bpang42@gatech.edu
 
 ---
 
 ## Abstract
 
-While large language models (LLMs) are positioned as universal tools, the resources required to train and deploy them are distributed highly unevenly across the world's languages. This paper quantifies the compounding disadvantages faced by low-resource languages across three critical dimensions: tokenization efficiency, memory scalability, and hardware access. Using the Llama-3 tokenizer, we benchmark six languages and find extreme fertility disparities---Hindi requires 2.83 tokens per word and Swahili 2.34, versus 1.15 for English---resulting in a 7.99$\times$ attention cost multiplier for Hindi compared to 1.32$\times$ for English. Through KV cache memory simulation across five hardware tiers from NVIDIA H100 to RTX 4060, we demonstrate that the RTX 4060 hits an out-of-memory wall at just 14,000 tokens while the H100 sustains 544,000 tokens, a 40$\times$ gap. In a realistic serving scenario with 32 concurrent users, Hindi conversations on an RTX 4060 OOM after a single turn, while English sustains 3 turns; on a T4, Hindi OOMs at turn 6 versus English at turn 13. Prefill-decode disaggregation analysis reveals that decode dominates 95-99.9% of end-to-end latency across all workload types, and heterogeneous clusters can halve serving costs by offloading decode to commodity GPUs---at a 12$\times$ latency penalty. End-to-end inference reveals that processing Hindi on a T4 GPU is 26$\times$ slower than English on an H100 for an identical 100-word task. A comprehensive language ecosystem analysis combining speaker population, digital content volume, digital literacy, and LLM benchmark accuracy produces a Composite Resource Divide Index (CRDI) of 0.800 for Swahili versus 0.099 for English---an 8.1$\times$ structural disadvantage. We contextualize these findings against the reality that only 42 of approximately 7,000 world languages (0.6%) enjoy meaningful LLM support. The analysis offers a dual-viewpoint framework contrasting structural governance interventions with data-driven self-correction pathways, and delivers concrete policy recommendations spanning compute commons, targeted data investment, and inclusive tokenizer design.
+While large language models (LLMs) are positioned as universal tools, the resources required to train and deploy them are distributed highly unevenly across the world's languages. This paper quantifies the compounding disadvantages faced by low-resource languages across three critical dimensions: tokenization efficiency, memory scalability, and hardware access. Using the Llama-3 tokenizer, we benchmark six languages and find extreme fertility disparities---Hindi requires 2.83 tokens per word and Swahili 2.34, versus 1.15 for English---resulting in a 7.99$\times$ attention cost multiplier for Hindi compared to 1.32$\times$ for English. Through KV cache memory simulation of Llama-3-8B (4-bit AWQ, 4.01 GB) across five hardware tiers from NVIDIA H100 to RTX 4060, we demonstrate that the RTX 4060 hits an out-of-memory wall at 26,091 tokens while the H100 sustains 556,933 tokens, a 21$\times$ gap. In a realistic serving scenario with 32 concurrent users, Hindi conversations on an RTX 4060 out-of-memory at turn 2; English sustains 5 turns; on a T4, Hindi OOMs at turn 6 versus English at turn 15. Prefill-decode disaggregation analysis reveals that decode dominates 85.6--99.6% of end-to-end latency across all workload types, and heterogeneous clusters can halve serving costs by offloading decode to commodity GPUs---at a 13$\times$ latency penalty. End-to-end inference latency reveals that processing Hindi on a T4 GPU is 26$\times$ slower than English on an H100 for an identical 100-word task. A comprehensive language ecosystem analysis combining speaker population, digital content volume, digital literacy proxy, LLM benchmark accuracy, and tokenization fertility produces a Composite Resource Divide Index (CRDI) of 0.807 for Swahili versus 0.100 for English---an 8.1$\times$ structural disadvantage. We contextualize these findings against the reality that only 42 of approximately 7,150 world languages (0.6%) enjoy meaningful LLM support. The analysis offers a dual-viewpoint framework contrasting structural governance interventions with data-driven self-correction pathways, and delivers concrete policy recommendations spanning compute commons, targeted data investment, and inclusive tokenizer design.
 
 ---
 
@@ -24,7 +24,7 @@ The AI divide extends beyond compute to data. English dominates 49.7% of global 
 
 ### A.2 Scope and Objectives
 
-This paper investigates how compute and data disparities manifest as compounding, quantifiable performance gaps in LLM deployment. We quantify the "tokenization tax" (higher tokens-per-word ratios for low-resource languages), the "memory wall" (KV cache limits on consumer hardware), and their interaction in realistic serving scenarios. We further analyze the distinct hardware requirements of prefill (compute-bound) versus decode (memory-bound) phases, and evaluate heterogeneous cluster scheduling. Finally, we contextualize these technical findings within a comprehensive language ecosystem framework combining speaker population, digital content, literacy rates, and model performance.
+This paper investigates how compute and data disparities manifest as compounding, quantifiable performance gaps in LLM deployment. We quantify the "tokenization tax" (higher tokens-per-word ratios for low-resource languages), the "memory wall" (KV cache limits on consumer hardware), and their interaction in realistic serving scenarios. We further analyze the distinct hardware requirements of prefill (compute-bound) versus decode (memory-bound) phases, evaluate heterogeneous cluster scheduling, and contextualize technical findings within a comprehensive language ecosystem framework combining speaker population, digital content, literacy rates, and model performance.
 
 ### A.3 Contribution Statement
 
@@ -56,7 +56,10 @@ Hooper et al. identify KV cache as the fundamental bottleneck for long-context i
 
 ### C.1 Experimental Design
 
-Our experiments employ the Llama-3 tokenizer (via HuggingFace Transformers) for real tokenization benchmarks, and a KV cache memory simulation framework modeling Llama-3-8B with 4-bit AWQ quantization across five hardware tiers: H100 (80GB HBM3, 3.35 TB/s), A100 (80GB HBM2e, 2.04 TB/s), RTX 3090 (24GB GDDR6X, 936 GB/s), T4 (16GB GDDR6, 320 GB/s), and RTX 4060 (8GB GDDR6, 272 GB/s). KV cache per token is 0.125 MB for FP16 precision (formula: 2 $\times$ 32 layers $\times$ 8 KV heads $\times$ 128 head_dim $\times$ 2 bytes).
+Our experiments employ the Llama-3 tokenizer (via HuggingFace Transformers) for real tokenization benchmarks, and a KV cache memory simulation framework modeling Llama-3-8B with 4-bit AWQ quantization (4.01 GB weights, standard for production serving) across five hardware tiers: H100 (80GB HBM3, 3.35 TB/s), A100 (80GB HBM2e, 2.04 TB/s), RTX 3090 (24GB GDDR6X, 936 GB/s), T4 (16GB GDDR6, 320 GB/s), and RTX 4060 (8GB GDDR6, 272 GB/s). All GPU specifications are sourced from NVIDIA official datasheets.
+
+KV cache per token is 131,072 bytes (0.125 MB) in FP16 precision:
+$$\text{KV} = 2 \times L \times H_{\text{KV}} \times d \times \text{dtype\_size} = 2 \times 32 \times 8 \times 128 \times 2 = 131{,}072 \text{ bytes}$$
 
 ### C.2 Tokenization Fertility Results
 
@@ -75,69 +78,87 @@ Table I presents tokenization fertility for six languages. Hindi requires 2.83 t
 
 ### C.3 Memory Wall Simulation Results
 
-KV cache grows linearly with sequence length: a 4K context at batch size 32 requires 15.4 GB (English) to 35.3 GB (Hindi). Table II shows maximum sustainable sequence lengths before OOM.
+KV cache grows linearly with sequence length. Table II shows maximum sustainable sequence lengths before OOM for Llama-3-8B 4-bit (4.01 GB weights) at various batch sizes.
 
-| Hardware | VRAM | Max Seq (B=1) | Max Seq (B=32) |
-|----------|------|---------------|----------------|
-| H100     | 80GB | 544,768 tokens| 17,024 tokens  |
-| A100     | 80GB | 544,768 tokens| 17,024 tokens  |
-| RTX 3090 | 24GB | 131,891 tokens| 4,121 tokens   |
-| T4       | 16GB | 72,908 tokens | 2,278 tokens   |
-| RTX 4060 | 8GB  | 13,926 tokens | 435 tokens     |
+| Hardware | VRAM | Avail. KV | Max Seq (B=1) | Max Seq (B=32) |
+|----------|------|-----------|---------------|----------------|
+| H100     | 80GB | 67.98 GB  | 556,933 tok   | 17,404 tok     |
+| A100     | 80GB | 67.98 GB  | 556,933 tok   | 17,404 tok     |
+| RTX 3090 | 24GB | 17.59 GB  | 144,056 tok   | 4,502 tok      |
+| T4       | 16GB | 10.38 GB  | 85,073 tok    | 2,658 tok      |
+| RTX 4060 | 8GB  | 3.19 GB   | 26,091 tok    | 815 tok        |
 
-*Table II: Maximum sequence length before OOM (Llama-3-8B 4-bit).*
+*Table II: Maximum sequence length before OOM (Llama-3-8B 4-bit AWQ, 10% overhead).*
 
-The consumer GPU (RTX 4060) hits the memory wall at just 435 tokens for batch size 32---less than one page of text. The H100 sustains 40$\times$ more concurrent tokens.
+The consumer GPU (RTX 4060) hits the memory wall at just 815 tokens for batch size 32---less than one page of text. The H100 sustains 21$\times$ more concurrent tokens.
 
 ### C.4 Combined End-to-End Latency Analysis
 
-For an identical 100-word semantic task, end-to-end latency reveals compounding disadvantage. English on H100: 0.7s. Hindi on T4: 18.8s---a 26$\times$ gap. The Resource Divide Index (RDI = fertility$^2$ / (bandwidth $\times$ VRAM)) reaches 1,010$\times$ between extremes.
+For an identical 100-word semantic task (50-word output), end-to-end latency reveals compounding disadvantage. Table III shows the breakdown into prefill (time-to-first-token, TTFT) and decode phases.
+
+| Language | GPU | Prefill (ms) | Decode (ms) | Total (ms) | Decode % |
+|----------|-----|--------------|-------------|------------|----------|
+| English  | H100| 4.4          | 98.0        | 102.4      | 95.7     |
+| English  | T4  | 33.2         | 1026.1      | 1059.3     | 96.9     |
+| Hindi    | H100| 10.9         | 247.7       | 258.6      | 95.8     |
+| Hindi    | T4  | 82.6         | 2593.5      | 2676.1     | 96.9     |
+
+*Table III: End-to-end latency for 100-word task, 50-word output (Llama-3-8B 4-bit).*
+
+English on H100: 102.4 ms. Hindi on T4: 2,676.1 ms---a 26$\times$ gap. The Resource Divide Index (RDI = fertility$^2$ / (bandwidth $\times$ VRAM)) reaches 1,010$\times$ between extremes.
 
 ### C.5 Multi-Turn Conversational Serving Simulation
 
-Real-world LLM applications---customer service bots, medical diagnostic assistants, educational tutors---operate as multi-turn conversations where each turn appends to the KV cache. We simulate a serving scenario with 32 concurrent users, each engaging in a 10-turn conversation with 80 words per turn. Fig. 4(a) shows KV cache accumulation: Hindi conversations generate 35.3 GB of KV cache by turn 10, versus 14.4 GB for English---both approaching the T4's 8.9 GB limit.
+Real-world LLM applications---customer service bots, medical diagnostic assistants, educational tutors---operate as multi-turn conversations where each turn appends to the KV cache. We simulate a serving scenario with 32 concurrent users, each engaging in a multi-turn conversation with 80 words per turn. Each turn adds user input plus model response to the KV cache. Table IV shows the turn at which OOM occurs for each (hardware, language) combination.
 
-Fig. 4(b) presents the OOM heatmap. The RTX 4060 OOMs after just 1 turn for Hindi (batch=32) versus 3 turns for English. The T4 OOMs at turn 6 for Hindi versus turn 13 for English. Only frontier GPUs (H100, A100) sustain all 20 turns for all languages. This demonstrates that low-resource languages not only cost more per token but also reduce service capacity---a Hindi chatbot can serve 3$\times$ fewer concurrent users than an English equivalent before memory exhaustion.
+| Hardware | English | Hindi | Swahili | Chinese | Spanish | Arabic |
+|----------|---------|-------|---------|---------|---------|--------|
+| H100     | 20+     | 20+   | 20+     | 20+     | 20+     | 20+    |
+| A100     | 20+     | 20+   | 20+     | 20+     | 20+     | 20+    |
+| T4       | 15      | 6     | 6       | 20+     | 10      | 7      |
+| RTX 4060 | 5       | 2     | 2       | 20+     | 4       | 2      |
+
+*Table IV: Maximum turns before OOM (batch size = 32, 80 words/turn).*
+
+The RTX 4060 OOMs after just 2 turns for Hindi (batch=32) versus 5 turns for English. The T4 OOMs at turn 6 for Hindi versus turn 15 for English. Only frontier GPUs (H100, A100) sustain all 20 turns for all languages. This demonstrates that low-resource languages not only cost more per token but also reduce service capacity---a Hindi chatbot can serve 2.5$\times$ fewer concurrent users than an English equivalent before memory exhaustion.
 
 ### C.6 Prefill-Decode Disaggregation Analysis
 
-LLM inference comprises two fundamentally different phases [16][17]. Prefill processes all input tokens in parallel via large matrix multiplications---compute-bound, achieving 90--95% GPU utilization on H100. Decode generates one token at a time, reading the entire KV cache from memory each step---memory-bound, with only 20--40% utilization.
+LLM inference comprises two fundamentally different phases [16][17]. Prefill processes all input tokens in parallel via large matrix multiplications---compute-bound, achieving 85% GPU utilization on H100. Decode generates one token at a time, reading the entire KV cache from memory each step---memory-bound, with only 20--40% utilization.
 
-Table III breaks down latency by workload type. Decode dominates 95.6--99.9% of end-to-end latency across all workloads. For a medium essay (500 input, 300 output tokens), decode consumes 99.5% of time on all GPUs.
+Table V breaks down latency by workload type. Decode dominates 85.6--99.6% of end-to-end latency across all workloads. For code generation (200 input, 800 output tokens), decode consumes 99.4% of time on H100.
 
-| Workload | GPU | TTFT (ms) | Decode (ms) | Decode % |
-|----------|-----|-----------|-------------|----------|
-| Short Q&A | H100 | 1.8 | 52.9 | 96.7% |
-| Short Q&A | T4 | 19.3 | 554.3 | 96.6% |
-| Medium Essay | H100 | 2.4 | 534.7 | 99.5% |
-| Medium Essay | A100 | 4.8 | 878.5 | 99.5% |
-| Long Document | H100 | 10.3 | 959.7 | 98.9% |
-| Code Gen | H100 | 2.0 | 1416.5 | 99.9% |
+| Workload | GPU | Prefill (ms) | Decode (ms) | Total (ms) | Decode % |
+|----------|-----|--------------|-------------|------------|----------|
+| Short Q&A| H100| 1.9          | 51.5        | 53.4       | 96.4     |
+| Medium Essay| H100| 19.2      | 522.0       | 541.3      | 96.4     |
+| Long Doc | H100| 162.6        | 967.9       | 1130.5     | 85.6     |
+| Code Gen | H100| 7.7          | 1378.7      | 1386.4     | 99.4     |
 
-*Table III: Prefill vs decode latency breakdown (Llama-3-8B 4-bit).*
+*Table V: Prefill vs decode latency breakdown (Llama-3-8B 4-bit).*
 
-Fig. 5 shows the Pareto frontier for disaggregated serving. Assigning prefill to H100 and decode to RTX 4060 halves serving cost ($0.00185 vs $0.00373 per request) but increases latency by 12$\times$ (6,588 ms vs 537 ms). For cost-sensitive deployments in the Global South, this tradeoff is unavoidable---H100-class hardware is simply unavailable.
+Figure 5 shows the Pareto frontier for disaggregated serving. Assigning prefill to H100 and decode to RTX 4060 halves serving cost ($0.00185 vs $0.00373 per request) but increases latency by 13$\times$ (7,059 ms vs 541 ms). For cost-sensitive deployments in the Global South, this tradeoff is unavoidable---H100-class hardware is simply unavailable.
 
 ### C.7 Comprehensive Language Ecosystem Analysis
 
-Fig. 6 presents a six-panel dashboard analyzing language AI readiness across ten major languages. We synthesize six metrics into a Composite Resource Divide Index (CRDI): speaker population, internet content percentage, digital literacy proxy, estimated LLM MMLU accuracy, tokenization fertility, and Wikipedia contributor count.
+Figure 6 presents a six-panel dashboard analyzing language AI readiness across ten major languages. We synthesize six metrics into a Composite Resource Divide Index (CRDI) with explicit weights: speaker population (10%), internet content percentage (25%), digital literacy proxy (15%), estimated LLM MMLU accuracy (20%), tokenization fertility (15%), and Wikipedia contributor count (15%).
 
-The CRDI reveals striking disparities (Table IV). Swahili scores 0.800---the worst in our sample---despite 200 million speakers, due to minuscule digital content (0.0025%), low digital literacy proxy (38%), poor LLM accuracy (45%), and high fertility (2.34). Bengali follows at 0.779. English scores 0.099---an 8.1$\times$ advantage over Swahili. The correlation heatmap (Fig. 6e) reveals that internet content percentage correlates strongly with Wikipedia activity (r=0.93) and LLM accuracy (r=0.66), while fertility shows strong negative correlation with LLM accuracy (r=-0.86)---confirming that tokenization cost directly predicts model performance.
+The CRDI reveals striking disparities (Table VI). Swahili scores 0.807---the worst in our sample---despite 200 million speakers, due to minuscule digital content (0.0025%), low digital literacy proxy (38%), poor LLM accuracy (45%), and high fertility (2.34). Bengali follows at 0.739. English scores 0.100---an 8.1$\times$ advantage over Swahili. The correlation heatmap (Fig. 6e) reveals that internet content percentage correlates strongly with Wikipedia activity (r=0.93) and LLM accuracy (r=0.66), while fertility shows strong negative correlation with LLM accuracy (r=-0.67)---confirming that tokenization cost directly predicts model performance.
 
 | Language | CRDI | DOI | Tier |
 |----------|------|-----|------|
-| Swahili  | 0.800 | 0.200 | Low |
-| Bengali  | 0.779 | 0.221 | Low |
-| Arabic   | 0.674 | 0.326 | Moderate |
-| Hindi    | 0.668 | 0.332 | Moderate |
-| Russian  | 0.653 | 0.347 | Moderate |
-| Spanish  | 0.607 | 0.393 | High |
-| French   | 0.588 | 0.412 | High |
-| Japanese | 0.587 | 0.413 | High |
-| Chinese  | 0.386 | 0.614 | High |
-| English  | 0.099 | 0.900 | High |
+| Swahili  | 0.807 | 0.193 | Low |
+| Hindi    | 0.750 | 0.250 | Moderate |
+| Bengali  | 0.739 | 0.261 | Low |
+| Arabic   | 0.687 | 0.313 | Moderate |
+| Russian  | 0.638 | 0.362 | Moderate |
+| French   | 0.601 | 0.399 | High |
+| Japanese | 0.601 | 0.399 | High |
+| Spanish  | 0.581 | 0.419 | High |
+| Chinese  | 0.423 | 0.577 | High |
+| English  | 0.100 | 0.900 | High |
 
-*Table IV: Composite Resource Divide Index (CRDI) and Digital Opportunity Index (DOI).*
+*Table VI: Composite Resource Divide Index (CRDI) and Digital Opportunity Index (DOI).*
 
 ---
 
@@ -145,15 +166,15 @@ The CRDI reveals striking disparities (Table IV). Swahili scores 0.800---the wor
 
 ### D.1 Viewpoint A (Bo Pang): Structural Governance Imperative
 
-The experimental evidence supports an urgent need for structural intervention. The compute gap is not self-correcting: a T4 GPU's GDDR6 memory cannot upgrade itself to HBM3e, and export controls prevent acquisition of frontier hardware [1][5]. The RTX 4060 OOMs after one turn of Hindi conversation with 32 concurrent users---not due to algorithmic inefficiency, but because 8 GB of GDDR6 is structurally insufficient for multilingual serving.
+The experimental evidence supports an urgent need for structural intervention. The compute gap is not self-correcting: a T4 GPU's GDDR6 memory cannot upgrade itself to HBM3e, and export controls prevent acquisition of frontier hardware [1][5]. The RTX 4060 OOMs after two turns of Hindi conversation with 32 concurrent users---not due to algorithmic inefficiency, but because 8 GB of GDDR6 is structurally insufficient for multilingual serving.
 
 The tokenization tax is equally structural. Hindi's 2.83 tokens per word stems from English-centric BPE training on 15 trillion tokens---a corpus where Hindi constitutes a negligible fraction [7]. Vocabulary extension experiments show Hindi reducible from 2.61 to 1.19 tokens per word with targeted tokenizer redesign [19], but market incentives do not fund such redesign because Hindi-speaking markets generate less revenue per user.
 
-The CRDI data reinforces this argument. Swahili's CRDI of 0.800 versus English's 0.099 reflects a systemic failure across all six measured dimensions---not merely one correctable deficiency. Policy recommendations include: (1) Sovereign AI funds financing regional compute clusters; (2) International Compute Commons agreements modeled on CERN; (3) Mandatory inclusive tokenizer design for models above threshold parameter counts; (4) UNESCO-expanded governance monitoring CRDI-like indices.
+The CRDI data reinforces this argument. Swahili's CRDI of 0.807 versus English's 0.100 reflects a systemic failure across all six measured dimensions---not merely one correctable deficiency. Policy recommendations include: (1) Sovereign AI funds financing regional compute clusters; (2) International Compute Commons agreements modeled on CERN; (3) Mandatory inclusive tokenizer design for models above threshold parameter counts; (4) UNESCO-expanded governance monitoring CRDI-like indices.
 
 ### D.2 Viewpoint B (Connor Sempf): Data-Driven Self-Correction
 
-While Viewpoint A correctly identifies compute barriers, it risks overemphasizing hardware at the expense of data---the root cause of poor LLM performance. The CRDI correlation analysis shows LLM accuracy strongly correlates with internet content (r=0.66) and negatively with fertility (r=-0.86). Without representative training corpora, no compute quantity bridges the gap: a Swahili model trained on 700 million tokens will underperform regardless of whether inference runs on H100 or T4.
+While Viewpoint A correctly identifies compute barriers, it risks overemphasizing hardware at the expense of data---the root cause of poor LLM performance. The CRDI correlation analysis shows LLM accuracy strongly correlates with internet content (r=0.66) and negatively with fertility (r=-0.67). Without representative training corpora, no compute quantity bridges the gap: a Swahili model trained on 700 million tokens will underperform regardless of whether inference runs on H100 or T4.
 
 The data argument is empirically grounded. Masakhane and African Languages Lab demonstrate that targeted data collection---even modest-scale community efforts---improves performance substantially [10][11]. XBridge and similar projects show that vocabulary extension and multilingual pre-training reduce fertility premiums by 40--60% [19]. Market mechanisms can work: India's 600 million Hindi speakers represent an addressable market; as demand for Hindi LLM applications grows, commercial incentives will drive data collection.
 
@@ -169,7 +190,7 @@ Both viewpoints identify real, non-overlapping barriers. The CRDI framework show
 
 ### E.1 Joint Assessment
 
-This paper demonstrates that the AI divide is real, quantifiable, and compounding across tokenization, memory, hardware, and data ecosystems. Key findings include: (1) Hindi pays a 7.99$\times$ attention cost penalty versus English's 1.32$\times$; (2) consumer GPUs OOM at 14K tokens while frontier GPUs sustain 544K---a 40$\times$ gap; (3) in serving scenarios, Hindi on RTX 4060 OOMs after one conversation turn versus three for English; (4) decode dominates 95--99.9% of latency, making memory bandwidth the binding constraint; (5) the CRDI shows 8.1$\times$ structural disparity between Swahili (0.800) and English (0.099).
+This paper demonstrates that the AI divide is real, quantifiable, and compounding across tokenization, memory, hardware, and data ecosystems. Key findings include: (1) Hindi pays a 7.99$\times$ attention cost penalty versus English's 1.32$\times$; (2) consumer GPUs OOM at 26K tokens while frontier GPUs sustain 557K---a 21$\times$ gap; (3) in serving scenarios with 32 concurrent users, Hindi on RTX 4060 OOMs at turn 2 versus turn 5 for English; (4) decode dominates 85.6--99.6% of latency, making memory bandwidth the binding constraint; (5) the CRDI shows 8.1$\times$ structural disparity between Swahili (0.807) and English (0.100).
 
 ### E.2 Best Practices Forward
 
@@ -203,7 +224,7 @@ Moving forward requires coordinated action across three fronts. First, establish
 
 [12] E. Bender et al., "On the Dangers of Stochastic Parrots," Proc. FAccT, 2021.
 
-[13] C. Hooper et al., "KVQuant: Towards 10 Million Context Length," UC Berkeley EECS, 2024.
+[13] C. Hooper et al., "KVQuant: Towards 10 Million Context Length with Quantized Key-Value Caches," UC Berkeley EECS, 2024.
 
 [14] W. Kwon et al., "vLLM: Efficient Memory Management for LLM Serving with PagedAttention," SOSP, 2023.
 
@@ -226,23 +247,25 @@ Moving forward requires coordinated action across three fronts. First, establish
 ## Appendix: Compute and AI Usage Disclosure
 
 ### Compute Usage
-This project used the Georgia Tech AI Makerspace and local development. All experiments are CPU-runnable simulations.
+This project used the Georgia Tech AI Makerspace and local development. All experiments are CPU-runnable simulations designed to be reproducible on standard academic hardware.
 
 | Resource | Usage |
 |----------|-------|
 | AI Makerspace Hours | ~12 hours across 3 sessions |
 | GPU Nodes | 0 (CPU-only reproduction) |
-| GPUs Used | RTX 3090 for validation only |
+| GPUs Used | RTX 3090 for tokenizer validation only |
 | Total Compute Time | ~20 hours (development + reproduction) |
 
 ### AI Usage Disclosure
 In accordance with Georgia Tech's AI policy: (1) Code developed with AI assistance for boilerplate and matplotlib styling; (2) Literature research AI-assisted but manually verified; (3) Writing AI-assisted for organization and grammar; (4) Figures generated by author scripts; (5) CRDI, RDI metrics, and simulation frameworks are original contributions.
 
 ### Data and Code Availability
-All code, data, and figures are available in the project repository, including:
-- 6 Python experiment scripts (experiments/exp1 through exp6)
+All code, data, and figures are available at https://github.com/Pb314314/Fund_ML, including:
+- 7 Python experiment scripts (experiments/exp0--exp6) plus unified config.py
 - 13 publication-quality figures (300 DPI PNG)
 - Raw JSON data for all experiments
 - README.md with reproduction instructions
 
-Repository URL: [To be linked upon submission]
+---
+
+*This project was completed as the term project for FunML (CS 7643 / CSE 6242), Georgia Institute of Technology, Spring 2025.*

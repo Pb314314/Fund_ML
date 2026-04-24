@@ -1,0 +1,272 @@
+{
+  "workloads": {
+    "Short Q&A": {
+      "H100": {
+        "prefill_ms": 1.91,
+        "decode_ms": 51.45,
+        "total_ms": 53.36,
+        "prefill_pct": 3.6,
+        "decode_pct": 96.4
+      },
+      "A100": {
+        "prefill_ms": 3.03,
+        "decode_ms": 84.53,
+        "total_ms": 87.56,
+        "prefill_pct": 3.5,
+        "decode_pct": 96.5
+      },
+      "T4": {
+        "prefill_ms": 14.55,
+        "decode_ms": 538.62,
+        "total_ms": 553.16,
+        "prefill_pct": 2.6,
+        "decode_pct": 97.4
+      },
+      "RTX4060": {
+        "prefill_ms": 62.57,
+        "decode_ms": 633.67,
+        "total_ms": 696.24,
+        "prefill_pct": 9.0,
+        "decode_pct": 91.0
+      }
+    },
+    "Medium Essay": {
+      "H100": {
+        "prefill_ms": 19.24,
+        "decode_ms": 522.05,
+        "total_ms": 541.29,
+        "prefill_pct": 3.6,
+        "decode_pct": 96.4
+      },
+      "A100": {
+        "prefill_ms": 30.53,
+        "decode_ms": 857.7,
+        "total_ms": 888.23,
+        "prefill_pct": 3.4,
+        "decode_pct": 96.6
+      },
+      "T4": {
+        "prefill_ms": 146.53,
+        "decode_ms": 5465.18,
+        "total_ms": 5611.7,
+        "prefill_pct": 2.6,
+        "decode_pct": 97.4
+      },
+      "RTX4060": {
+        "prefill_ms": 630.32,
+        "decode_ms": 6429.62,
+        "total_ms": 7059.94,
+        "prefill_pct": 8.9,
+        "decode_pct": 91.1
+      }
+    },
+    "Long Document": {
+      "H100": {
+        "prefill_ms": 162.65,
+        "decode_ms": 967.89,
+        "total_ms": 1130.54,
+        "prefill_pct": 14.4,
+        "decode_pct": 85.6
+      },
+      "A100": {
+        "prefill_ms": 258.05,
+        "decode_ms": 1590.21,
+        "total_ms": 1848.26,
+        "prefill_pct": 14.0,
+        "decode_pct": 86.0
+      },
+      "T4": {
+        "prefill_ms": 1238.63,
+        "decode_ms": 10132.63,
+        "total_ms": 11371.26,
+        "prefill_pct": 10.9,
+        "decode_pct": 89.1
+      },
+      "RTX4060": {
+        "prefill_ms": 5328.32,
+        "decode_ms": 11920.74,
+        "total_ms": 17249.07,
+        "prefill_pct": 30.9,
+        "decode_pct": 69.1
+      }
+    },
+    "Code Generation": {
+      "H100": {
+        "prefill_ms": 7.66,
+        "decode_ms": 1378.71,
+        "total_ms": 1386.37,
+        "prefill_pct": 0.6,
+        "decode_pct": 99.4
+      },
+      "A100": {
+        "prefill_ms": 12.15,
+        "decode_ms": 2265.17,
+        "total_ms": 2277.32,
+        "prefill_pct": 0.5,
+        "decode_pct": 99.5
+      },
+      "T4": {
+        "prefill_ms": 58.33,
+        "decode_ms": 14433.38,
+        "total_ms": 14491.7,
+        "prefill_pct": 0.4,
+        "decode_pct": 99.6
+      },
+      "RTX4060": {
+        "prefill_ms": 250.9,
+        "decode_ms": 16980.44,
+        "total_ms": 17231.35,
+        "prefill_pct": 1.5,
+        "decode_pct": 98.5
+      }
+    }
+  },
+  "disaggregated": {
+    "Medium Essay": [
+      {
+        "prefill_gpu": "H100",
+        "decode_gpu": "H100",
+        "prefill_ms": 19.24072727272727,
+        "decode_ms": 522.0469601705756,
+        "total_ms": 541.287687443303,
+        "prefill_pct": 3.554621270549893,
+        "decode_pct": 96.4453787294501,
+        "prefill_cost": 2.1378585858585854e-05,
+        "decode_cost": 0.0005800521779673062,
+        "total_cost": 0.0006014307638258921
+      },
+      {
+        "prefill_gpu": "H100",
+        "decode_gpu": "A100",
+        "prefill_ms": 19.24072727272727,
+        "decode_ms": 857.7034411826526,
+        "total_ms": 876.9441684553799,
+        "prefill_pct": 2.1940652512254277,
+        "decode_pct": 97.80593474877458,
+        "prefill_cost": 2.1378585858585854e-05,
+        "decode_cost": 0.0005956273897101754,
+        "total_cost": 0.0006170059755687613
+      },
+      {
+        "prefill_gpu": "H100",
+        "decode_gpu": "T4",
+        "prefill_ms": 19.24072727272727,
+        "decode_ms": 5465.179114285714,
+        "total_ms": 5484.419841558441,
+        "prefill_pct": 0.35082520719748306,
+        "decode_pct": 99.64917479280253,
+        "prefill_cost": 2.1378585858585854e-05,
+        "decode_cost": 0.0012144842476190477,
+        "total_cost": 0.0012358628334776336
+      },
+      {
+        "prefill_gpu": "H100",
+        "decode_gpu": "RTX4060",
+        "prefill_ms": 19.24072727272727,
+        "decode_ms": 6429.622487394959,
+        "total_ms": 6448.8632146676855,
+        "prefill_pct": 0.29835843360679437,
+        "decode_pct": 99.7016415663932,
+        "prefill_cost": 2.1378585858585854e-05,
+        "decode_cost": 0.0005358018739495798,
+        "total_cost": 0.0005571804598081657
+      },
+      {
+        "prefill_gpu": "A100",
+        "decode_gpu": "H100",
+        "prefill_ms": 30.526153846153843,
+        "decode_ms": 522.0469601705756,
+        "total_ms": 552.5731140167295,
+        "prefill_pct": 5.524364662669716,
+        "decode_pct": 94.47563533733027,
+        "prefill_cost": 2.1198717948717945e-05,
+        "decode_cost": 0.0005800521779673062,
+        "total_cost": 0.0006012508959160242
+      },
+      {
+        "prefill_gpu": "A100",
+        "decode_gpu": "A100",
+        "prefill_ms": 30.526153846153843,
+        "decode_ms": 857.7034411826526,
+        "total_ms": 888.2295950288064,
+        "prefill_pct": 3.436741357977814,
+        "decode_pct": 96.56325864202219,
+        "prefill_cost": 2.1198717948717945e-05,
+        "decode_cost": 0.0005956273897101754,
+        "total_cost": 0.0006168261076588934
+      },
+      {
+        "prefill_gpu": "A100",
+        "decode_gpu": "T4",
+        "prefill_ms": 30.526153846153843,
+        "decode_ms": 5465.179114285714,
+        "total_ms": 5495.705268131867,
+        "prefill_pct": 0.555454711575726,
+        "decode_pct": 99.44454528842428,
+        "prefill_cost": 2.1198717948717945e-05,
+        "decode_cost": 0.0012144842476190477,
+        "total_cost": 0.0012356829655677656
+      },
+      {
+        "prefill_gpu": "A100",
+        "decode_gpu": "RTX4060",
+        "prefill_ms": 30.526153846153843,
+        "decode_ms": 6429.622487394959,
+        "total_ms": 6460.148641241112,
+        "prefill_pct": 0.4725302085354063,
+        "decode_pct": 99.5274697914646,
+        "prefill_cost": 2.1198717948717945e-05,
+        "decode_cost": 0.0005358018739495798,
+        "total_cost": 0.0005570005918982978
+      },
+      {
+        "prefill_gpu": "T4",
+        "decode_gpu": "H100",
+        "prefill_ms": 146.52553846153845,
+        "decode_ms": 522.0469601705756,
+        "total_ms": 668.572498632114,
+        "prefill_pct": 21.916177940511577,
+        "decode_pct": 78.08382205948843,
+        "prefill_cost": 3.256123076923077e-05,
+        "decode_cost": 0.0005800521779673062,
+        "total_cost": 0.0006126134087365369
+      },
+      {
+        "prefill_gpu": "T4",
+        "decode_gpu": "A100",
+        "prefill_ms": 146.52553846153845,
+        "decode_ms": 857.7034411826526,
+        "total_ms": 1004.228979644191,
+        "prefill_pct": 14.590849440876921,
+        "decode_pct": 85.40915055912308,
+        "prefill_cost": 3.256123076923077e-05,
+        "decode_cost": 0.0005956273897101754,
+        "total_cost": 0.0006281886204794061
+      },
+      {
+        "prefill_gpu": "T4",
+        "decode_gpu": "T4",
+        "prefill_ms": 146.52553846153845,
+        "decode_ms": 5465.179114285714,
+        "total_ms": 5611.704652747252,
+        "prefill_pct": 2.611070031809421,
+        "decode_pct": 97.38892996819058,
+        "prefill_cost": 3.256123076923077e-05,
+        "decode_cost": 0.0012144842476190477,
+        "total_cost": 0.0012470454783882784
+      },
+      {
+        "prefill_gpu": "T4",
+        "decode_gpu": "RTX4060",
+        "prefill_ms": 146.52553846153845,
+        "decode_ms": 6429.622487394959,
+        "total_ms": 6576.148025856497,
+        "prefill_pct": 2.2281362567481824,
+        "decode_pct": 97.77186374325181,
+        "prefill_cost": 3.256123076923077e-05,
+        "decode_cost": 0.0005358018739495798,
+        "total_cost": 0.0005683631047188106
+      }
+    ]
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "English": {
+    "speakers_millions": 1500.0,
+    "internet_content_pct": 49.7,
+    "digital_literacy_proxy": 92.0,
+    "llm_mmlu_accuracy": 85.0,
+    "wikipedia_users": 122038,
+    "resource_tier": "High",
+    "fertility": 1.15,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024",
+      "Wikimedia 2024"
+    ],
+    "crdi": 0.0995,
+    "doi": 0.9005,
+    "components": {
+      "speakers": 0.0,
+      "content": 0.0,
+      "literacy": 0.08,
+      "accuracy": 0.15,
+      "fertility": 0.3833,
+      "wikipedia": 0.0
+    }
+  },
+  "Chinese": {
+    "speakers_millions": 1200.0,
+    "internet_content_pct": 19.04,
+    "digital_literacy_proxy": 82.0,
+    "llm_mmlu_accuracy": 78.0,
+    "wikipedia_users": 6994,
+    "resource_tier": "High",
+    "fertility": 0.73,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024",
+      "Wikimedia 2024"
+    ],
+    "crdi": 0.4231,
+    "doi": 0.5769,
+    "components": {
+      "speakers": 0.2,
+      "content": 0.6169,
+      "literacy": 0.18,
+      "accuracy": 0.22,
+      "fertility": 0.2433,
+      "wikipedia": 0.9427
+    }
+  },
+  "Spanish": {
+    "speakers_millions": 600.0,
+    "internet_content_pct": 7.7,
+    "digital_literacy_proxy": 75.0,
+    "llm_mmlu_accuracy": 72.0,
+    "wikipedia_users": 14385,
+    "resource_tier": "High",
+    "fertility": 1.68,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.5811,
+    "doi": 0.4189,
+    "components": {
+      "speakers": 0.6,
+      "content": 0.8451,
+      "literacy": 0.25,
+      "accuracy": 0.28,
+      "fertility": 0.56,
+      "wikipedia": 0.8821
+    }
+  },
+  "Arabic": {
+    "speakers_millions": 420.0,
+    "internet_content_pct": 3.65,
+    "digital_literacy_proxy": 68.0,
+    "llm_mmlu_accuracy": 65.0,
+    "wikipedia_users": 3930,
+    "resource_tier": "Moderate",
+    "fertility": 2.4,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.6868,
+    "doi": 0.3132,
+    "components": {
+      "speakers": 0.72,
+      "content": 0.9266,
+      "literacy": 0.32,
+      "accuracy": 0.35,
+      "fertility": 0.8,
+      "wikipedia": 0.9678
+    }
+  },
+  "Hindi": {
+    "speakers_millions": 600.0,
+    "internet_content_pct": 3.77,
+    "digital_literacy_proxy": 48.0,
+    "llm_mmlu_accuracy": 55.0,
+    "wikipedia_users": 0,
+    "resource_tier": "Moderate",
+    "fertility": 2.83,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024",
+      "ITU India Report 2024"
+    ],
+    "crdi": 0.7505,
+    "doi": 0.2495,
+    "components": {
+      "speakers": 0.6,
+      "content": 0.9241,
+      "literacy": 0.52,
+      "accuracy": 0.45,
+      "fertility": 0.9433,
+      "wikipedia": 1.0
+    }
+  },
+  "Swahili": {
+    "speakers_millions": 200.0,
+    "internet_content_pct": 0.0025,
+    "digital_literacy_proxy": 38.0,
+    "llm_mmlu_accuracy": 45.0,
+    "wikipedia_users": 0,
+    "resource_tier": "Low",
+    "fertility": 2.34,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024",
+      "ITU Africa Report 2024"
+    ],
+    "crdi": 0.8066,
+    "doi": 0.1934,
+    "components": {
+      "speakers": 0.8667,
+      "content": 0.9999,
+      "literacy": 0.62,
+      "accuracy": 0.55,
+      "fertility": 0.78,
+      "wikipedia": 1.0
+    }
+  },
+  "Bengali": {
+    "speakers_millions": 270.0,
+    "internet_content_pct": 0.2,
+    "digital_literacy_proxy": 45.0,
+    "llm_mmlu_accuracy": 50.0,
+    "wikipedia_users": 0,
+    "resource_tier": "Low",
+    "fertility": 1.5,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.7385,
+    "doi": 0.2615,
+    "components": {
+      "speakers": 0.82,
+      "content": 0.996,
+      "literacy": 0.55,
+      "accuracy": 0.5,
+      "fertility": 0.5,
+      "wikipedia": 1.0
+    }
+  },
+  "Russian": {
+    "speakers_millions": 260.0,
+    "internet_content_pct": 3.75,
+    "digital_literacy_proxy": 69.0,
+    "llm_mmlu_accuracy": 68.0,
+    "wikipedia_users": 9243,
+    "resource_tier": "Moderate",
+    "fertility": 1.5,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.6379,
+    "doi": 0.3621,
+    "components": {
+      "speakers": 0.8267,
+      "content": 0.9245,
+      "literacy": 0.31,
+      "accuracy": 0.32,
+      "fertility": 0.5,
+      "wikipedia": 0.9243
+    }
+  },
+  "Japanese": {
+    "speakers_millions": 125.0,
+    "internet_content_pct": 2.23,
+    "digital_literacy_proxy": 93.0,
+    "llm_mmlu_accuracy": 75.0,
+    "wikipedia_users": 12409,
+    "resource_tier": "High",
+    "fertility": 1.5,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.6007,
+    "doi": 0.3993,
+    "components": {
+      "speakers": 0.9167,
+      "content": 0.9551,
+      "literacy": 0.07,
+      "accuracy": 0.25,
+      "fertility": 0.5,
+      "wikipedia": 0.8983
+    }
+  },
+  "French": {
+    "speakers_millions": 300.0,
+    "internet_content_pct": 3.42,
+    "digital_literacy_proxy": 78.0,
+    "llm_mmlu_accuracy": 74.0,
+    "wikipedia_users": 17717,
+    "resource_tier": "High",
+    "fertility": 1.5,
+    "sources": [
+      "Ethnologue 2024",
+      "W3Techs 2024"
+    ],
+    "crdi": 0.601,
+    "doi": 0.399,
+    "components": {
+      "speakers": 0.8,
+      "content": 0.9312,
+      "literacy": 0.22,
+      "accuracy": 0.26,
+      "fertility": 0.5,
+      "wikipedia": 0.8548
+    }
+  }
+}

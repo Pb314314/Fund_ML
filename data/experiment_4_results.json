@@ -1,0 +1,3626 @@
+{
+  "H100_English": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "English",
+    "fertility": 1.15,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 184,
+        "total_kv_gb": 0.7188,
+        "throughput_tok_s": 15852.13,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 368,
+        "total_kv_gb": 1.4375,
+        "throughput_tok_s": 13762.49,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 552,
+        "total_kv_gb": 2.1562,
+        "throughput_tok_s": 12159.61,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 736,
+        "total_kv_gb": 2.875,
+        "throughput_tok_s": 10891.15,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 920,
+        "total_kv_gb": 3.5938,
+        "throughput_tok_s": 9862.33,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1104,
+        "total_kv_gb": 4.3125,
+        "throughput_tok_s": 9011.11,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1288,
+        "total_kv_gb": 5.0312,
+        "throughput_tok_s": 8295.15,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 1472,
+        "total_kv_gb": 5.75,
+        "throughput_tok_s": 7684.59,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1656,
+        "total_kv_gb": 6.4688,
+        "throughput_tok_s": 7157.74,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1840,
+        "total_kv_gb": 7.1875,
+        "throughput_tok_s": 6698.5,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2024,
+        "total_kv_gb": 7.9062,
+        "throughput_tok_s": 6294.64,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 2208,
+        "total_kv_gb": 8.625,
+        "throughput_tok_s": 5936.71,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 2392,
+        "total_kv_gb": 9.3438,
+        "throughput_tok_s": 5617.29,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 2576,
+        "total_kv_gb": 10.0625,
+        "throughput_tok_s": 5330.49,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 2760,
+        "total_kv_gb": 10.7812,
+        "throughput_tok_s": 5071.56,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 2944,
+        "total_kv_gb": 11.5,
+        "throughput_tok_s": 4836.61,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 3128,
+        "total_kv_gb": 12.2188,
+        "throughput_tok_s": 4622.47,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 3312,
+        "total_kv_gb": 12.9375,
+        "throughput_tok_s": 4426.49,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 3496,
+        "total_kv_gb": 13.6562,
+        "throughput_tok_s": 4246.45,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 3680,
+        "total_kv_gb": 14.375,
+        "throughput_tok_s": 4080.48,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "H100_Chinese": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "Chinese",
+    "fertility": 0.73,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 116,
+        "total_kv_gb": 0.4531,
+        "throughput_tok_s": 16794.52,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 232,
+        "total_kv_gb": 0.9062,
+        "throughput_tok_s": 15248.16,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 348,
+        "total_kv_gb": 1.3594,
+        "throughput_tok_s": 13962.55,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 464,
+        "total_kv_gb": 1.8125,
+        "throughput_tok_s": 12876.88,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 580,
+        "total_kv_gb": 2.2656,
+        "throughput_tok_s": 11947.86,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 696,
+        "total_kv_gb": 2.7188,
+        "throughput_tok_s": 11143.86,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 812,
+        "total_kv_gb": 3.1719,
+        "throughput_tok_s": 10441.26,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 928,
+        "total_kv_gb": 3.625,
+        "throughput_tok_s": 9821.99,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1044,
+        "total_kv_gb": 4.0781,
+        "throughput_tok_s": 9272.07,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1160,
+        "total_kv_gb": 4.5312,
+        "throughput_tok_s": 8780.46,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 1276,
+        "total_kv_gb": 4.9844,
+        "throughput_tok_s": 8338.36,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 1392,
+        "total_kv_gb": 5.4375,
+        "throughput_tok_s": 7938.64,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 1508,
+        "total_kv_gb": 5.8906,
+        "throughput_tok_s": 7575.49,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 1624,
+        "total_kv_gb": 6.3438,
+        "throughput_tok_s": 7244.12,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 1740,
+        "total_kv_gb": 6.7969,
+        "throughput_tok_s": 6940.52,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 1856,
+        "total_kv_gb": 7.25,
+        "throughput_tok_s": 6661.34,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 1972,
+        "total_kv_gb": 7.7031,
+        "throughput_tok_s": 6403.75,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 2088,
+        "total_kv_gb": 8.1562,
+        "throughput_tok_s": 6165.35,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 2204,
+        "total_kv_gb": 8.6094,
+        "throughput_tok_s": 5944.06,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 2320,
+        "total_kv_gb": 9.0625,
+        "throughput_tok_s": 5738.1,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "H100_Spanish": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "Spanish",
+    "fertility": 1.68,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 268,
+        "total_kv_gb": 1.0469,
+        "throughput_tok_s": 14824.55,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 536,
+        "total_kv_gb": 2.0938,
+        "throughput_tok_s": 12284.02,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 804,
+        "total_kv_gb": 3.1406,
+        "throughput_tok_s": 10486.85,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1072,
+        "total_kv_gb": 4.1875,
+        "throughput_tok_s": 9148.43,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1340,
+        "total_kv_gb": 5.2344,
+        "throughput_tok_s": 8112.98,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1608,
+        "total_kv_gb": 6.2812,
+        "throughput_tok_s": 7288.09,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1876,
+        "total_kv_gb": 7.3281,
+        "throughput_tok_s": 6615.46,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2144,
+        "total_kv_gb": 8.375,
+        "throughput_tok_s": 6056.5,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 2412,
+        "total_kv_gb": 9.4219,
+        "throughput_tok_s": 5584.63,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 2680,
+        "total_kv_gb": 10.4688,
+        "throughput_tok_s": 5180.98,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2948,
+        "total_kv_gb": 11.5156,
+        "throughput_tok_s": 4831.74,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 3216,
+        "total_kv_gb": 12.5625,
+        "throughput_tok_s": 4526.62,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 3484,
+        "total_kv_gb": 13.6094,
+        "throughput_tok_s": 4257.74,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 3752,
+        "total_kv_gb": 14.6562,
+        "throughput_tok_s": 4019.01,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 4020,
+        "total_kv_gb": 15.7031,
+        "throughput_tok_s": 3805.64,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 4288,
+        "total_kv_gb": 16.75,
+        "throughput_tok_s": 3613.77,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 4556,
+        "total_kv_gb": 17.7969,
+        "throughput_tok_s": 3440.33,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 4824,
+        "total_kv_gb": 18.8438,
+        "throughput_tok_s": 3282.77,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 5092,
+        "total_kv_gb": 19.8906,
+        "throughput_tok_s": 3139.01,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 5360,
+        "total_kv_gb": 20.9375,
+        "throughput_tok_s": 3007.31,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "H100_Arabic": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "Arabic",
+    "fertility": 2.4,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 384,
+        "total_kv_gb": 1.5,
+        "throughput_tok_s": 13606.53,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 768,
+        "total_kv_gb": 3.0,
+        "throughput_tok_s": 10697.08,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1152,
+        "total_kv_gb": 4.5,
+        "throughput_tok_s": 8812.68,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1536,
+        "total_kv_gb": 6.0,
+        "throughput_tok_s": 7492.76,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1920,
+        "total_kv_gb": 7.5,
+        "throughput_tok_s": 6516.72,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2304,
+        "total_kv_gb": 9.0,
+        "throughput_tok_s": 5765.66,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2688,
+        "total_kv_gb": 10.5,
+        "throughput_tok_s": 5169.82,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3072,
+        "total_kv_gb": 12.0,
+        "throughput_tok_s": 4685.61,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3456,
+        "total_kv_gb": 13.5,
+        "throughput_tok_s": 4284.33,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3840,
+        "total_kv_gb": 15.0,
+        "throughput_tok_s": 3946.36,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4224,
+        "total_kv_gb": 16.5,
+        "throughput_tok_s": 3657.81,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4608,
+        "total_kv_gb": 18.0,
+        "throughput_tok_s": 3408.59,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4992,
+        "total_kv_gb": 19.5,
+        "throughput_tok_s": 3191.15,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5376,
+        "total_kv_gb": 21.0,
+        "throughput_tok_s": 2999.8,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5760,
+        "total_kv_gb": 22.5,
+        "throughput_tok_s": 2830.1,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 6144,
+        "total_kv_gb": 24.0,
+        "throughput_tok_s": 2678.57,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6528,
+        "total_kv_gb": 25.5,
+        "throughput_tok_s": 2542.44,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6912,
+        "total_kv_gb": 27.0,
+        "throughput_tok_s": 2419.47,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7296,
+        "total_kv_gb": 28.5,
+        "throughput_tok_s": 2307.86,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7680,
+        "total_kv_gb": 30.0,
+        "throughput_tok_s": 2206.09,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "H100_Swahili": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "Swahili",
+    "fertility": 2.34,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 374,
+        "total_kv_gb": 1.4609,
+        "throughput_tok_s": 13703.59,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 748,
+        "total_kv_gb": 2.9219,
+        "throughput_tok_s": 10817.55,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1122,
+        "total_kv_gb": 4.3828,
+        "throughput_tok_s": 8935.66,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1496,
+        "total_kv_gb": 5.8438,
+        "throughput_tok_s": 7611.51,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1870,
+        "total_kv_gb": 7.3047,
+        "throughput_tok_s": 6629.16,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2244,
+        "total_kv_gb": 8.7656,
+        "throughput_tok_s": 5871.39,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2618,
+        "total_kv_gb": 10.2266,
+        "throughput_tok_s": 5269.08,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2992,
+        "total_kv_gb": 11.6875,
+        "throughput_tok_s": 4778.86,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3366,
+        "total_kv_gb": 13.1484,
+        "throughput_tok_s": 4372.08,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3740,
+        "total_kv_gb": 14.6094,
+        "throughput_tok_s": 4029.13,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4114,
+        "total_kv_gb": 16.0703,
+        "throughput_tok_s": 3736.06,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4488,
+        "total_kv_gb": 17.5312,
+        "throughput_tok_s": 3482.74,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4862,
+        "total_kv_gb": 18.9922,
+        "throughput_tok_s": 3261.59,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5236,
+        "total_kv_gb": 20.4531,
+        "throughput_tok_s": 3066.85,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5610,
+        "total_kv_gb": 21.9141,
+        "throughput_tok_s": 2894.05,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 5984,
+        "total_kv_gb": 23.375,
+        "throughput_tok_s": 2739.69,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6358,
+        "total_kv_gb": 24.8359,
+        "throughput_tok_s": 2600.96,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6732,
+        "total_kv_gb": 26.2969,
+        "throughput_tok_s": 2475.6,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7106,
+        "total_kv_gb": 27.7578,
+        "throughput_tok_s": 2361.77,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7480,
+        "total_kv_gb": 29.2188,
+        "throughput_tok_s": 2257.95,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "H100_Hindi": {
+    "gpu": "H100",
+    "gpu_name": "NVIDIA H100 SXM5",
+    "language": "Hindi",
+    "fertility": 2.83,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 452,
+        "total_kv_gb": 1.7656,
+        "throughput_tok_s": 12981.3,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 904,
+        "total_kv_gb": 3.5312,
+        "throughput_tok_s": 9944.01,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1356,
+        "total_kv_gb": 5.2969,
+        "throughput_tok_s": 8058.53,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1808,
+        "total_kv_gb": 7.0625,
+        "throughput_tok_s": 6774.09,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 2260,
+        "total_kv_gb": 8.8281,
+        "throughput_tok_s": 5842.81,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2712,
+        "total_kv_gb": 10.5938,
+        "throughput_tok_s": 5136.65,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 3164,
+        "total_kv_gb": 12.3594,
+        "throughput_tok_s": 4582.77,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3616,
+        "total_kv_gb": 14.125,
+        "throughput_tok_s": 4136.71,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 4068,
+        "total_kv_gb": 15.8906,
+        "throughput_tok_s": 3769.79,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 4520,
+        "total_kv_gb": 17.6562,
+        "throughput_tok_s": 3462.65,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4972,
+        "total_kv_gb": 19.4219,
+        "throughput_tok_s": 3201.79,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 5424,
+        "total_kv_gb": 21.1875,
+        "throughput_tok_s": 2977.48,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 5876,
+        "total_kv_gb": 22.9531,
+        "throughput_tok_s": 2782.54,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 6328,
+        "total_kv_gb": 24.7188,
+        "throughput_tok_s": 2611.56,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 6780,
+        "total_kv_gb": 26.4844,
+        "throughput_tok_s": 2460.38,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 7232,
+        "total_kv_gb": 28.25,
+        "throughput_tok_s": 2325.74,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 7684,
+        "total_kv_gb": 30.0156,
+        "throughput_tok_s": 2205.07,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 8136,
+        "total_kv_gb": 31.7812,
+        "throughput_tok_s": 2096.31,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 8588,
+        "total_kv_gb": 33.5469,
+        "throughput_tok_s": 1997.77,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 9040,
+        "total_kv_gb": 35.3125,
+        "throughput_tok_s": 1908.08,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_English": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "English",
+    "fertility": 1.15,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 184,
+        "total_kv_gb": 0.7188,
+        "throughput_tok_s": 9648.5,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 368,
+        "total_kv_gb": 1.4375,
+        "throughput_tok_s": 8376.63,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 552,
+        "total_kv_gb": 2.1562,
+        "throughput_tok_s": 7401.03,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 736,
+        "total_kv_gb": 2.875,
+        "throughput_tok_s": 6628.97,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 920,
+        "total_kv_gb": 3.5938,
+        "throughput_tok_s": 6002.77,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1104,
+        "total_kv_gb": 4.3125,
+        "throughput_tok_s": 5484.67,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1288,
+        "total_kv_gb": 5.0312,
+        "throughput_tok_s": 5048.9,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 1472,
+        "total_kv_gb": 5.75,
+        "throughput_tok_s": 4677.28,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1656,
+        "total_kv_gb": 6.4688,
+        "throughput_tok_s": 4356.61,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1840,
+        "total_kv_gb": 7.1875,
+        "throughput_tok_s": 4077.09,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2024,
+        "total_kv_gb": 7.9062,
+        "throughput_tok_s": 3831.28,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 2208,
+        "total_kv_gb": 8.625,
+        "throughput_tok_s": 3613.42,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 2392,
+        "total_kv_gb": 9.3438,
+        "throughput_tok_s": 3419.0,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 2576,
+        "total_kv_gb": 10.0625,
+        "throughput_tok_s": 3244.44,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 2760,
+        "total_kv_gb": 10.7812,
+        "throughput_tok_s": 3086.84,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 2944,
+        "total_kv_gb": 11.5,
+        "throughput_tok_s": 2943.83,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 3128,
+        "total_kv_gb": 12.2188,
+        "throughput_tok_s": 2813.5,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 3312,
+        "total_kv_gb": 12.9375,
+        "throughput_tok_s": 2694.21,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 3496,
+        "total_kv_gb": 13.6562,
+        "throughput_tok_s": 2584.63,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 3680,
+        "total_kv_gb": 14.375,
+        "throughput_tok_s": 2483.61,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_Chinese": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "Chinese",
+    "fertility": 0.73,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 116,
+        "total_kv_gb": 0.4531,
+        "throughput_tok_s": 10222.1,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 232,
+        "total_kv_gb": 0.9062,
+        "throughput_tok_s": 9280.89,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 348,
+        "total_kv_gb": 1.3594,
+        "throughput_tok_s": 8498.4,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 464,
+        "total_kv_gb": 1.8125,
+        "throughput_tok_s": 7837.6,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 580,
+        "total_kv_gb": 2.2656,
+        "throughput_tok_s": 7272.14,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 696,
+        "total_kv_gb": 2.7188,
+        "throughput_tok_s": 6782.79,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 812,
+        "total_kv_gb": 3.1719,
+        "throughput_tok_s": 6355.14,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 928,
+        "total_kv_gb": 3.625,
+        "throughput_tok_s": 5978.22,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1044,
+        "total_kv_gb": 4.0781,
+        "throughput_tok_s": 5643.51,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1160,
+        "total_kv_gb": 4.5312,
+        "throughput_tok_s": 5344.29,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 1276,
+        "total_kv_gb": 4.9844,
+        "throughput_tok_s": 5075.2,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 1392,
+        "total_kv_gb": 5.4375,
+        "throughput_tok_s": 4831.91,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 1508,
+        "total_kv_gb": 5.8906,
+        "throughput_tok_s": 4610.88,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 1624,
+        "total_kv_gb": 6.3438,
+        "throughput_tok_s": 4409.18,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 1740,
+        "total_kv_gb": 6.7969,
+        "throughput_tok_s": 4224.39,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 1856,
+        "total_kv_gb": 7.25,
+        "throughput_tok_s": 4054.47,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 1972,
+        "total_kv_gb": 7.7031,
+        "throughput_tok_s": 3897.69,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 2088,
+        "total_kv_gb": 8.1562,
+        "throughput_tok_s": 3752.58,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 2204,
+        "total_kv_gb": 8.6094,
+        "throughput_tok_s": 3617.89,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 2320,
+        "total_kv_gb": 9.0625,
+        "throughput_tok_s": 3492.53,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_Spanish": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "Spanish",
+    "fertility": 1.68,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 268,
+        "total_kv_gb": 1.0469,
+        "throughput_tok_s": 9023.06,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 536,
+        "total_kv_gb": 2.0938,
+        "throughput_tok_s": 7476.75,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 804,
+        "total_kv_gb": 3.1406,
+        "throughput_tok_s": 6382.89,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1072,
+        "total_kv_gb": 4.1875,
+        "throughput_tok_s": 5568.25,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1340,
+        "total_kv_gb": 5.2344,
+        "throughput_tok_s": 4938.02,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1608,
+        "total_kv_gb": 6.2812,
+        "throughput_tok_s": 4435.95,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1876,
+        "total_kv_gb": 7.3281,
+        "throughput_tok_s": 4026.54,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2144,
+        "total_kv_gb": 8.375,
+        "throughput_tok_s": 3686.33,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 2412,
+        "total_kv_gb": 9.4219,
+        "throughput_tok_s": 3399.12,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 2680,
+        "total_kv_gb": 10.4688,
+        "throughput_tok_s": 3153.44,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2948,
+        "total_kv_gb": 11.5156,
+        "throughput_tok_s": 2940.87,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 3216,
+        "total_kv_gb": 12.5625,
+        "throughput_tok_s": 2755.16,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 3484,
+        "total_kv_gb": 13.6094,
+        "throughput_tok_s": 2591.5,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 3752,
+        "total_kv_gb": 14.6562,
+        "throughput_tok_s": 2446.2,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 4020,
+        "total_kv_gb": 15.7031,
+        "throughput_tok_s": 2316.33,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 4288,
+        "total_kv_gb": 16.75,
+        "throughput_tok_s": 2199.55,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 4556,
+        "total_kv_gb": 17.7969,
+        "throughput_tok_s": 2093.98,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 4824,
+        "total_kv_gb": 18.8438,
+        "throughput_tok_s": 1998.08,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 5092,
+        "total_kv_gb": 19.8906,
+        "throughput_tok_s": 1910.58,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 5360,
+        "total_kv_gb": 20.9375,
+        "throughput_tok_s": 1830.42,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_Arabic": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "Arabic",
+    "fertility": 2.4,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 384,
+        "total_kv_gb": 1.5,
+        "throughput_tok_s": 8281.7,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 768,
+        "total_kv_gb": 3.0,
+        "throughput_tok_s": 6510.85,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1152,
+        "total_kv_gb": 4.5,
+        "throughput_tok_s": 5363.9,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1536,
+        "total_kv_gb": 6.0,
+        "throughput_tok_s": 4560.52,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1920,
+        "total_kv_gb": 7.5,
+        "throughput_tok_s": 3966.44,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2304,
+        "total_kv_gb": 9.0,
+        "throughput_tok_s": 3509.3,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2688,
+        "total_kv_gb": 10.5,
+        "throughput_tok_s": 3146.65,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3072,
+        "total_kv_gb": 12.0,
+        "throughput_tok_s": 2851.93,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3456,
+        "total_kv_gb": 13.5,
+        "throughput_tok_s": 2607.68,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3840,
+        "total_kv_gb": 15.0,
+        "throughput_tok_s": 2401.98,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4224,
+        "total_kv_gb": 16.5,
+        "throughput_tok_s": 2226.35,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4608,
+        "total_kv_gb": 18.0,
+        "throughput_tok_s": 2074.66,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4992,
+        "total_kv_gb": 19.5,
+        "throughput_tok_s": 1942.32,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5376,
+        "total_kv_gb": 21.0,
+        "throughput_tok_s": 1825.85,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5760,
+        "total_kv_gb": 22.5,
+        "throughput_tok_s": 1722.56,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 6144,
+        "total_kv_gb": 24.0,
+        "throughput_tok_s": 1630.33,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6528,
+        "total_kv_gb": 25.5,
+        "throughput_tok_s": 1547.47,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6912,
+        "total_kv_gb": 27.0,
+        "throughput_tok_s": 1472.63,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7296,
+        "total_kv_gb": 28.5,
+        "throughput_tok_s": 1404.69,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7680,
+        "total_kv_gb": 30.0,
+        "throughput_tok_s": 1342.75,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_Swahili": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "Swahili",
+    "fertility": 2.34,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 374,
+        "total_kv_gb": 1.4609,
+        "throughput_tok_s": 8340.78,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 748,
+        "total_kv_gb": 2.9219,
+        "throughput_tok_s": 6584.18,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1122,
+        "total_kv_gb": 4.3828,
+        "throughput_tok_s": 5438.75,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1496,
+        "total_kv_gb": 5.8438,
+        "throughput_tok_s": 4632.8,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1870,
+        "total_kv_gb": 7.3047,
+        "throughput_tok_s": 4034.88,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2244,
+        "total_kv_gb": 8.7656,
+        "throughput_tok_s": 3573.66,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2618,
+        "total_kv_gb": 10.2266,
+        "throughput_tok_s": 3207.06,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2992,
+        "total_kv_gb": 11.6875,
+        "throughput_tok_s": 2908.68,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3366,
+        "total_kv_gb": 13.1484,
+        "throughput_tok_s": 2661.1,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3740,
+        "total_kv_gb": 14.6094,
+        "throughput_tok_s": 2452.36,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4114,
+        "total_kv_gb": 16.0703,
+        "throughput_tok_s": 2273.98,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4488,
+        "total_kv_gb": 17.5312,
+        "throughput_tok_s": 2119.79,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4862,
+        "total_kv_gb": 18.9922,
+        "throughput_tok_s": 1985.19,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5236,
+        "total_kv_gb": 20.4531,
+        "throughput_tok_s": 1866.66,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5610,
+        "total_kv_gb": 21.9141,
+        "throughput_tok_s": 1761.48,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 5984,
+        "total_kv_gb": 23.375,
+        "throughput_tok_s": 1667.53,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6358,
+        "total_kv_gb": 24.8359,
+        "throughput_tok_s": 1583.09,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6732,
+        "total_kv_gb": 26.2969,
+        "throughput_tok_s": 1506.79,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7106,
+        "total_kv_gb": 27.7578,
+        "throughput_tok_s": 1437.51,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7480,
+        "total_kv_gb": 29.2188,
+        "throughput_tok_s": 1374.31,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "A100_Hindi": {
+    "gpu": "A100",
+    "gpu_name": "NVIDIA A100 80GB PCIe/SXM",
+    "language": "Hindi",
+    "fertility": 2.83,
+    "batch_size": 32,
+    "available_kv_gb": 67.985,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 452,
+        "total_kv_gb": 1.7656,
+        "throughput_tok_s": 7901.15,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 904,
+        "total_kv_gb": 3.5312,
+        "throughput_tok_s": 6052.49,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1356,
+        "total_kv_gb": 5.2969,
+        "throughput_tok_s": 4904.88,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1808,
+        "total_kv_gb": 7.0625,
+        "throughput_tok_s": 4123.1,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 2260,
+        "total_kv_gb": 8.8281,
+        "throughput_tok_s": 3556.27,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2712,
+        "total_kv_gb": 10.5938,
+        "throughput_tok_s": 3126.46,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 3164,
+        "total_kv_gb": 12.3594,
+        "throughput_tok_s": 2789.33,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3616,
+        "total_kv_gb": 14.125,
+        "throughput_tok_s": 2517.84,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 4068,
+        "total_kv_gb": 15.8906,
+        "throughput_tok_s": 2294.51,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 4520,
+        "total_kv_gb": 17.6562,
+        "throughput_tok_s": 2107.57,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4972,
+        "total_kv_gb": 19.4219,
+        "throughput_tok_s": 1948.79,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 5424,
+        "total_kv_gb": 21.1875,
+        "throughput_tok_s": 1812.26,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 5876,
+        "total_kv_gb": 22.9531,
+        "throughput_tok_s": 1693.61,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 6328,
+        "total_kv_gb": 24.7188,
+        "throughput_tok_s": 1589.55,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 6780,
+        "total_kv_gb": 26.4844,
+        "throughput_tok_s": 1497.53,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 7232,
+        "total_kv_gb": 28.25,
+        "throughput_tok_s": 1415.58,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 7684,
+        "total_kv_gb": 30.0156,
+        "throughput_tok_s": 1342.13,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 8136,
+        "total_kv_gb": 31.7812,
+        "throughput_tok_s": 1275.93,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 8588,
+        "total_kv_gb": 33.5469,
+        "throughput_tok_s": 1215.96,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 9040,
+        "total_kv_gb": 35.3125,
+        "throughput_tok_s": 1161.37,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "T4_English": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "English",
+    "fertility": 1.15,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 184,
+        "total_kv_gb": 0.7188,
+        "throughput_tok_s": 1514.23,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 368,
+        "total_kv_gb": 1.4375,
+        "throughput_tok_s": 1314.63,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 552,
+        "total_kv_gb": 2.1562,
+        "throughput_tok_s": 1161.52,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 736,
+        "total_kv_gb": 2.875,
+        "throughput_tok_s": 1040.35,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 920,
+        "total_kv_gb": 3.5938,
+        "throughput_tok_s": 942.07,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1104,
+        "total_kv_gb": 4.3125,
+        "throughput_tok_s": 860.76,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1288,
+        "total_kv_gb": 5.0312,
+        "throughput_tok_s": 792.37,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 1472,
+        "total_kv_gb": 5.75,
+        "throughput_tok_s": 734.05,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1656,
+        "total_kv_gb": 6.4688,
+        "throughput_tok_s": 683.72,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1840,
+        "total_kv_gb": 7.1875,
+        "throughput_tok_s": 639.86,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2024,
+        "total_kv_gb": 7.9062,
+        "throughput_tok_s": 601.28,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 2208,
+        "total_kv_gb": 8.625,
+        "throughput_tok_s": 567.09,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 2392,
+        "total_kv_gb": 9.3438,
+        "throughput_tok_s": 536.58,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 2576,
+        "total_kv_gb": 10.0625,
+        "throughput_tok_s": 509.18,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 2760,
+        "total_kv_gb": 10.7812,
+        "throughput_tok_s": 484.45,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 2944,
+        "total_kv_gb": 11.5,
+        "throughput_tok_s": 462.0,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 3128,
+        "total_kv_gb": 12.2188,
+        "throughput_tok_s": 441.55,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 3312,
+        "total_kv_gb": 12.9375,
+        "throughput_tok_s": 422.83,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 3496,
+        "total_kv_gb": 13.6562,
+        "throughput_tok_s": 405.63,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 3680,
+        "total_kv_gb": 14.375,
+        "throughput_tok_s": 389.78,
+        "oom": true
+      }
+    ],
+    "oom_turn": 15
+  },
+  "T4_Chinese": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "Chinese",
+    "fertility": 0.73,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 116,
+        "total_kv_gb": 0.4531,
+        "throughput_tok_s": 1604.25,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 232,
+        "total_kv_gb": 0.9062,
+        "throughput_tok_s": 1456.54,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 348,
+        "total_kv_gb": 1.3594,
+        "throughput_tok_s": 1333.74,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 464,
+        "total_kv_gb": 1.8125,
+        "throughput_tok_s": 1230.03,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 580,
+        "total_kv_gb": 2.2656,
+        "throughput_tok_s": 1141.29,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 696,
+        "total_kv_gb": 2.7188,
+        "throughput_tok_s": 1064.49,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 812,
+        "total_kv_gb": 3.1719,
+        "throughput_tok_s": 997.37,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 928,
+        "total_kv_gb": 3.625,
+        "throughput_tok_s": 938.22,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1044,
+        "total_kv_gb": 4.0781,
+        "throughput_tok_s": 885.69,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1160,
+        "total_kv_gb": 4.5312,
+        "throughput_tok_s": 838.73,
+        "oom": false
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 1276,
+        "total_kv_gb": 4.9844,
+        "throughput_tok_s": 796.5,
+        "oom": false
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 1392,
+        "total_kv_gb": 5.4375,
+        "throughput_tok_s": 758.32,
+        "oom": false
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 1508,
+        "total_kv_gb": 5.8906,
+        "throughput_tok_s": 723.63,
+        "oom": false
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 1624,
+        "total_kv_gb": 6.3438,
+        "throughput_tok_s": 691.98,
+        "oom": false
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 1740,
+        "total_kv_gb": 6.7969,
+        "throughput_tok_s": 662.97,
+        "oom": false
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 1856,
+        "total_kv_gb": 7.25,
+        "throughput_tok_s": 636.31,
+        "oom": false
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 1972,
+        "total_kv_gb": 7.7031,
+        "throughput_tok_s": 611.7,
+        "oom": false
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 2088,
+        "total_kv_gb": 8.1562,
+        "throughput_tok_s": 588.93,
+        "oom": false
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 2204,
+        "total_kv_gb": 8.6094,
+        "throughput_tok_s": 567.79,
+        "oom": false
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 2320,
+        "total_kv_gb": 9.0625,
+        "throughput_tok_s": 548.12,
+        "oom": false
+      }
+    ],
+    "oom_turn": null
+  },
+  "T4_Spanish": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "Spanish",
+    "fertility": 1.68,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 268,
+        "total_kv_gb": 1.0469,
+        "throughput_tok_s": 1416.08,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 536,
+        "total_kv_gb": 2.0938,
+        "throughput_tok_s": 1173.4,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 804,
+        "total_kv_gb": 3.1406,
+        "throughput_tok_s": 1001.73,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1072,
+        "total_kv_gb": 4.1875,
+        "throughput_tok_s": 873.88,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1340,
+        "total_kv_gb": 5.2344,
+        "throughput_tok_s": 774.97,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1608,
+        "total_kv_gb": 6.2812,
+        "throughput_tok_s": 696.18,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1876,
+        "total_kv_gb": 7.3281,
+        "throughput_tok_s": 631.92,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2144,
+        "total_kv_gb": 8.375,
+        "throughput_tok_s": 578.53,
+        "oom": false
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 2412,
+        "total_kv_gb": 9.4219,
+        "throughput_tok_s": 533.46,
+        "oom": false
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 2680,
+        "total_kv_gb": 10.4688,
+        "throughput_tok_s": 494.9,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2948,
+        "total_kv_gb": 11.5156,
+        "throughput_tok_s": 461.54,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 3216,
+        "total_kv_gb": 12.5625,
+        "throughput_tok_s": 432.39,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 3484,
+        "total_kv_gb": 13.6094,
+        "throughput_tok_s": 406.71,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 3752,
+        "total_kv_gb": 14.6562,
+        "throughput_tok_s": 383.91,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 4020,
+        "total_kv_gb": 15.7031,
+        "throughput_tok_s": 363.52,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 4288,
+        "total_kv_gb": 16.75,
+        "throughput_tok_s": 345.2,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 4556,
+        "total_kv_gb": 17.7969,
+        "throughput_tok_s": 328.63,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 4824,
+        "total_kv_gb": 18.8438,
+        "throughput_tok_s": 313.58,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 5092,
+        "total_kv_gb": 19.8906,
+        "throughput_tok_s": 299.85,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 5360,
+        "total_kv_gb": 20.9375,
+        "throughput_tok_s": 287.27,
+        "oom": true
+      }
+    ],
+    "oom_turn": 10
+  },
+  "T4_Arabic": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "Arabic",
+    "fertility": 2.4,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 384,
+        "total_kv_gb": 1.5,
+        "throughput_tok_s": 1299.73,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 768,
+        "total_kv_gb": 3.0,
+        "throughput_tok_s": 1021.81,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1152,
+        "total_kv_gb": 4.5,
+        "throughput_tok_s": 841.81,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1536,
+        "total_kv_gb": 6.0,
+        "throughput_tok_s": 715.73,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1920,
+        "total_kv_gb": 7.5,
+        "throughput_tok_s": 622.49,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2304,
+        "total_kv_gb": 9.0,
+        "throughput_tok_s": 550.75,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2688,
+        "total_kv_gb": 10.5,
+        "throughput_tok_s": 493.83,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3072,
+        "total_kv_gb": 12.0,
+        "throughput_tok_s": 447.58,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3456,
+        "total_kv_gb": 13.5,
+        "throughput_tok_s": 409.25,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3840,
+        "total_kv_gb": 15.0,
+        "throughput_tok_s": 376.97,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4224,
+        "total_kv_gb": 16.5,
+        "throughput_tok_s": 349.4,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4608,
+        "total_kv_gb": 18.0,
+        "throughput_tok_s": 325.6,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4992,
+        "total_kv_gb": 19.5,
+        "throughput_tok_s": 304.83,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5376,
+        "total_kv_gb": 21.0,
+        "throughput_tok_s": 286.55,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5760,
+        "total_kv_gb": 22.5,
+        "throughput_tok_s": 270.34,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 6144,
+        "total_kv_gb": 24.0,
+        "throughput_tok_s": 255.86,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6528,
+        "total_kv_gb": 25.5,
+        "throughput_tok_s": 242.86,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6912,
+        "total_kv_gb": 27.0,
+        "throughput_tok_s": 231.11,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7296,
+        "total_kv_gb": 28.5,
+        "throughput_tok_s": 220.45,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7680,
+        "total_kv_gb": 30.0,
+        "throughput_tok_s": 210.73,
+        "oom": true
+      }
+    ],
+    "oom_turn": 7
+  },
+  "T4_Swahili": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "Swahili",
+    "fertility": 2.34,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 374,
+        "total_kv_gb": 1.4609,
+        "throughput_tok_s": 1309.0,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 748,
+        "total_kv_gb": 2.9219,
+        "throughput_tok_s": 1033.32,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1122,
+        "total_kv_gb": 4.3828,
+        "throughput_tok_s": 853.56,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1496,
+        "total_kv_gb": 5.8438,
+        "throughput_tok_s": 727.07,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1870,
+        "total_kv_gb": 7.3047,
+        "throughput_tok_s": 633.23,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2244,
+        "total_kv_gb": 8.7656,
+        "throughput_tok_s": 560.85,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2618,
+        "total_kv_gb": 10.2266,
+        "throughput_tok_s": 503.32,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2992,
+        "total_kv_gb": 11.6875,
+        "throughput_tok_s": 456.49,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3366,
+        "total_kv_gb": 13.1484,
+        "throughput_tok_s": 417.63,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3740,
+        "total_kv_gb": 14.6094,
+        "throughput_tok_s": 384.87,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4114,
+        "total_kv_gb": 16.0703,
+        "throughput_tok_s": 356.88,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4488,
+        "total_kv_gb": 17.5312,
+        "throughput_tok_s": 332.68,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4862,
+        "total_kv_gb": 18.9922,
+        "throughput_tok_s": 311.55,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5236,
+        "total_kv_gb": 20.4531,
+        "throughput_tok_s": 292.95,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5610,
+        "total_kv_gb": 21.9141,
+        "throughput_tok_s": 276.45,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 5984,
+        "total_kv_gb": 23.375,
+        "throughput_tok_s": 261.7,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6358,
+        "total_kv_gb": 24.8359,
+        "throughput_tok_s": 248.45,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6732,
+        "total_kv_gb": 26.2969,
+        "throughput_tok_s": 236.47,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7106,
+        "total_kv_gb": 27.7578,
+        "throughput_tok_s": 225.6,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7480,
+        "total_kv_gb": 29.2188,
+        "throughput_tok_s": 215.68,
+        "oom": true
+      }
+    ],
+    "oom_turn": 8
+  },
+  "T4_Hindi": {
+    "gpu": "T4",
+    "gpu_name": "NVIDIA T4",
+    "language": "Hindi",
+    "fertility": 2.83,
+    "batch_size": 32,
+    "available_kv_gb": 10.385,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 452,
+        "total_kv_gb": 1.7656,
+        "throughput_tok_s": 1240.0,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 904,
+        "total_kv_gb": 3.5312,
+        "throughput_tok_s": 949.88,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1356,
+        "total_kv_gb": 5.2969,
+        "throughput_tok_s": 769.77,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1808,
+        "total_kv_gb": 7.0625,
+        "throughput_tok_s": 647.08,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 2260,
+        "total_kv_gb": 8.8281,
+        "throughput_tok_s": 558.12,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2712,
+        "total_kv_gb": 10.5938,
+        "throughput_tok_s": 490.66,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 3164,
+        "total_kv_gb": 12.3594,
+        "throughput_tok_s": 437.76,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3616,
+        "total_kv_gb": 14.125,
+        "throughput_tok_s": 395.15,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 4068,
+        "total_kv_gb": 15.8906,
+        "throughput_tok_s": 360.1,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 4520,
+        "total_kv_gb": 17.6562,
+        "throughput_tok_s": 330.76,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4972,
+        "total_kv_gb": 19.4219,
+        "throughput_tok_s": 305.84,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 5424,
+        "total_kv_gb": 21.1875,
+        "throughput_tok_s": 284.42,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 5876,
+        "total_kv_gb": 22.9531,
+        "throughput_tok_s": 265.8,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 6328,
+        "total_kv_gb": 24.7188,
+        "throughput_tok_s": 249.46,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 6780,
+        "total_kv_gb": 26.4844,
+        "throughput_tok_s": 235.02,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 7232,
+        "total_kv_gb": 28.25,
+        "throughput_tok_s": 222.16,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 7684,
+        "total_kv_gb": 30.0156,
+        "throughput_tok_s": 210.63,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 8136,
+        "total_kv_gb": 31.7812,
+        "throughput_tok_s": 200.24,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 8588,
+        "total_kv_gb": 33.5469,
+        "throughput_tok_s": 190.83,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 9040,
+        "total_kv_gb": 35.3125,
+        "throughput_tok_s": 182.26,
+        "oom": true
+      }
+    ],
+    "oom_turn": 6
+  },
+  "RTX4060_English": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "English",
+    "fertility": 1.15,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 184,
+        "total_kv_gb": 0.7188,
+        "throughput_tok_s": 1287.1,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 368,
+        "total_kv_gb": 1.4375,
+        "throughput_tok_s": 1117.43,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 552,
+        "total_kv_gb": 2.1562,
+        "throughput_tok_s": 987.29,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 736,
+        "total_kv_gb": 2.875,
+        "throughput_tok_s": 884.3,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 920,
+        "total_kv_gb": 3.5938,
+        "throughput_tok_s": 800.76,
+        "oom": true
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1104,
+        "total_kv_gb": 4.3125,
+        "throughput_tok_s": 731.65,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1288,
+        "total_kv_gb": 5.0312,
+        "throughput_tok_s": 673.52,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 1472,
+        "total_kv_gb": 5.75,
+        "throughput_tok_s": 623.94,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1656,
+        "total_kv_gb": 6.4688,
+        "throughput_tok_s": 581.17,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1840,
+        "total_kv_gb": 7.1875,
+        "throughput_tok_s": 543.88,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2024,
+        "total_kv_gb": 7.9062,
+        "throughput_tok_s": 511.09,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 2208,
+        "total_kv_gb": 8.625,
+        "throughput_tok_s": 482.03,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 2392,
+        "total_kv_gb": 9.3438,
+        "throughput_tok_s": 456.09,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 2576,
+        "total_kv_gb": 10.0625,
+        "throughput_tok_s": 432.8,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 2760,
+        "total_kv_gb": 10.7812,
+        "throughput_tok_s": 411.78,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 2944,
+        "total_kv_gb": 11.5,
+        "throughput_tok_s": 392.7,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 3128,
+        "total_kv_gb": 12.2188,
+        "throughput_tok_s": 375.32,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 3312,
+        "total_kv_gb": 12.9375,
+        "throughput_tok_s": 359.4,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 3496,
+        "total_kv_gb": 13.6562,
+        "throughput_tok_s": 344.79,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 3680,
+        "total_kv_gb": 14.375,
+        "throughput_tok_s": 331.31,
+        "oom": true
+      }
+    ],
+    "oom_turn": 5
+  },
+  "RTX4060_Chinese": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "Chinese",
+    "fertility": 0.73,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 116,
+        "total_kv_gb": 0.4531,
+        "throughput_tok_s": 1363.61,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 232,
+        "total_kv_gb": 0.9062,
+        "throughput_tok_s": 1238.06,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 348,
+        "total_kv_gb": 1.3594,
+        "throughput_tok_s": 1133.68,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 464,
+        "total_kv_gb": 1.8125,
+        "throughput_tok_s": 1045.53,
+        "oom": false
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 580,
+        "total_kv_gb": 2.2656,
+        "throughput_tok_s": 970.09,
+        "oom": false
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 696,
+        "total_kv_gb": 2.7188,
+        "throughput_tok_s": 904.82,
+        "oom": false
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 812,
+        "total_kv_gb": 3.1719,
+        "throughput_tok_s": 847.77,
+        "oom": false
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 928,
+        "total_kv_gb": 3.625,
+        "throughput_tok_s": 797.49,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 1044,
+        "total_kv_gb": 4.0781,
+        "throughput_tok_s": 752.84,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 1160,
+        "total_kv_gb": 4.5312,
+        "throughput_tok_s": 712.92,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 1276,
+        "total_kv_gb": 4.9844,
+        "throughput_tok_s": 677.02,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 1392,
+        "total_kv_gb": 5.4375,
+        "throughput_tok_s": 644.57,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 1508,
+        "total_kv_gb": 5.8906,
+        "throughput_tok_s": 615.08,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 1624,
+        "total_kv_gb": 6.3438,
+        "throughput_tok_s": 588.18,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 1740,
+        "total_kv_gb": 6.7969,
+        "throughput_tok_s": 563.53,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 1856,
+        "total_kv_gb": 7.25,
+        "throughput_tok_s": 540.86,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 1972,
+        "total_kv_gb": 7.7031,
+        "throughput_tok_s": 519.95,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 2088,
+        "total_kv_gb": 8.1562,
+        "throughput_tok_s": 500.59,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 2204,
+        "total_kv_gb": 8.6094,
+        "throughput_tok_s": 482.62,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 2320,
+        "total_kv_gb": 9.0625,
+        "throughput_tok_s": 465.9,
+        "oom": true
+      }
+    ],
+    "oom_turn": 8
+  },
+  "RTX4060_Spanish": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "Spanish",
+    "fertility": 1.68,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 268,
+        "total_kv_gb": 1.0469,
+        "throughput_tok_s": 1203.66,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 536,
+        "total_kv_gb": 2.0938,
+        "throughput_tok_s": 997.39,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 804,
+        "total_kv_gb": 3.1406,
+        "throughput_tok_s": 851.47,
+        "oom": false
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1072,
+        "total_kv_gb": 4.1875,
+        "throughput_tok_s": 742.8,
+        "oom": true
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1340,
+        "total_kv_gb": 5.2344,
+        "throughput_tok_s": 658.73,
+        "oom": true
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 1608,
+        "total_kv_gb": 6.2812,
+        "throughput_tok_s": 591.75,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 1876,
+        "total_kv_gb": 7.3281,
+        "throughput_tok_s": 537.14,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2144,
+        "total_kv_gb": 8.375,
+        "throughput_tok_s": 491.75,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 2412,
+        "total_kv_gb": 9.4219,
+        "throughput_tok_s": 453.44,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 2680,
+        "total_kv_gb": 10.4688,
+        "throughput_tok_s": 420.66,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 2948,
+        "total_kv_gb": 11.5156,
+        "throughput_tok_s": 392.31,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 3216,
+        "total_kv_gb": 12.5625,
+        "throughput_tok_s": 367.53,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 3484,
+        "total_kv_gb": 13.6094,
+        "throughput_tok_s": 345.7,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 3752,
+        "total_kv_gb": 14.6562,
+        "throughput_tok_s": 326.32,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 4020,
+        "total_kv_gb": 15.7031,
+        "throughput_tok_s": 308.99,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 4288,
+        "total_kv_gb": 16.75,
+        "throughput_tok_s": 293.42,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 4556,
+        "total_kv_gb": 17.7969,
+        "throughput_tok_s": 279.33,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 4824,
+        "total_kv_gb": 18.8438,
+        "throughput_tok_s": 266.54,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 5092,
+        "total_kv_gb": 19.8906,
+        "throughput_tok_s": 254.87,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 5360,
+        "total_kv_gb": 20.9375,
+        "throughput_tok_s": 244.18,
+        "oom": true
+      }
+    ],
+    "oom_turn": 4
+  },
+  "RTX4060_Arabic": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "Arabic",
+    "fertility": 2.4,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 384,
+        "total_kv_gb": 1.5,
+        "throughput_tok_s": 1104.77,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 768,
+        "total_kv_gb": 3.0,
+        "throughput_tok_s": 868.54,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1152,
+        "total_kv_gb": 4.5,
+        "throughput_tok_s": 715.54,
+        "oom": true
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1536,
+        "total_kv_gb": 6.0,
+        "throughput_tok_s": 608.37,
+        "oom": true
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1920,
+        "total_kv_gb": 7.5,
+        "throughput_tok_s": 529.12,
+        "oom": true
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2304,
+        "total_kv_gb": 9.0,
+        "throughput_tok_s": 468.14,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2688,
+        "total_kv_gb": 10.5,
+        "throughput_tok_s": 419.76,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3072,
+        "total_kv_gb": 12.0,
+        "throughput_tok_s": 380.44,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3456,
+        "total_kv_gb": 13.5,
+        "throughput_tok_s": 347.86,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3840,
+        "total_kv_gb": 15.0,
+        "throughput_tok_s": 320.42,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4224,
+        "total_kv_gb": 16.5,
+        "throughput_tok_s": 296.99,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4608,
+        "total_kv_gb": 18.0,
+        "throughput_tok_s": 276.76,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4992,
+        "total_kv_gb": 19.5,
+        "throughput_tok_s": 259.1,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5376,
+        "total_kv_gb": 21.0,
+        "throughput_tok_s": 243.57,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5760,
+        "total_kv_gb": 22.5,
+        "throughput_tok_s": 229.79,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 6144,
+        "total_kv_gb": 24.0,
+        "throughput_tok_s": 217.48,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6528,
+        "total_kv_gb": 25.5,
+        "throughput_tok_s": 206.43,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6912,
+        "total_kv_gb": 27.0,
+        "throughput_tok_s": 196.45,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7296,
+        "total_kv_gb": 28.5,
+        "throughput_tok_s": 187.38,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7680,
+        "total_kv_gb": 30.0,
+        "throughput_tok_s": 179.12,
+        "oom": true
+      }
+    ],
+    "oom_turn": 3
+  },
+  "RTX4060_Swahili": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "Swahili",
+    "fertility": 2.34,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 374,
+        "total_kv_gb": 1.4609,
+        "throughput_tok_s": 1112.65,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 748,
+        "total_kv_gb": 2.9219,
+        "throughput_tok_s": 878.32,
+        "oom": false
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1122,
+        "total_kv_gb": 4.3828,
+        "throughput_tok_s": 725.52,
+        "oom": true
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1496,
+        "total_kv_gb": 5.8438,
+        "throughput_tok_s": 618.01,
+        "oom": true
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 1870,
+        "total_kv_gb": 7.3047,
+        "throughput_tok_s": 538.25,
+        "oom": true
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2244,
+        "total_kv_gb": 8.7656,
+        "throughput_tok_s": 476.72,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 2618,
+        "total_kv_gb": 10.2266,
+        "throughput_tok_s": 427.82,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 2992,
+        "total_kv_gb": 11.6875,
+        "throughput_tok_s": 388.01,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 3366,
+        "total_kv_gb": 13.1484,
+        "throughput_tok_s": 354.99,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 3740,
+        "total_kv_gb": 14.6094,
+        "throughput_tok_s": 327.14,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4114,
+        "total_kv_gb": 16.0703,
+        "throughput_tok_s": 303.35,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 4488,
+        "total_kv_gb": 17.5312,
+        "throughput_tok_s": 282.78,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 4862,
+        "total_kv_gb": 18.9922,
+        "throughput_tok_s": 264.82,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 5236,
+        "total_kv_gb": 20.4531,
+        "throughput_tok_s": 249.01,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 5610,
+        "total_kv_gb": 21.9141,
+        "throughput_tok_s": 234.98,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 5984,
+        "total_kv_gb": 23.375,
+        "throughput_tok_s": 222.45,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 6358,
+        "total_kv_gb": 24.8359,
+        "throughput_tok_s": 211.18,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 6732,
+        "total_kv_gb": 26.2969,
+        "throughput_tok_s": 201.0,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 7106,
+        "total_kv_gb": 27.7578,
+        "throughput_tok_s": 191.76,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 7480,
+        "total_kv_gb": 29.2188,
+        "throughput_tok_s": 183.33,
+        "oom": true
+      }
+    ],
+    "oom_turn": 3
+  },
+  "RTX4060_Hindi": {
+    "gpu": "RTX4060",
+    "gpu_name": "NVIDIA RTX 4060",
+    "language": "Hindi",
+    "fertility": 2.83,
+    "batch_size": 32,
+    "available_kv_gb": 3.185,
+    "turns": [
+      {
+        "turn": 1,
+        "cumulative_tokens_per_seq": 452,
+        "total_kv_gb": 1.7656,
+        "throughput_tok_s": 1054.0,
+        "oom": false
+      },
+      {
+        "turn": 2,
+        "cumulative_tokens_per_seq": 904,
+        "total_kv_gb": 3.5312,
+        "throughput_tok_s": 807.39,
+        "oom": true
+      },
+      {
+        "turn": 3,
+        "cumulative_tokens_per_seq": 1356,
+        "total_kv_gb": 5.2969,
+        "throughput_tok_s": 654.3,
+        "oom": true
+      },
+      {
+        "turn": 4,
+        "cumulative_tokens_per_seq": 1808,
+        "total_kv_gb": 7.0625,
+        "throughput_tok_s": 550.02,
+        "oom": true
+      },
+      {
+        "turn": 5,
+        "cumulative_tokens_per_seq": 2260,
+        "total_kv_gb": 8.8281,
+        "throughput_tok_s": 474.4,
+        "oom": true
+      },
+      {
+        "turn": 6,
+        "cumulative_tokens_per_seq": 2712,
+        "total_kv_gb": 10.5938,
+        "throughput_tok_s": 417.07,
+        "oom": true
+      },
+      {
+        "turn": 7,
+        "cumulative_tokens_per_seq": 3164,
+        "total_kv_gb": 12.3594,
+        "throughput_tok_s": 372.09,
+        "oom": true
+      },
+      {
+        "turn": 8,
+        "cumulative_tokens_per_seq": 3616,
+        "total_kv_gb": 14.125,
+        "throughput_tok_s": 335.88,
+        "oom": true
+      },
+      {
+        "turn": 9,
+        "cumulative_tokens_per_seq": 4068,
+        "total_kv_gb": 15.8906,
+        "throughput_tok_s": 306.08,
+        "oom": true
+      },
+      {
+        "turn": 10,
+        "cumulative_tokens_per_seq": 4520,
+        "total_kv_gb": 17.6562,
+        "throughput_tok_s": 281.15,
+        "oom": true
+      },
+      {
+        "turn": 11,
+        "cumulative_tokens_per_seq": 4972,
+        "total_kv_gb": 19.4219,
+        "throughput_tok_s": 259.97,
+        "oom": true
+      },
+      {
+        "turn": 12,
+        "cumulative_tokens_per_seq": 5424,
+        "total_kv_gb": 21.1875,
+        "throughput_tok_s": 241.75,
+        "oom": true
+      },
+      {
+        "turn": 13,
+        "cumulative_tokens_per_seq": 5876,
+        "total_kv_gb": 22.9531,
+        "throughput_tok_s": 225.93,
+        "oom": true
+      },
+      {
+        "turn": 14,
+        "cumulative_tokens_per_seq": 6328,
+        "total_kv_gb": 24.7188,
+        "throughput_tok_s": 212.04,
+        "oom": true
+      },
+      {
+        "turn": 15,
+        "cumulative_tokens_per_seq": 6780,
+        "total_kv_gb": 26.4844,
+        "throughput_tok_s": 199.77,
+        "oom": true
+      },
+      {
+        "turn": 16,
+        "cumulative_tokens_per_seq": 7232,
+        "total_kv_gb": 28.25,
+        "throughput_tok_s": 188.84,
+        "oom": true
+      },
+      {
+        "turn": 17,
+        "cumulative_tokens_per_seq": 7684,
+        "total_kv_gb": 30.0156,
+        "throughput_tok_s": 179.04,
+        "oom": true
+      },
+      {
+        "turn": 18,
+        "cumulative_tokens_per_seq": 8136,
+        "total_kv_gb": 31.7812,
+        "throughput_tok_s": 170.21,
+        "oom": true
+      },
+      {
+        "turn": 19,
+        "cumulative_tokens_per_seq": 8588,
+        "total_kv_gb": 33.5469,
+        "throughput_tok_s": 162.21,
+        "oom": true
+      },
+      {
+        "turn": 20,
+        "cumulative_tokens_per_seq": 9040,
+        "total_kv_gb": 35.3125,
+        "throughput_tok_s": 154.92,
+        "oom": true
+      }
+    ],
+    "oom_turn": 2
+  }
+}
