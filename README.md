@@ -1,8 +1,8 @@
 # The Resource Divide: Data Scarcity, Compute Inequity, and Global LLM Governance
 
-**Course:** FunML Term Project  
-**Authors:** Connor Sempf (csempf3@gatech.edu) and Bo Pang (bpang42@gatech.edu)  
-**Institution:** Georgia Institute of Technology, School of Electrical and Computer Engineering  
+**Course:** FunML Term Project
+**Authors:** Connor Sempf (csempf3@gatech.edu) and Bo Pang (bpang42@gatech.edu)
+**Institution:** Georgia Institute of Technology, School of Electrical and Computer Engineering
 **Date:** April 2025
 
 ---
@@ -18,6 +18,7 @@ This project presents a comprehensive quantitative analysis of how AI resources-
 - Decode dominates 85.6--99.6% of end-to-end latency (memory bandwidth is bottleneck)
 - CRDI: Swahili 0.807 vs English 0.100 (8.1x structural disadvantage)
 - Disaggregated serving (H100 prefill + RTX 4060 decode) halves cost at 13x latency penalty
+- Reducing model constriction and allowing more data during training increases accuracy notably
 
 ---
 
@@ -25,21 +26,21 @@ This project presents a comprehensive quantitative analysis of how AI resources-
 
 ```
 project/
-├── README.md                           # This file
-├── requirements.txt                    # Python dependencies
+├── README.md                                       # This file
+├── requirements.txt                                # Python dependencies
 ├── experiments/
-│   ├── config.py                       # UNIFIED CONFIG: all shared constants
-│   ├── exp1_tokenization_benchmark.py  # Real tokenizer fertility (6 languages)
-│   ├── exp2_memory_wall_simulation.py  # KV cache growth + OOM simulation (5 GPUs)
-│   ├── exp3_combined_analysis.py      # End-to-end latency + RDI index
-│   ├── exp4_multiturn_serving.py       # Multi-turn conversation + serving capacity
-│   ├── exp5_prefill_decode_disaggregation.py  # Phase-specific hardware + Pareto analysis
-│   └── exp6_language_ecosystem.py     # CRDI + 6-metric ecosystem dashboard
-├── figures/                            # 13 publication-quality figures (300 DPI PNG)
-├── data/                               # 5 JSON result files (all experiments)
+│   ├── config.py                                   # UNIFIED CONFIG: all shared constants
+│   ├── exp1_tokenization_benchmark.py              # Real tokenizer fertility (6 languages)
+│   ├── exp2_memory_wall_simulation.py              # KV cache growth + OOM simulation (5 GPUs)
+│   ├── exp3_combined_analysis.py                   # End-to-end latency + RDI index
+│   ├── exp4_multiturn_serving.py                   # Multi-turn conversation + serving capacity
+│   ├── exp5_prefill_decode_disaggregation.py       # Phase-specific hardware + Pareto analysis
+│   └── exp6_language_ecosystem.py                  # CRDI + 6-metric ecosystem dashboard
+│   └── exp7_data_constriction_and_accuracy.ipynb   # CRDI + 6-metric ecosystem dashboard
+├── figures/                                        # 18 quality figures
+├── data/                                           # 7 JSON result files from experiments
 └── report/
-    ├── full_paper.md                   # Source markdown (IEEE format)
-    └── Resource_Divide_Paper.docx     # Final IEEE-format paper
+    └── FinalReport_TheResourceDivide.pdf           # Final Report in IEEE-Format
 ```
 
 ---
@@ -66,12 +67,13 @@ All experiments import from `config.py`---the single source of truth for model s
 ### Quick Start: Run All Experiments
 ```bash
 cd experiments/
-python exp1_tokenization_benchmark.py   # ~2 min (needs HF auth)
-python exp2_memory_wall_simulation.py   # ~10 sec
-python exp3_combined_analysis.py        # ~10 sec
-python exp4_multiturn_serving.py        # ~10 sec
-python exp5_prefill_decode_disaggregation.py   # ~10 sec
-python exp6_language_ecosystem.py       # ~10 sec
+python exp1_tokenization_benchmark.py           # ~2 min (needs HF auth)
+python exp2_memory_wall_simulation.py           # ~10 sec
+python exp3_combined_analysis.py                # ~10 sec
+python exp4_multiturn_serving.py                # ~10 sec
+python exp5_prefill_decode_disaggregation.py    # ~10 sec
+python exp6_language_ecosystem.py               # ~10 sec
+## manual python notebook execution for exp7_data_constriction_and_accuracy.ipynb   # ~30 min
 ```
 
 ### Individual Experiments
@@ -84,6 +86,7 @@ python exp6_language_ecosystem.py       # ~10 sec
 | 4 | `exp4_multiturn_serving.py` | Agentic multi-turn serving (batch=32), OOM thresholds | `fig4a-4b` (2 figures) |
 | 5 | `exp5_prefill_decode_disaggregation.py` | Prefill vs decode breakdown, Pareto frontier | `fig5a-5b` (2 figures) |
 | 6 | `exp6_language_ecosystem.py` | CRDI, correlations, radar charts, tier distribution | `fig6_language_ecosystem.png` |
+| 7 | `exp7_data_constriction_and_accuracy.ipynb` | model accuracy against dataset constriction | `fig7a-7b` (2 figures) |
 
 ### Experiment Details
 
@@ -120,6 +123,11 @@ python exp6_language_ecosystem.py       # ~10 sec
 - CRDI weights: content (25%), accuracy (20%), literacy/fertility/wiki (15% each), speakers (10%)
 - Pearson correlation matrix across all metrics
 
+**Experiment 7: Model Accuracy Against Dataset Constriction**
+- Constrict the civil comments subset of WILDS dataset into 10%, 20%, and 50% groups
+- Train AutoModelForSequenceClassification with tokenization under the above dataset constrictions
+- Track the accuracy scores as the model is given more data each training set
+
 ---
 
 ## Reproducing All Results
@@ -138,33 +146,37 @@ python exp3_combined_analysis.py
 python exp4_multiturn_serving.py
 python exp5_prefill_decode_disaggregation.py
 python exp6_language_ecosystem.py
+## manual python notebook execution for exp7_data_constriction_and_accuracy.ipynb
 
 # 3. Verify outputs
-ls ../figures/   # 13 PNG files
-ls ../data/      # 5 JSON files
+ls ../figures/   # PNG Figure Files
+ls ../data/      # JSON Data Files
 ```
 
 Expected outputs:
-- **13 figures** in `figures/`
-- **5 JSON data files** in `data/`
+- **18 figures** in `figures/`
+- **7 JSON data files** in `data/`
 
 ---
 
 ## Datasets and Sources
 
-### Tokenizer
+### Tokenizer and Models
 - `meta-llama/Llama-3.2-1B` via HuggingFace Transformers
+- AutoTokenizer and AutoModelForSequenceClassification Transformers
 - Fallback: any public Llama-family tokenizer
 
 ### GPU Hardware Specifications
 All sourced from NVIDIA official datasheets:
+- For Experiment 7, "first available" GPU is fine
 - H100 SXM5: https://resources.nvidia.com/en-us-tensor-core/nvidia-tensor-core-gpu-datasheet
 - A100 80GB: https://www.nvidia.com/en-us/data-center/a100/
 - RTX 3090: https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090/
 - T4: https://www.nvidia.com/en-us/data-center/tesla-t4/
 - RTX 4060: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060/
 
-### Language Ecosystem Data
+### Datasets and Language Ecosystem Data
+- WILDS Dataset and Civil Comments Subset for Experiment 7
 - Speaker populations: Ethnologue 2024
 - Internet content %: W3Techs 2024 survey (top 10M websites)
 - Digital literacy: ITU Digital Development Report 2024
@@ -175,9 +187,9 @@ All sourced from NVIDIA official datasheets:
 
 ## Hardware Requirements
 
-All experiments are **CPU-only simulations** designed for reproducibility:
+All experiments other than Experiment 7 are **CPU-only simulations** designed for reproducibility:
 
-- No GPU required for reproduction
+- For Experiment 7, "first available" GPU is fine
 - All calculations are mathematical simulations (not actual model inference)
 - Total runtime: ~5 minutes for all 6 experiments
 - RAM: ~2 GB
@@ -205,28 +217,27 @@ A GPU (RTX 3090) was used only for tokenizer validation in Experiment 1.
 | Fig 5a | Prefill vs decode latency breakdown (4 workloads x 4 GPUs) | Exp 5 |
 | Fig 5b | Pareto frontier: disaggregated serving cost-latency tradeoff | Exp 5 |
 | Fig 6 | 6-panel ecosystem dashboard (CRDI, correlations, radar, tiers) | Exp 6 |
+| Fig 7a | Model Accuracy vs. Dataset Constriction Results | Exp 7 |
+| Fig 7a | Model F1 Score vs. Dataset Constriction Results | Exp 7 |
 
 ---
 
 ## Report
 
-The full paper (`report/Resource_Divide_Paper.docx`) follows IEEE conference format:
-- **Main body:** ~3,000 words (Sections A--E, ~5 pages two-column)
-- **6 subsections** in Technical Experiments (C.1--C.7)
-- **6 tables** and **6 figures** referenced in text
-- **21 references** (IEEE format)
-- **Appendix:** Compute and AI usage disclosure
+The full paper can be found in `report/FinalReport_TheResourceDivide.pdf`:
 
 Sections:
 - **A:** Introduction (AI divide, policy context, scope, contributions)
 - **B:** Literature Review (compute, tokenization, data, memory)
-- **C:** Technical Experiments (6 subsections, 6 tables)
-- **D:** Dual Viewpoint Analysis (Bo Pang vs Connor Sempf)
-- **E:** Conclusion (joint assessment, best practices)
+- **C:** Technical Experiments (7 subsections, 1 for each experiment)
+- **D:** Dual Viewpoint Analysis (Bo Pang vs. Connor Sempf)
+- **E:** Conclusion (assessment, best practices)
+- **References:** Sources from Literature
+- **Appendix:** Compute and AI Usage
 
 ---
 
-## Citation
+## Notes
 
 If you use this work, please cite:
 ```
@@ -234,9 +245,5 @@ Connor Sempf and Bo Pang, "The Resource Divide: Data Scarcity, Compute Inequity,
 and the Future of Global LLM Governance," FunML Term Project,
 Georgia Institute of Technology, 2025.
 ```
-
----
-
-## License
 
 This project is released for academic use. All code, data, and figures are provided as-is for educational and research purposes.
